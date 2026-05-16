@@ -135,10 +135,17 @@ export class EnhancedCodeKnowledgeGraphService {
   }
 
   clearCache(): void {
-    applicationLogger.info('Clearing service cache')
+    applicationLogger.info('Clearing service cache (data preserved)')
+    this.semanticSearch.clearIndexSync()
+    this.symbolTableManager.clearAll()
+    applicationLogger.info('Service cache cleared (knowledge graph preserved)')
+  }
+
+  resetAll(): void {
+    applicationLogger.info('Resetting all service data')
     this.knowledgeGraph.clear()
     this.semanticSearch.clearIndexSync()
     this.symbolTableManager.clearAll()
-    applicationLogger.info('Service cache cleared')
+    applicationLogger.info('Service reset complete')
   }
 }
