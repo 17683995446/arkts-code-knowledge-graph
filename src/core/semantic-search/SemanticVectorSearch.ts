@@ -139,6 +139,18 @@ export class SemanticVectorSearch {
         }
     }
 
+    /** 同步清空向量搜索索引（供缓存清理使用） */
+    clearIndexSync(): void {
+        try {
+            this.entityMetadataMap.clear();
+            this.corpus = [];
+            this.idfMap.clear();
+            applicationLogger.debug('Semantic vector search metadata cleared (sync)');
+        } catch (error) {
+            applicationLogger.warn('Failed to clear semantic vector search metadata', error);
+        }
+    }
+
     /**
      * 从知识图谱添加实体到向量索引
      * @param knowledgeGraph 知识图谱数据库

@@ -133,4 +133,12 @@ export class EnhancedCodeKnowledgeGraphService {
   getSymbolTableManager(): SymbolTableManager {
     return this.symbolTableManager
   }
+
+  clearCache(): void {
+    applicationLogger.info('Clearing service cache')
+    this.knowledgeGraph.clear()
+    this.semanticSearch.clearIndexSync()
+    this.symbolTableManager.clearAll()
+    applicationLogger.info('Service cache cleared')
+  }
 }

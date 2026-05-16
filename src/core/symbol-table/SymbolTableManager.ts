@@ -232,4 +232,17 @@ export class SymbolTableManager {
     getFileSymbolTable(filePath: string): FileSymbolTable | undefined {
         return this.projectSymbolTable.fileSymbolTables.get(filePath);
     }
+
+    /**
+     * 清空所有符号表
+     */
+    clearAll(): void {
+        applicationLogger.debug('Clearing all symbol tables');
+        this.projectSymbolTable = {
+            fileSymbolTables: new Map(),
+            globalSymbolIndex: new Map(),
+            allSymbols: [],
+        };
+        applicationLogger.debug('All symbol tables cleared');
+    }
 }
