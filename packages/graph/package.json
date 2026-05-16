@@ -1,0 +1,45 @@
+{
+  "name": "@arkts-graph/graph",
+  "version": "1.0.0",
+  "description": "Knowledge graph database for ArkTS code analysis",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsx watch src/index.ts",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [
+    "knowledge-graph",
+    "graphology",
+    "graph"
+  ],
+  "author": "ArkTS Knowledge Graph Team",
+  "license": "MIT",
+  "dependencies": {
+    "graphology": "^0.25.4",
+    "graphology-types": "^0.24.7",
+    "graphology-communities-louvain": "^2.0.1",
+    "graphology-layout": "^0.6.1",
+    "graphology-metrics": "^2.1.0",
+    "@arkts-graph/shared": "workspace:*"
+  },
+  "devDependencies": {
+    "tsup": "^8.1.0",
+    "tsx": "^4.11.0",
+    "typescript": "^5.4.5",
+    "vitest": "^1.6.0"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "name": "@arkts-graph/parser",
+  "version": "1.0.0",
+  "description": "Code parser module for ArkTS knowledge graph",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsx watch src/index.ts",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [
+    "code-parser",
+    "ast",
+    "typescript",
+    "babel"
+  ],
+  "author": "ArkTS Knowledge Graph Team",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/parser": "^7.24.5",
+    "@babel/traverse": "^7.24.5",
+    "@babel/types": "^7.24.5",
+    "ts-morph": "^21.0.1",
+    "@arkts-graph/shared": "workspace:*"
+  },
+  "devDependencies": {
+    "tsup": "^8.1.0",
+    "tsx": "^4.11.0",
+    "typescript": "^5.4.5",
+    "vitest": "^1.6.0"
+  }
+}

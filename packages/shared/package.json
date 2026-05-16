@@ -1,0 +1,43 @@
+{
+  "name": "@arkts-graph/shared",
+  "version": "1.0.0",
+  "description": "Shared types and utilities for ArkTS knowledge graph",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsx watch src/index.ts",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [
+    "shared",
+    "types",
+    "utilities"
+  ],
+  "author": "ArkTS Knowledge Graph Team",
+  "license": "MIT",
+  "dependencies": {
+    "zod": "^3.23.8",
+    "nanoid": "^5.0.7",
+    "minimatch": "^9.0.4",
+    "glob": "^10.4.1"
+  },
+  "devDependencies": {
+    "tsup": "^8.1.0",
+    "tsx": "^4.11.0",
+    "typescript": "^5.4.5",
+    "vitest": "^1.6.0"
+  }
+}

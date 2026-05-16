@@ -1,0 +1,5896 @@
+{
+  "options": {
+    "type": "directed",
+    "multi": true,
+    "allowSelfLoops": true
+  },
+  "attributes": {},
+  "nodes": [
+    {
+      "key": "92ef4dfd-19eb-48b0-acc5-8c92e131ea74",
+      "attributes": {
+        "type": "File",
+        "path": "src/cli/index.ts",
+        "name": "index.ts",
+        "extension": ".ts",
+        "linesOfCode": 285,
+        "lastModified": 1778719737982.2104,
+        "contentHash": "f497f588928119151ecab31aa4e4d11c"
+      }
+    },
+    {
+      "key": "50e40253-6895-4f77-89a4-010a1350125a",
+      "attributes": {
+        "type": "Variable",
+        "name": "program",
+        "variableType": "any",
+        "isConst": true,
+        "isLet": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "initialValue": "new Command()"
+      }
+    },
+    {
+      "key": "b5e2b660-e880-4aa6-ad6a-200da5a8f57d",
+      "attributes": {
+        "type": "File",
+        "path": "src/index.ts",
+        "name": "index.ts",
+        "extension": ".ts",
+        "linesOfCode": 10,
+        "lastModified": 1778719458921.1345,
+        "contentHash": "0dab1d6632e08be542d96f929dc9dcb2"
+      }
+    },
+    {
+      "key": "45372eab-5a5c-4d88-b0de-ab3936c98b71",
+      "attributes": {
+        "type": "File",
+        "path": "src/modules/cli/index.ts",
+        "name": "index.ts",
+        "extension": ".ts",
+        "linesOfCode": 2,
+        "lastModified": 1778719451073.1042,
+        "contentHash": "b504d74a08a74f3c7e8d9b66323d5ba7"
+      }
+    },
+    {
+      "key": "2295a877-95e4-46fd-86dc-b0fd10fe74d5",
+      "attributes": {
+        "type": "File",
+        "path": "src/modules/cli/interactive.ts",
+        "name": "interactive.ts",
+        "extension": ".ts",
+        "linesOfCode": 508,
+        "lastModified": 1778719832766.576,
+        "contentHash": "db19878b56c51a799124d3775ccbdf9c"
+      }
+    },
+    {
+      "key": "deaeb7b6-cf8a-4bb9-ac39-fd49362ab7d5",
+      "attributes": {
+        "type": "Class",
+        "name": "InteractiveMode",
+        "isAbstract": false,
+        "isExported": true,
+        "isDefaultExport": false,
+        "modifiers": [
+          "export"
+        ]
+      }
+    },
+    {
+      "key": "e302bd76-5c5f-4cd2-8103-94ff9147e4b5",
+      "attributes": {
+        "type": "Method",
+        "name": "setService",
+        "isAsync": true,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "service",
+            "type": "CodeGraphService",
+            "isOptional": false,
+            "isRest": false
+          }
+        ],
+        "returnType": "Promise<void>",
+        "modifiers": [
+          "async"
+        ]
+      }
+    },
+    {
+      "key": "7620403d-f86e-43d7-bf53-e6165721cfbd",
+      "attributes": {
+        "type": "Method",
+        "name": "start",
+        "isAsync": true,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [],
+        "returnType": "Promise<void>",
+        "modifiers": [
+          "async"
+        ]
+      }
+    },
+    {
+      "key": "9bf34a44-f297-4df5-8f2c-363013a8d530",
+      "attributes": {
+        "type": "Method",
+        "name": "handleAction",
+        "isAsync": true,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "action",
+            "type": "string",
+            "isOptional": false,
+            "isRest": false
+          }
+        ],
+        "returnType": "Promise<void>",
+        "modifiers": [
+          "private",
+          "async"
+        ]
+      }
+    },
+    {
+      "key": "08f81369-5e1d-40f1-95f0-b482134e572d",
+      "attributes": {
+        "type": "Method",
+        "name": "handleParse",
+        "isAsync": true,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [],
+        "returnType": "Promise<void>",
+        "modifiers": [
+          "private",
+          "async"
+        ]
+      }
+    },
+    {
+      "key": "ecb6d77e-6a40-4bda-a37a-2810163b447a",
+      "attributes": {
+        "type": "Method",
+        "name": "handleSearch",
+        "isAsync": true,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [],
+        "returnType": "Promise<void>",
+        "modifiers": [
+          "private",
+          "async"
+        ]
+      }
+    },
+    {
+      "key": "3ed018b6-d855-4e86-bd3e-5b36202723c0",
+      "attributes": {
+        "type": "Method",
+        "name": "handleStats",
+        "isAsync": true,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [],
+        "returnType": "Promise<void>",
+        "modifiers": [
+          "private",
+          "async"
+        ]
+      }
+    },
+    {
+      "key": "681156fa-c024-43bb-ba4c-67c7a92e4e13",
+      "attributes": {
+        "type": "Method",
+        "name": "handleAnalyze",
+        "isAsync": true,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [],
+        "returnType": "Promise<void>",
+        "modifiers": [
+          "private",
+          "async"
+        ]
+      }
+    },
+    {
+      "key": "af43f5ce-a16a-4b20-993a-6f71e5e66112",
+      "attributes": {
+        "type": "Method",
+        "name": "handleCallChain",
+        "isAsync": true,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [],
+        "returnType": "Promise<void>",
+        "modifiers": [
+          "private",
+          "async"
+        ]
+      }
+    },
+    {
+      "key": "ed22b3e1-3fe0-42d0-bef5-1f09657faa6f",
+      "attributes": {
+        "type": "Method",
+        "name": "handleHierarchy",
+        "isAsync": true,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [],
+        "returnType": "Promise<void>",
+        "modifiers": [
+          "private",
+          "async"
+        ]
+      }
+    },
+    {
+      "key": "a210e208-0736-44e0-93d7-573bd2c0bdfb",
+      "attributes": {
+        "type": "Method",
+        "name": "handleHelp",
+        "isAsync": true,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [],
+        "returnType": "Promise<void>",
+        "modifiers": [
+          "private",
+          "async"
+        ]
+      }
+    },
+    {
+      "key": "fa8af9fd-9003-45dc-a536-7b5060f92d85",
+      "attributes": {
+        "type": "Method",
+        "name": "handleConfig",
+        "isAsync": true,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [],
+        "returnType": "Promise<void>",
+        "modifiers": [
+          "private",
+          "async"
+        ]
+      }
+    },
+    {
+      "key": "8005c62b-69ca-457b-b3e2-f2986a6d3c07",
+      "attributes": {
+        "type": "Method",
+        "name": "viewConfig",
+        "isAsync": true,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [],
+        "returnType": "Promise<void>",
+        "modifiers": [
+          "private",
+          "async"
+        ]
+      }
+    },
+    {
+      "key": "0ffea8a8-d845-4dd9-a6e5-5b7abb5152b2",
+      "attributes": {
+        "type": "Method",
+        "name": "createConfig",
+        "isAsync": true,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [],
+        "returnType": "Promise<void>",
+        "modifiers": [
+          "private",
+          "async"
+        ]
+      }
+    },
+    {
+      "key": "d077f06e-2d49-4e11-ad2c-c70cf3dcf7d5",
+      "attributes": {
+        "type": "Method",
+        "name": "modifyConfig",
+        "isAsync": true,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [],
+        "returnType": "Promise<void>",
+        "modifiers": [
+          "private",
+          "async"
+        ]
+      }
+    },
+    {
+      "key": "91cdef99-f6b8-4f76-b75c-17e436321a20",
+      "attributes": {
+        "type": "Method",
+        "name": "getTypeColor",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "type",
+            "type": "string",
+            "isOptional": false,
+            "isRest": false
+          }
+        ],
+        "returnType": "(text: string) => string",
+        "modifiers": [
+          "private"
+        ]
+      }
+    },
+    {
+      "key": "e8ce488d-a37c-4f13-a67e-551f59e94b8c",
+      "attributes": {
+        "type": "Interface",
+        "name": "InteractiveOptions",
+        "isExported": true,
+        "isDefaultExport": false
+      }
+    },
+    {
+      "key": "3ab24f38-83ca-41a3-ba99-def9fb261540",
+      "attributes": {
+        "type": "File",
+        "path": "src/modules/common/errors.ts",
+        "name": "errors.ts",
+        "extension": ".ts",
+        "linesOfCode": 82,
+        "lastModified": 1778690338191.6921,
+        "contentHash": "1ad5a735edc7dd8e1c54872fa5fabe68"
+      }
+    },
+    {
+      "key": "948ed943-5115-44b1-a2b2-11abe5f19606",
+      "attributes": {
+        "type": "Class",
+        "name": "ArktsCodeGraphError",
+        "isAbstract": false,
+        "isExported": true,
+        "isDefaultExport": false,
+        "modifiers": [
+          "export"
+        ]
+      }
+    },
+    {
+      "key": "92121d94-805f-4d69-9566-72fa0ddea900",
+      "attributes": {
+        "type": "Method",
+        "name": "toJSON",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [],
+        "returnType": "Record<string, unknown>",
+        "modifiers": [
+          "public"
+        ]
+      }
+    },
+    {
+      "key": "b0437f8b-2891-40f0-91b4-3f08833febe1",
+      "attributes": {
+        "type": "Class",
+        "name": "ParseError",
+        "isAbstract": false,
+        "isExported": true,
+        "isDefaultExport": false,
+        "modifiers": [
+          "export"
+        ]
+      }
+    },
+    {
+      "key": "1a2c65a7-6088-4720-9a51-3e72421e6580",
+      "attributes": {
+        "type": "Class",
+        "name": "GraphError",
+        "isAbstract": false,
+        "isExported": true,
+        "isDefaultExport": false,
+        "modifiers": [
+          "export"
+        ]
+      }
+    },
+    {
+      "key": "09316d20-6aa7-4398-bceb-f76db87e379d",
+      "attributes": {
+        "type": "Class",
+        "name": "SearchError",
+        "isAbstract": false,
+        "isExported": true,
+        "isDefaultExport": false,
+        "modifiers": [
+          "export"
+        ]
+      }
+    },
+    {
+      "key": "8a301852-e9f4-43d1-856c-a6a8d31e4137",
+      "attributes": {
+        "type": "Class",
+        "name": "ConfigError",
+        "isAbstract": false,
+        "isExported": true,
+        "isDefaultExport": false,
+        "modifiers": [
+          "export"
+        ]
+      }
+    },
+    {
+      "key": "4c7491e2-98fb-4850-b83c-e1e84ffe645d",
+      "attributes": {
+        "type": "Class",
+        "name": "FileReadError",
+        "isAbstract": false,
+        "isExported": true,
+        "isDefaultExport": false,
+        "modifiers": [
+          "export"
+        ]
+      }
+    },
+    {
+      "key": "11307f3f-aa66-4121-8532-9632335b634d",
+      "attributes": {
+        "type": "File",
+        "path": "src/modules/common/index.ts",
+        "name": "index.ts",
+        "extension": ".ts",
+        "linesOfCode": 5,
+        "lastModified": 1778690350911.8088,
+        "contentHash": "a12f3046cc2cb13e8b0912187f937128"
+      }
+    },
+    {
+      "key": "61c13ab8-ce4a-4426-baf7-4a1e1c557eb2",
+      "attributes": {
+        "type": "File",
+        "path": "src/modules/common/logger.ts",
+        "name": "logger.ts",
+        "extension": ".ts",
+        "linesOfCode": 86,
+        "lastModified": 1778691294056.4436,
+        "contentHash": "7d28661657d6764d86a4d5bb7ec0c4b4"
+      }
+    },
+    {
+      "key": "748a2a0b-7149-41b3-8efb-13a34f28288e",
+      "attributes": {
+        "type": "Class",
+        "name": "Logger",
+        "isAbstract": false,
+        "isExported": true,
+        "isDefaultExport": false,
+        "modifiers": [
+          "export"
+        ]
+      }
+    },
+    {
+      "key": "da49266f-e774-4adf-830a-0b92ef5ffb20",
+      "attributes": {
+        "type": "Method",
+        "name": "getInstance",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "config",
+            "type": "Config",
+            "isOptional": true,
+            "isRest": false
+          }
+        ],
+        "returnType": "import(\"/src/modules/common/logger\").Logger",
+        "modifiers": [
+          "public",
+          "static"
+        ]
+      }
+    },
+    {
+      "key": "1ac2875c-5122-4e41-83a4-aea90660857f",
+      "attributes": {
+        "type": "Method",
+        "name": "trace",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "msg",
+            "type": "string",
+            "isOptional": false,
+            "isRest": false
+          },
+          {
+            "name": "args",
+            "type": "unknown[]",
+            "isOptional": true,
+            "isRest": true
+          }
+        ],
+        "returnType": "void",
+        "modifiers": [
+          "public"
+        ]
+      }
+    },
+    {
+      "key": "6ca99c2d-2156-4838-a2bf-fbb4b7c94999",
+      "attributes": {
+        "type": "Method",
+        "name": "debug",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "msg",
+            "type": "string",
+            "isOptional": false,
+            "isRest": false
+          },
+          {
+            "name": "args",
+            "type": "unknown[]",
+            "isOptional": true,
+            "isRest": true
+          }
+        ],
+        "returnType": "void",
+        "modifiers": [
+          "public"
+        ]
+      }
+    },
+    {
+      "key": "444ef213-40e6-46d0-9bf2-89cb463c643e",
+      "attributes": {
+        "type": "Method",
+        "name": "info",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "msg",
+            "type": "string",
+            "isOptional": false,
+            "isRest": false
+          },
+          {
+            "name": "args",
+            "type": "unknown[]",
+            "isOptional": true,
+            "isRest": true
+          }
+        ],
+        "returnType": "void",
+        "modifiers": [
+          "public"
+        ]
+      }
+    },
+    {
+      "key": "46472308-04dc-4ad2-a7ac-88ec3c2f8d7a",
+      "attributes": {
+        "type": "Method",
+        "name": "warn",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "msg",
+            "type": "string",
+            "isOptional": false,
+            "isRest": false
+          },
+          {
+            "name": "args",
+            "type": "unknown[]",
+            "isOptional": true,
+            "isRest": true
+          }
+        ],
+        "returnType": "void",
+        "modifiers": [
+          "public"
+        ]
+      }
+    },
+    {
+      "key": "a5a92b9a-b4da-44f8-ac71-a9b321178b0c",
+      "attributes": {
+        "type": "Method",
+        "name": "error",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "msg",
+            "type": "string",
+            "isOptional": false,
+            "isRest": false
+          },
+          {
+            "name": "args",
+            "type": "unknown[]",
+            "isOptional": true,
+            "isRest": true
+          }
+        ],
+        "returnType": "void",
+        "modifiers": [
+          "public"
+        ]
+      }
+    },
+    {
+      "key": "a738db69-3cc8-4d32-9917-530fca099823",
+      "attributes": {
+        "type": "Method",
+        "name": "fatal",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "msg",
+            "type": "string",
+            "isOptional": false,
+            "isRest": false
+          },
+          {
+            "name": "args",
+            "type": "unknown[]",
+            "isOptional": true,
+            "isRest": true
+          }
+        ],
+        "returnType": "void",
+        "modifiers": [
+          "public"
+        ]
+      }
+    },
+    {
+      "key": "69fece57-67fd-4293-adee-eb0b6da553b0",
+      "attributes": {
+        "type": "Method",
+        "name": "child",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "bindings",
+            "type": "pino.Bindings",
+            "isOptional": false,
+            "isRest": false
+          }
+        ],
+        "returnType": "import(\"/src/modules/common/logger\").Logger",
+        "modifiers": [
+          "public"
+        ]
+      }
+    },
+    {
+      "key": "9ffc60c2-85eb-4a0a-a521-56f917093336",
+      "attributes": {
+        "type": "Variable",
+        "name": "logger",
+        "variableType": "import(\"/src/modules/common/logger\").Logger",
+        "isConst": true,
+        "isLet": false,
+        "isExported": true,
+        "isDefaultExport": false,
+        "initialValue": "Logger.getInstance()"
+      }
+    },
+    {
+      "key": "6ee4ea55-7b5f-42e7-8f76-eb4a06446a11",
+      "attributes": {
+        "type": "File",
+        "path": "src/modules/common/types.ts",
+        "name": "types.ts",
+        "extension": ".ts",
+        "linesOfCode": 265,
+        "lastModified": 1778691570658.9473,
+        "contentHash": "af7e2b7f509293578396826328253617"
+      }
+    },
+    {
+      "key": "1d8b3bb6-db32-4c2b-93e2-ae893e024bf3",
+      "attributes": {
+        "type": "Variable",
+        "name": "FileNodeDataSchema",
+        "variableType": "any",
+        "isConst": true,
+        "isLet": false,
+        "isExported": true,
+        "isDefaultExport": false,
+        "initialValue": "z.object({\n  type: z.literal(NodeType.FILE),\n  path: z.string(),\n  name: z.string(),\n  extension: z.string(),\n  linesOfCode: z.number().int().min(0),\n  lastModified: z.number().int(),\n  contentHash: z.string()\n})"
+      }
+    },
+    {
+      "key": "0465fc9d-1e5b-43ef-8e9a-f5cd597de72c",
+      "attributes": {
+        "type": "Variable",
+        "name": "ConfigSchema",
+        "variableType": "any",
+        "isConst": true,
+        "isLet": false,
+        "isExported": true,
+        "isDefaultExport": false,
+        "initialValue": "z.object({\n  parser: z.object({\n    include: z.array(z.string()).default(['**/*.{ts,tsx,js,jsx,ets}']),\n    exclude: z.array(z.string()).default(['node_modules/**', 'dist/**', 'build/**', '.git/**']),\n    maxFileSize: z.number().int().default(1024 * 1024) // 1MB\n  }).default({}),\n  graph: z.object({\n    dataDir: z.string().default('./.arkts-code-graph'),\n    persistToDisk: z.boolean().default(true)\n  }).default({}),\n  vector: z.object({\n    enabled: z.boolean().default(true),\n    dimension: z.number().int().default(1536),\n    similarityThreshold: z.number().default(0.7)\n  }).default({}),\n  logging: z.object({\n    level: z.enum(['trace', 'debug', 'info', 'warn', 'error', 'fatal']).default('info'),\n    prettyPrint: z.boolean().default(true),\n    file: z.string().optional()\n  }).default({})\n}).default({})"
+      }
+    },
+    {
+      "key": "e088db8f-608f-4a01-bfd7-d729e2ae6518",
+      "attributes": {
+        "type": "Interface",
+        "name": "Location",
+        "isExported": true,
+        "isDefaultExport": false
+      }
+    },
+    {
+      "key": "4d66a38b-e21e-4dab-ab75-1716b38ba440",
+      "attributes": {
+        "type": "Interface",
+        "name": "ParameterInfo",
+        "isExported": true,
+        "isDefaultExport": false
+      }
+    },
+    {
+      "key": "7f2a5469-3d07-433f-9559-a9c32bc8bc39",
+      "attributes": {
+        "type": "Interface",
+        "name": "FileNodeData",
+        "isExported": true,
+        "isDefaultExport": false
+      }
+    },
+    {
+      "key": "56eb5fef-3e18-4bf4-b2c7-176d0c6240ea",
+      "attributes": {
+        "type": "Interface",
+        "name": "ClassNodeData",
+        "isExported": true,
+        "isDefaultExport": false
+      }
+    },
+    {
+      "key": "12d06e99-5bdc-41dc-a4fa-1cbee6882a19",
+      "attributes": {
+        "type": "Interface",
+        "name": "FunctionNodeData",
+        "isExported": true,
+        "isDefaultExport": false
+      }
+    },
+    {
+      "key": "050b09ce-4235-4bb4-8128-1404649a07db",
+      "attributes": {
+        "type": "Interface",
+        "name": "VariableNodeData",
+        "isExported": true,
+        "isDefaultExport": false
+      }
+    },
+    {
+      "key": "bbf3d48f-0ca0-4f60-a9f5-dd552544b8eb",
+      "attributes": {
+        "type": "Interface",
+        "name": "InterfaceNodeData",
+        "isExported": true,
+        "isDefaultExport": false
+      }
+    },
+    {
+      "key": "0cb0e5e8-dc36-45e3-ad91-90f9c2e3a7c6",
+      "attributes": {
+        "type": "Interface",
+        "name": "EnumNodeData",
+        "isExported": true,
+        "isDefaultExport": false
+      }
+    },
+    {
+      "key": "b87287d8-eea4-4ef4-ab2e-9843f31b54a3",
+      "attributes": {
+        "type": "Interface",
+        "name": "UnknownNodeData",
+        "isExported": true,
+        "isDefaultExport": false
+      }
+    },
+    {
+      "key": "fba17f41-26d5-4efa-8c96-e43237890aa5",
+      "attributes": {
+        "type": "Interface",
+        "name": "CallsRelationData",
+        "isExported": true,
+        "isDefaultExport": false
+      }
+    },
+    {
+      "key": "2b2629b8-883f-48ef-b002-7ccfef0fedb7",
+      "attributes": {
+        "type": "Interface",
+        "name": "ExtendsRelationData",
+        "isExported": true,
+        "isDefaultExport": false
+      }
+    },
+    {
+      "key": "f8f7841e-9177-40b2-b4a2-0607d7de35f5",
+      "attributes": {
+        "type": "Interface",
+        "name": "ImplementsRelationData",
+        "isExported": true,
+        "isDefaultExport": false
+      }
+    },
+    {
+      "key": "17df537c-8eba-4f28-b6a9-83c46da709b9",
+      "attributes": {
+        "type": "Interface",
+        "name": "ReferencesRelationData",
+        "isExported": true,
+        "isDefaultExport": false
+      }
+    },
+    {
+      "key": "bfc3b0a2-84f5-4f10-892b-555e555e832d",
+      "attributes": {
+        "type": "Interface",
+        "name": "ImportsRelationData",
+        "isExported": true,
+        "isDefaultExport": false
+      }
+    },
+    {
+      "key": "aa01d19e-e6d0-473d-9b3f-75d69c9baae3",
+      "attributes": {
+        "type": "Interface",
+        "name": "ContainsRelationData",
+        "isExported": true,
+        "isDefaultExport": false
+      }
+    },
+    {
+      "key": "951080b9-77c2-43eb-b161-ff494218c3dc",
+      "attributes": {
+        "type": "Interface",
+        "name": "ParseResult",
+        "isExported": true,
+        "isDefaultExport": false
+      }
+    },
+    {
+      "key": "b0d28d64-99e0-417e-ab46-9745f140916b",
+      "attributes": {
+        "type": "Interface",
+        "name": "SearchResult",
+        "isExported": true,
+        "isDefaultExport": false
+      }
+    },
+    {
+      "key": "95de6182-9eb8-455d-81ff-4b6cf749189d",
+      "attributes": {
+        "type": "Interface",
+        "name": "CallChain",
+        "isExported": true,
+        "isDefaultExport": false
+      }
+    },
+    {
+      "key": "ffc6450f-e0c5-4121-8bf5-fd7a152ae707",
+      "attributes": {
+        "type": "Interface",
+        "name": "ClassHierarchy",
+        "isExported": true,
+        "isDefaultExport": false
+      }
+    },
+    {
+      "key": "6ce5312d-f0f1-4415-b0e6-293e54e4ee4c",
+      "attributes": {
+        "type": "Interface",
+        "name": "GraphStats",
+        "isExported": true,
+        "isDefaultExport": false
+      }
+    },
+    {
+      "key": "e6e14106-7715-4c93-954e-3d71477ed5ab",
+      "attributes": {
+        "type": "Enum",
+        "name": "NodeType",
+        "isExported": true,
+        "isDefaultExport": false,
+        "members": [
+          "FILE",
+          "MODULE",
+          "CLASS",
+          "FUNCTION",
+          "VARIABLE",
+          "INTERFACE",
+          "ENUM",
+          "METHOD",
+          "PROPERTY",
+          "UNKNOWN"
+        ]
+      }
+    },
+    {
+      "key": "82dda739-8f66-43d7-8ac9-3f71835fdd70",
+      "attributes": {
+        "type": "Enum",
+        "name": "RelationType",
+        "isExported": true,
+        "isDefaultExport": false,
+        "members": [
+          "CALLS",
+          "EXTENDS",
+          "IMPLEMENTS",
+          "REFERENCES",
+          "IMPORTS",
+          "EXPORTS",
+          "DEPENDS_ON",
+          "CONTAINS",
+          "INSTANTIATES"
+        ]
+      }
+    },
+    {
+      "key": "4368c9d7-a777-4372-8092-7805dc0f2da6",
+      "attributes": {
+        "type": "File",
+        "path": "src/modules/common/utils.ts",
+        "name": "utils.ts",
+        "extension": ".ts",
+        "linesOfCode": 98,
+        "lastModified": 1778690787307.8118,
+        "contentHash": "3267f4c365c17cebcf7d18b534cf8f24"
+      }
+    },
+    {
+      "key": "0c0b9219-2a07-4d98-b25a-abe0238d844a",
+      "attributes": {
+        "type": "Function",
+        "name": "generateId",
+        "isAsync": false,
+        "isExported": true,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [],
+        "returnType": "string",
+        "modifiers": [
+          "export"
+        ]
+      }
+    },
+    {
+      "key": "4d076754-1ae8-42c2-836b-d10bf62c8181",
+      "attributes": {
+        "type": "Function",
+        "name": "hashContent",
+        "isAsync": false,
+        "isExported": true,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "content",
+            "type": "string",
+            "isOptional": false,
+            "isRest": false
+          }
+        ],
+        "returnType": "string",
+        "modifiers": [
+          "export"
+        ]
+      }
+    },
+    {
+      "key": "3091bbb8-5c31-4ab8-8416-99a5927d5363",
+      "attributes": {
+        "type": "Function",
+        "name": "getFileInfo",
+        "isAsync": false,
+        "isExported": true,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "filePath",
+            "type": "string",
+            "isOptional": false,
+            "isRest": false
+          },
+          {
+            "name": "content",
+            "type": "string",
+            "isOptional": false,
+            "isRest": false
+          }
+        ],
+        "returnType": "{ name: any; extension: any; linesOfCode: number; contentHash: string; }",
+        "modifiers": [
+          "export"
+        ]
+      }
+    },
+    {
+      "key": "9c85bbc6-3d56-42c9-a562-be146280df47",
+      "attributes": {
+        "type": "Function",
+        "name": "normalizePath",
+        "isAsync": false,
+        "isExported": true,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "filePath",
+            "type": "string",
+            "isOptional": false,
+            "isRest": false
+          }
+        ],
+        "returnType": "string",
+        "modifiers": [
+          "export"
+        ]
+      }
+    },
+    {
+      "key": "dfe08e90-6dc9-4607-953f-624644805c3a",
+      "attributes": {
+        "type": "Function",
+        "name": "isInDirectory",
+        "isAsync": false,
+        "isExported": true,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "filePath",
+            "type": "string",
+            "isOptional": false,
+            "isRest": false
+          },
+          {
+            "name": "dirPath",
+            "type": "string",
+            "isOptional": false,
+            "isRest": false
+          }
+        ],
+        "returnType": "boolean",
+        "modifiers": [
+          "export"
+        ]
+      }
+    },
+    {
+      "key": "e690212c-2cd6-4e10-97f0-ce03af08e095",
+      "attributes": {
+        "type": "Function",
+        "name": "fileMatchesPattern",
+        "isAsync": false,
+        "isExported": true,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "filePath",
+            "type": "string",
+            "isOptional": false,
+            "isRest": false
+          },
+          {
+            "name": "patterns",
+            "type": "string[]",
+            "isOptional": false,
+            "isRest": false
+          }
+        ],
+        "returnType": "boolean",
+        "modifiers": [
+          "export"
+        ]
+      }
+    },
+    {
+      "key": "7f6db32a-136d-4b4b-bea1-8b114d49cf79",
+      "attributes": {
+        "type": "Function",
+        "name": "measureAsync",
+        "isAsync": false,
+        "isExported": true,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "fn",
+            "type": "() => Promise<T>",
+            "isOptional": false,
+            "isRest": false
+          },
+          {
+            "name": "label",
+            "type": "string",
+            "isOptional": false,
+            "isRest": false
+          }
+        ],
+        "returnType": "Promise<T>",
+        "modifiers": [
+          "export"
+        ]
+      }
+    },
+    {
+      "key": "235f27ff-ad85-44f4-a04a-bce59ac119d5",
+      "attributes": {
+        "type": "Function",
+        "name": "measureSync",
+        "isAsync": false,
+        "isExported": true,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "fn",
+            "type": "() => T",
+            "isOptional": false,
+            "isRest": false
+          },
+          {
+            "name": "label",
+            "type": "string",
+            "isOptional": false,
+            "isRest": false
+          }
+        ],
+        "returnType": "T",
+        "modifiers": [
+          "export"
+        ]
+      }
+    },
+    {
+      "key": "80075ecc-088a-4176-8db5-813b459abbad",
+      "attributes": {
+        "type": "Function",
+        "name": "retry",
+        "isAsync": false,
+        "isExported": true,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "fn",
+            "type": "() => Promise<T>",
+            "isOptional": false,
+            "isRest": false
+          },
+          {
+            "name": "maxRetries",
+            "type": "number",
+            "defaultValue": "3",
+            "isOptional": true,
+            "isRest": false
+          },
+          {
+            "name": "delayMs",
+            "type": "number",
+            "defaultValue": "1000",
+            "isOptional": true,
+            "isRest": false
+          }
+        ],
+        "returnType": "Promise<T>",
+        "modifiers": [
+          "export"
+        ]
+      }
+    },
+    {
+      "key": "6b369364-4678-472d-a243-52bff2350b3b",
+      "attributes": {
+        "type": "File",
+        "path": "src/modules/config/index.ts",
+        "name": "index.ts",
+        "extension": ".ts",
+        "linesOfCode": 2,
+        "lastModified": 1778690371812.0005,
+        "contentHash": "551da943edb1e1cdaaede5c07762f307"
+      }
+    },
+    {
+      "key": "3b3616ab-66eb-4d09-893d-dbc8d69ff7db",
+      "attributes": {
+        "type": "File",
+        "path": "src/modules/config/loader.ts",
+        "name": "loader.ts",
+        "extension": ".ts",
+        "linesOfCode": 93,
+        "lastModified": 1778691600303.2156,
+        "contentHash": "d777e1e3f9a1a40cad33ff7047082b7f"
+      }
+    },
+    {
+      "key": "26181917-e81a-4a67-937c-786b38ff8909",
+      "attributes": {
+        "type": "Class",
+        "name": "ConfigLoader",
+        "isAbstract": false,
+        "isExported": true,
+        "isDefaultExport": false,
+        "modifiers": [
+          "export"
+        ]
+      }
+    },
+    {
+      "key": "c571b8c7-5ba5-451e-a035-443ebbeb5d04",
+      "attributes": {
+        "type": "Method",
+        "name": "getInstance",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [],
+        "returnType": "import(\"/src/modules/config/loader\").ConfigLoader",
+        "modifiers": [
+          "public",
+          "static"
+        ]
+      }
+    },
+    {
+      "key": "962f9de3-cc35-4e19-82d2-32a742b4f89f",
+      "attributes": {
+        "type": "Method",
+        "name": "load",
+        "isAsync": true,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "searchPath",
+            "type": "string",
+            "defaultValue": "process.cwd()",
+            "isOptional": true,
+            "isRest": false
+          },
+          {
+            "name": "options",
+            "type": "{ configPath?: string; defaults?: z.infer<any>; }",
+            "defaultValue": "{}",
+            "isOptional": true,
+            "isRest": false
+          }
+        ],
+        "returnType": "Promise<z.infer<any>>",
+        "modifiers": [
+          "public",
+          "async"
+        ]
+      }
+    },
+    {
+      "key": "af102e06-e43e-439a-80e9-1ce6c2e5b10e",
+      "attributes": {
+        "type": "Method",
+        "name": "getConfig",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [],
+        "returnType": "z.infer<any>",
+        "modifiers": [
+          "public"
+        ]
+      }
+    },
+    {
+      "key": "2bee995b-230e-4559-8ef8-6ad956620ae6",
+      "attributes": {
+        "type": "Method",
+        "name": "getConfigPath",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [],
+        "returnType": "string",
+        "modifiers": [
+          "public"
+        ]
+      }
+    },
+    {
+      "key": "9cc9f583-c818-4a80-b29b-67d5528e5bae",
+      "attributes": {
+        "type": "Method",
+        "name": "mergeDefaults",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "loadedConfig",
+            "type": "Record<string, unknown>",
+            "isOptional": false,
+            "isRest": false
+          },
+          {
+            "name": "userDefaults",
+            "type": "z.infer<any>",
+            "isOptional": true,
+            "isRest": false
+          }
+        ],
+        "returnType": "Record<string, unknown>",
+        "modifiers": [
+          "private"
+        ]
+      }
+    },
+    {
+      "key": "7a421e37-7314-4398-854f-7a68f9024a34",
+      "attributes": {
+        "type": "Variable",
+        "name": "EXPLORER_NAME",
+        "variableType": "\"arkts-code-graph\"",
+        "isConst": true,
+        "isLet": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "initialValue": "'arkts-code-graph'"
+      }
+    },
+    {
+      "key": "7a054bde-b21e-43b9-9f77-8c2f89be6656",
+      "attributes": {
+        "type": "Variable",
+        "name": "configLoader",
+        "variableType": "import(\"/src/modules/config/loader\").ConfigLoader",
+        "isConst": true,
+        "isLet": false,
+        "isExported": true,
+        "isDefaultExport": false,
+        "initialValue": "ConfigLoader.getInstance()"
+      }
+    },
+    {
+      "key": "ad5b26af-75f6-47ca-bbd7-34a880cf7745",
+      "attributes": {
+        "type": "File",
+        "path": "src/modules/graph/graph-db.ts",
+        "name": "graph-db.ts",
+        "extension": ".ts",
+        "linesOfCode": 214,
+        "lastModified": 1778737458064.912,
+        "contentHash": "67bfd59a44f2dd6f8d6685a6b0f8cc33"
+      }
+    },
+    {
+      "key": "803d8ea1-d076-4d1a-a902-bba991075ac2",
+      "attributes": {
+        "type": "Class",
+        "name": "GraphDb",
+        "isAbstract": false,
+        "isExported": true,
+        "isDefaultExport": false,
+        "modifiers": [
+          "export"
+        ]
+      }
+    },
+    {
+      "key": "1d60bc4c-8585-4283-a617-8f0138c36715",
+      "attributes": {
+        "type": "Method",
+        "name": "initializeNodeIndex",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [],
+        "returnType": "void",
+        "modifiers": [
+          "private"
+        ]
+      }
+    },
+    {
+      "key": "f0c39d04-8e25-4e26-8412-6bfbe929437c",
+      "attributes": {
+        "type": "Method",
+        "name": "addNode",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "nodeId",
+            "type": "string",
+            "isOptional": false,
+            "isRest": false
+          },
+          {
+            "name": "data",
+            "type": "import(\"/src/modules/common/types\").NodeData",
+            "isOptional": false,
+            "isRest": false
+          }
+        ],
+        "returnType": "void",
+        "modifiers": [
+          "public"
+        ]
+      }
+    },
+    {
+      "key": "479ea4a9-81b6-4e66-8a2a-70f5737d2896",
+      "attributes": {
+        "type": "Method",
+        "name": "addEdge",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "edgeId",
+            "type": "string",
+            "isOptional": false,
+            "isRest": false
+          },
+          {
+            "name": "sourceId",
+            "type": "string",
+            "isOptional": false,
+            "isRest": false
+          },
+          {
+            "name": "targetId",
+            "type": "string",
+            "isOptional": false,
+            "isRest": false
+          },
+          {
+            "name": "data",
+            "type": "import(\"/src/modules/common/types\").RelationData",
+            "isOptional": false,
+            "isRest": false
+          }
+        ],
+        "returnType": "void",
+        "modifiers": [
+          "public"
+        ]
+      }
+    },
+    {
+      "key": "00e11561-5c49-470b-a0a6-80630c72c5ef",
+      "attributes": {
+        "type": "Method",
+        "name": "getNode",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "nodeId",
+            "type": "string",
+            "isOptional": false,
+            "isRest": false
+          }
+        ],
+        "returnType": "import(\"/src/modules/common/types\").NodeData",
+        "modifiers": [
+          "public"
+        ]
+      }
+    },
+    {
+      "key": "8d787eb2-f8d6-4ab4-8087-fcb2e197ab44",
+      "attributes": {
+        "type": "Method",
+        "name": "getEdge",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "edgeId",
+            "type": "string",
+            "isOptional": false,
+            "isRest": false
+          }
+        ],
+        "returnType": "{ source: string; target: string; attributes: import(\"/src/modules/common/types\").RelationData; }",
+        "modifiers": [
+          "public"
+        ]
+      }
+    },
+    {
+      "key": "b42a9c0b-301f-4636-93b4-c9becf11d962",
+      "attributes": {
+        "type": "Method",
+        "name": "getNodesByType",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "type",
+            "type": "import(\"/src/modules/common/types\").NodeType",
+            "isOptional": false,
+            "isRest": false
+          }
+        ],
+        "returnType": "{ id: string; data: import(\"/src/modules/common/types\").NodeData; }[]",
+        "modifiers": [
+          "public"
+        ]
+      }
+    },
+    {
+      "key": "5ee157a5-7667-4a70-8048-fb9d795c9c1b",
+      "attributes": {
+        "type": "Method",
+        "name": "getOutEdges",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "nodeId",
+            "type": "string",
+            "isOptional": false,
+            "isRest": false
+          }
+        ],
+        "returnType": "{ id: string; target: string; data: import(\"/src/modules/common/types\").RelationData; }[]",
+        "modifiers": [
+          "public"
+        ]
+      }
+    },
+    {
+      "key": "5d1d1e7e-ee7f-47c4-8c31-b3fa2351cdb3",
+      "attributes": {
+        "type": "Method",
+        "name": "getInEdges",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "nodeId",
+            "type": "string",
+            "isOptional": false,
+            "isRest": false
+          }
+        ],
+        "returnType": "{ id: string; source: string; data: import(\"/src/modules/common/types\").RelationData; }[]",
+        "modifiers": [
+          "public"
+        ]
+      }
+    },
+    {
+      "key": "7d96af51-aff7-4a7c-93b3-ec9cdcb193e0",
+      "attributes": {
+        "type": "Method",
+        "name": "findNodesByName",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "name",
+            "type": "string",
+            "isOptional": false,
+            "isRest": false
+          },
+          {
+            "name": "type",
+            "type": "import(\"/src/modules/common/types\").NodeType",
+            "isOptional": true,
+            "isRest": false
+          }
+        ],
+        "returnType": "{ id: string; data: import(\"/src/modules/common/types\").NodeData; }[]",
+        "modifiers": [
+          "public"
+        ]
+      }
+    },
+    {
+      "key": "66132f70-33f9-4ce4-8cac-8b3dd915dff1",
+      "attributes": {
+        "type": "Method",
+        "name": "getStats",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [],
+        "returnType": "import(\"/src/modules/common/types\").GraphStats",
+        "modifiers": [
+          "public"
+        ]
+      }
+    },
+    {
+      "key": "4e38ef71-1514-497e-8b5e-b76e9384d36f",
+      "attributes": {
+        "type": "Method",
+        "name": "saveToDisk",
+        "isAsync": true,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "filePath",
+            "type": "string",
+            "isOptional": true,
+            "isRest": false
+          }
+        ],
+        "returnType": "Promise<void>",
+        "modifiers": [
+          "public",
+          "async"
+        ]
+      }
+    },
+    {
+      "key": "7b4cf127-92e9-4828-86e4-7c8f7b7ef38c",
+      "attributes": {
+        "type": "Method",
+        "name": "loadFromDisk",
+        "isAsync": true,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "filePath",
+            "type": "string",
+            "isOptional": true,
+            "isRest": false
+          }
+        ],
+        "returnType": "Promise<void>",
+        "modifiers": [
+          "public",
+          "async"
+        ]
+      }
+    },
+    {
+      "key": "f65802b9-20ed-481a-9a22-a3432d31be5d",
+      "attributes": {
+        "type": "Method",
+        "name": "rebuildNodeIndex",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [],
+        "returnType": "void",
+        "modifiers": [
+          "private"
+        ]
+      }
+    },
+    {
+      "key": "26226bf8-1d90-45f5-bce2-ae7b012ff5fb",
+      "attributes": {
+        "type": "Method",
+        "name": "clear",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [],
+        "returnType": "void",
+        "modifiers": [
+          "public"
+        ]
+      }
+    },
+    {
+      "key": "0b225d5b-7e4b-463d-896d-fea3ed0328ee",
+      "attributes": {
+        "type": "Interface",
+        "name": "GraphDbOptions",
+        "isExported": true,
+        "isDefaultExport": false
+      }
+    },
+    {
+      "key": "e56c932c-f6c1-4207-83b6-acde9167e762",
+      "attributes": {
+        "type": "File",
+        "path": "src/modules/graph/index.ts",
+        "name": "index.ts",
+        "extension": ".ts",
+        "linesOfCode": 2,
+        "lastModified": 1778690526041.4153,
+        "contentHash": "4145c7dac90953df98c784c2a702126d"
+      }
+    },
+    {
+      "key": "e9b51672-7566-4231-9a5b-4907fc61e9de",
+      "attributes": {
+        "type": "File",
+        "path": "src/modules/metrics/code-quality.ts",
+        "name": "code-quality.ts",
+        "extension": ".ts",
+        "linesOfCode": 282,
+        "lastModified": 1778718720918.2935,
+        "contentHash": "713277cb850766c9b25bc6de1cb55825"
+      }
+    },
+    {
+      "key": "85f4bf7c-5a72-41e1-a11f-8be16d33cc30",
+      "attributes": {
+        "type": "Class",
+        "name": "CodeQualityAnalyzer",
+        "isAbstract": false,
+        "isExported": true,
+        "isDefaultExport": false,
+        "modifiers": [
+          "export"
+        ]
+      }
+    },
+    {
+      "key": "1e6a34cb-09d6-4739-b5aa-59df5bc5b6f6",
+      "attributes": {
+        "type": "Method",
+        "name": "calculateQualityMetrics",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "nodes",
+            "type": "{ data: any; location?: any; }[]",
+            "isOptional": false,
+            "isRest": false
+          },
+          {
+            "name": "_codeStats",
+            "type": "any",
+            "isOptional": false,
+            "isRest": false
+          }
+        ],
+        "returnType": "import(\"/src/modules/metrics/code-quality\").CodeQualityMetrics",
+        "modifiers": [
+          "static"
+        ]
+      }
+    },
+    {
+      "key": "182c2a35-9b14-439a-a031-3b3f384a17e0",
+      "attributes": {
+        "type": "Method",
+        "name": "extractMetrics",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "nodes",
+            "type": "{ data: any; location?: any; }[]",
+            "isOptional": false,
+            "isRest": false
+          }
+        ],
+        "returnType": "{ linesOfCode: number; commentLines: number; blankLines: number; commentRatio: number; avgFunctionLength: number; avgFunctionParams: number; maxFunctionLength: number; fileCount: number; classCount: number; functionCount: number; interfaceCount: number; }",
+        "modifiers": [
+          "private",
+          "static"
+        ]
+      }
+    },
+    {
+      "key": "5332e93f-e195-40c7-9525-9fbe584f4602",
+      "attributes": {
+        "type": "Method",
+        "name": "estimateFunctionLength",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "fn",
+            "type": "any",
+            "isOptional": false,
+            "isRest": false
+          }
+        ],
+        "returnType": "number",
+        "modifiers": [
+          "private",
+          "static"
+        ]
+      }
+    },
+    {
+      "key": "4fb26564-6e23-466d-80ee-1ba64000b95a",
+      "attributes": {
+        "type": "Method",
+        "name": "calculateMaintainabilityIndex",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "metrics",
+            "type": "any",
+            "isOptional": false,
+            "isRest": false
+          }
+        ],
+        "returnType": "number",
+        "modifiers": [
+          "private",
+          "static"
+        ]
+      }
+    },
+    {
+      "key": "45a24b25-6392-4d34-b529-a07cc4f0ca0d",
+      "attributes": {
+        "type": "Method",
+        "name": "calculateReadabilityScore",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "metrics",
+            "type": "any",
+            "isOptional": false,
+            "isRest": false
+          }
+        ],
+        "returnType": "number",
+        "modifiers": [
+          "private",
+          "static"
+        ]
+      }
+    },
+    {
+      "key": "916fa1e5-66da-45e8-a939-f359ff4a9b88",
+      "attributes": {
+        "type": "Method",
+        "name": "calculateTestabilityScore",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "metrics",
+            "type": "any",
+            "isOptional": false,
+            "isRest": false
+          }
+        ],
+        "returnType": "number",
+        "modifiers": [
+          "private",
+          "static"
+        ]
+      }
+    },
+    {
+      "key": "5bc3b739-b276-428d-9e17-5ece77371e8f",
+      "attributes": {
+        "type": "Method",
+        "name": "detectQualityIssues",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "nodes",
+            "type": "{ data: any; location?: any; }[]",
+            "isOptional": false,
+            "isRest": false
+          },
+          {
+            "name": "metrics",
+            "type": "any",
+            "isOptional": false,
+            "isRest": false
+          }
+        ],
+        "returnType": "import(\"/src/modules/metrics/code-quality\").CodeQualityIssue[]",
+        "modifiers": [
+          "private",
+          "static"
+        ]
+      }
+    },
+    {
+      "key": "4d498179-827f-4196-a7c9-d239fb708ed7",
+      "attributes": {
+        "type": "Method",
+        "name": "getQualityLevel",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "score",
+            "type": "number",
+            "isOptional": false,
+            "isRest": false
+          }
+        ],
+        "returnType": "{ level: string; description: string; color: string; }",
+        "modifiers": [
+          "static"
+        ]
+      }
+    },
+    {
+      "key": "fb1fab80-6e85-46a1-867a-2be967d57865",
+      "attributes": {
+        "type": "Interface",
+        "name": "CodeQualityMetrics",
+        "isExported": true,
+        "isDefaultExport": false
+      }
+    },
+    {
+      "key": "4813247b-0e3c-4bc7-ba99-5337e96936ad",
+      "attributes": {
+        "type": "Interface",
+        "name": "CodeQualityIssue",
+        "isExported": true,
+        "isDefaultExport": false
+      }
+    },
+    {
+      "key": "34e9aa94-0140-4268-9231-75137b374008",
+      "attributes": {
+        "type": "File",
+        "path": "src/modules/metrics/complexity-calculator.ts",
+        "name": "complexity-calculator.ts",
+        "extension": ".ts",
+        "linesOfCode": 220,
+        "lastModified": 1778718691166.179,
+        "contentHash": "5aab9ee6859e00c01915923d2152079e"
+      }
+    },
+    {
+      "key": "3c0fa2d2-e710-43cd-b8e4-de89952d6a22",
+      "attributes": {
+        "type": "Class",
+        "name": "ComplexityCalculator",
+        "isAbstract": false,
+        "isExported": true,
+        "isDefaultExport": false,
+        "modifiers": [
+          "export"
+        ]
+      }
+    },
+    {
+      "key": "1f5a9c43-d5f7-4994-9cb1-1b94d65dbd50",
+      "attributes": {
+        "type": "Method",
+        "name": "calculateFunctionComplexity",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "fn",
+            "type": "any",
+            "isOptional": false,
+            "isRest": false
+          }
+        ],
+        "returnType": "import(\"/src/modules/metrics/complexity-calculator\").ComplexityResult",
+        "modifiers": []
+      }
+    },
+    {
+      "key": "fa410794-7c2b-474e-99e0-508e860f6863",
+      "attributes": {
+        "type": "Method",
+        "name": "calculateClassComplexity",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "cls",
+            "type": "any",
+            "isOptional": false,
+            "isRest": false
+          }
+        ],
+        "returnType": "{ classComplexity: number; methodComplexities: { method: string; complexity: import(\"/src/modules/metrics/complexity-calculator\").ComplexityResult; }[]; avgMethodComplexity: number; totalMethods: number; }",
+        "modifiers": []
+      }
+    },
+    {
+      "key": "d8d7c781-510c-4bf0-a504-c9cb5ba3a093",
+      "attributes": {
+        "type": "Method",
+        "name": "countLines",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "node",
+            "type": "any",
+            "isOptional": false,
+            "isRest": false
+          }
+        ],
+        "returnType": "number",
+        "modifiers": [
+          "private"
+        ]
+      }
+    },
+    {
+      "key": "03ecabfa-0a7e-4393-ad73-6157577d9a5f",
+      "attributes": {
+        "type": "Method",
+        "name": "calculateComplexityRecursive",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "node",
+            "type": "any",
+            "isOptional": false,
+            "isRest": false
+          }
+        ],
+        "returnType": "{ cyclomatic: number; cognitive: number; maxNesting: number; contributors: import(\"/src/modules/metrics/complexity-calculator\").CognitiveContributor[]; }",
+        "modifiers": [
+          "private"
+        ]
+      }
+    },
+    {
+      "key": "a94dbac7-1345-4f17-8ab5-8912333b7fa2",
+      "attributes": {
+        "type": "Method",
+        "name": "getComplexityLevel",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "cyclomatic",
+            "type": "number",
+            "isOptional": false,
+            "isRest": false
+          }
+        ],
+        "returnType": "{ level: string; description: string; color: string; }",
+        "modifiers": []
+      }
+    },
+    {
+      "key": "9d31a7e2-e37a-4fc3-9a34-f2aaa313b475",
+      "attributes": {
+        "type": "Interface",
+        "name": "ComplexityResult",
+        "isExported": true,
+        "isDefaultExport": false
+      }
+    },
+    {
+      "key": "bf248453-7ade-46c9-8ce8-d4cfb9821495",
+      "attributes": {
+        "type": "Interface",
+        "name": "CognitiveContributor",
+        "isExported": true,
+        "isDefaultExport": false
+      }
+    },
+    {
+      "key": "ea5f33cb-448c-47b9-948d-f7e4d012e274",
+      "attributes": {
+        "type": "File",
+        "path": "src/modules/metrics/index.ts",
+        "name": "index.ts",
+        "extension": ".ts",
+        "linesOfCode": 7,
+        "lastModified": 1778737394812.3977,
+        "contentHash": "bda36fedc1624a80b0d9035e7dbd2781"
+      }
+    },
+    {
+      "key": "8290c110-ade9-43f1-b5fc-451a66cb45f1",
+      "attributes": {
+        "type": "File",
+        "path": "src/modules/metrics/metrics-analyzer.ts",
+        "name": "metrics-analyzer.ts",
+        "extension": ".ts",
+        "linesOfCode": 272,
+        "lastModified": 1778718785622.5425,
+        "contentHash": "92e2d06e7332c9051f78837f82305f83"
+      }
+    },
+    {
+      "key": "ceffb217-9c61-4db5-b053-570c71fefba9",
+      "attributes": {
+        "type": "Class",
+        "name": "MetricsAnalyzer",
+        "isAbstract": false,
+        "isExported": true,
+        "isDefaultExport": false,
+        "modifiers": [
+          "export"
+        ]
+      }
+    },
+    {
+      "key": "8392f44b-8333-4217-8d9c-959c16383ef3",
+      "attributes": {
+        "type": "Method",
+        "name": "analyzeProject",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "rootDir",
+            "type": "string",
+            "isOptional": false,
+            "isRest": false
+          }
+        ],
+        "returnType": "import(\"/src/modules/metrics/metrics-analyzer\").ProjectMetrics",
+        "modifiers": []
+      }
+    },
+    {
+      "key": "9dd194e1-3488-45ef-8764-dfedb6933216",
+      "attributes": {
+        "type": "Method",
+        "name": "analyzeOverview",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "sourceFiles",
+            "type": "any[]",
+            "isOptional": false,
+            "isRest": false
+          }
+        ],
+        "returnType": "{ totalFiles: number; totalClasses: number; totalFunctions: number; totalInterfaces: number; totalLinesOfCode: number; }",
+        "modifiers": [
+          "private"
+        ]
+      }
+    },
+    {
+      "key": "e511b2b7-606b-4783-814e-f028f6c7ab7e",
+      "attributes": {
+        "type": "Method",
+        "name": "analyzeComplexity",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "sourceFiles",
+            "type": "any[]",
+            "isOptional": false,
+            "isRest": false
+          }
+        ],
+        "returnType": "{ avgCyclomatic: number; maxCyclomatic: number; highComplexityFunctions: { name: string; complexity: number; file: string; }[]; complexityDistribution: { low: number; medium: number; high: number; veryHigh: number; }; }",
+        "modifiers": [
+          "private"
+        ]
+      }
+    },
+    {
+      "key": "7709a346-e789-48b9-b3e7-b0fffa44f3d5",
+      "attributes": {
+        "type": "Method",
+        "name": "categorizeComplexity",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "cyclomatic",
+            "type": "number",
+            "isOptional": false,
+            "isRest": false
+          }
+        ],
+        "returnType": "\"low\" | \"medium\" | \"high\" | \"veryHigh\"",
+        "modifiers": [
+          "private"
+        ]
+      }
+    },
+    {
+      "key": "7c4ed3b2-3a24-4ab9-92fe-549f55e85b6d",
+      "attributes": {
+        "type": "Method",
+        "name": "analyzeQuality",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "sourceFiles",
+            "type": "any[]",
+            "isOptional": false,
+            "isRest": false
+          },
+          {
+            "name": "overview",
+            "type": "{ totalFiles: number; totalClasses: number; totalFunctions: number; totalInterfaces: number; totalLinesOfCode: number; }",
+            "isOptional": false,
+            "isRest": false
+          }
+        ],
+        "returnType": "any",
+        "modifiers": [
+          "private"
+        ]
+      }
+    },
+    {
+      "key": "e78f43f7-3d03-4303-9bd0-ee5b1308dcfd",
+      "attributes": {
+        "type": "Method",
+        "name": "generateReport",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "metrics",
+            "type": "import(\"/src/modules/metrics/metrics-analyzer\").ProjectMetrics",
+            "isOptional": false,
+            "isRest": false
+          }
+        ],
+        "returnType": "string",
+        "modifiers": []
+      }
+    },
+    {
+      "key": "3a29caf9-d2e6-4427-97d2-2bab7c7dc94d",
+      "attributes": {
+        "type": "Interface",
+        "name": "ProjectMetrics",
+        "isExported": true,
+        "isDefaultExport": false
+      }
+    },
+    {
+      "key": "329ecd65-0c78-40db-931a-ff64bc6f88d3",
+      "attributes": {
+        "type": "File",
+        "path": "src/modules/parser/index.ts",
+        "name": "index.ts",
+        "extension": ".ts",
+        "linesOfCode": 3,
+        "lastModified": 1778690445580.6772,
+        "contentHash": "6a11a0835d009dfb2d8f3455208db864"
+      }
+    },
+    {
+      "key": "dd70df82-f6f9-4704-84a2-9768d54358d0",
+      "attributes": {
+        "type": "File",
+        "path": "src/modules/parser/project-parser.ts",
+        "name": "project-parser.ts",
+        "extension": ".ts",
+        "linesOfCode": 170,
+        "lastModified": 1778716664878.395,
+        "contentHash": "52acee18428e842988d9c37df3f85972"
+      }
+    },
+    {
+      "key": "60e2f48f-58ca-40dd-9718-18d31e6ca43d",
+      "attributes": {
+        "type": "Class",
+        "name": "ProjectParser",
+        "isAbstract": false,
+        "isExported": true,
+        "isDefaultExport": false,
+        "modifiers": [
+          "export"
+        ]
+      }
+    },
+    {
+      "key": "071a403e-aa0a-424d-b3ee-8e58edbb8be0",
+      "attributes": {
+        "type": "Method",
+        "name": "parseProject",
+        "isAsync": true,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "rootDir",
+            "type": "string",
+            "isOptional": false,
+            "isRest": false
+          },
+          {
+            "name": "options",
+            "type": "import(\"/src/modules/parser/project-parser\").ProjectParserOptions",
+            "defaultValue": "{}",
+            "isOptional": true,
+            "isRest": false
+          }
+        ],
+        "returnType": "Promise<{ nodes: { id: string; data: import(\"/src/modules/common/types\").NodeData; location?: any; }[]; relations: { id: string; sourceId: string; targetId: string; data: import(\"/src/modules/common/types\").RelationData; }[]; }>",
+        "modifiers": [
+          "public",
+          "async"
+        ]
+      }
+    },
+    {
+      "key": "ea3f8d1b-22b5-4385-9af5-ecfb5a88c5e2",
+      "attributes": {
+        "type": "Method",
+        "name": "collectFiles",
+        "isAsync": true,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "rootDir",
+            "type": "string",
+            "isOptional": false,
+            "isRest": false
+          }
+        ],
+        "returnType": "Promise<string[]>",
+        "modifiers": [
+          "private",
+          "async"
+        ]
+      }
+    },
+    {
+      "key": "6ca9f87b-a826-4158-a886-b3417eadedc9",
+      "attributes": {
+        "type": "Method",
+        "name": "shouldParseFile",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "relativePath",
+            "type": "string",
+            "isOptional": false,
+            "isRest": false
+          },
+          {
+            "name": "fullPath",
+            "type": "string",
+            "isOptional": false,
+            "isRest": false
+          }
+        ],
+        "returnType": "boolean",
+        "modifiers": [
+          "private"
+        ]
+      }
+    },
+    {
+      "key": "1311d30a-701a-49ee-9f53-50659e32fe1b",
+      "attributes": {
+        "type": "Method",
+        "name": "isExcluded",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "relativePath",
+            "type": "string",
+            "isOptional": false,
+            "isRest": false
+          }
+        ],
+        "returnType": "boolean",
+        "modifiers": [
+          "private"
+        ]
+      }
+    },
+    {
+      "key": "f98f3422-531c-4a51-8e32-4c53628bff8f",
+      "attributes": {
+        "type": "Method",
+        "name": "hashContent",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "content",
+            "type": "string",
+            "isOptional": false,
+            "isRest": false
+          }
+        ],
+        "returnType": "string",
+        "modifiers": [
+          "private"
+        ]
+      }
+    },
+    {
+      "key": "6b31d06d-5864-40da-b61f-cf70a1f5cb07",
+      "attributes": {
+        "type": "Method",
+        "name": "startWatcher",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "rootDir",
+            "type": "string",
+            "isOptional": false,
+            "isRest": false
+          },
+          {
+            "name": "onChange",
+            "type": "(filePath: string, eventType: \"add\" | \"change\" | \"unlink\") => void",
+            "isOptional": false,
+            "isRest": false
+          }
+        ],
+        "returnType": "void",
+        "modifiers": [
+          "public"
+        ]
+      }
+    },
+    {
+      "key": "39e77089-fcd3-49ec-b8dd-fa0658e3b8f8",
+      "attributes": {
+        "type": "Method",
+        "name": "stopWatcher",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [],
+        "returnType": "void",
+        "modifiers": [
+          "public"
+        ]
+      }
+    },
+    {
+      "key": "009fc2f1-9e58-4dd4-9534-482bbdff1cda",
+      "attributes": {
+        "type": "Interface",
+        "name": "ProjectParserOptions",
+        "isExported": true,
+        "isDefaultExport": false
+      }
+    },
+    {
+      "key": "06db3703-f98a-42ac-b312-ccfb0eec2e45",
+      "attributes": {
+        "type": "File",
+        "path": "src/modules/parser/typescript-parser.ts",
+        "name": "typescript-parser.ts",
+        "extension": ".ts",
+        "linesOfCode": 540,
+        "lastModified": 1778716547961.9463,
+        "contentHash": "351725caa8fab0db87ad8dd886725b65"
+      }
+    },
+    {
+      "key": "e5ca9b42-0b46-47c0-9613-ad2587567a83",
+      "attributes": {
+        "type": "Class",
+        "name": "TypeScriptParser",
+        "isAbstract": false,
+        "isExported": true,
+        "isDefaultExport": false,
+        "modifiers": [
+          "export"
+        ]
+      }
+    },
+    {
+      "key": "eec1f015-97e0-4ee7-aa11-ae9f1c2ce8da",
+      "attributes": {
+        "type": "Method",
+        "name": "parseFile",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "filePath",
+            "type": "string",
+            "isOptional": false,
+            "isRest": false
+          },
+          {
+            "name": "content",
+            "type": "string",
+            "isOptional": true,
+            "isRest": false
+          }
+        ],
+        "returnType": "import(\"/src/modules/common/types\").ParseResult",
+        "modifiers": [
+          "public"
+        ]
+      }
+    },
+    {
+      "key": "daa4e3f8-9f25-4e69-9a45-352b49bba101",
+      "attributes": {
+        "type": "Method",
+        "name": "getLocation",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "node",
+            "type": "any",
+            "isOptional": false,
+            "isRest": false
+          }
+        ],
+        "returnType": "import(\"/src/modules/common/types\").Location",
+        "modifiers": [
+          "private"
+        ]
+      }
+    },
+    {
+      "key": "17fd103d-4601-42ec-a0b6-0520edf4e78b",
+      "attributes": {
+        "type": "Method",
+        "name": "parseClass",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "cls",
+            "type": "ClassDeclaration",
+            "isOptional": false,
+            "isRest": false
+          },
+          {
+            "name": "nodes",
+            "type": "{ id: string; data: import(\"/src/modules/common/types\").NodeData; location?: import(\"/src/modules/common/types\").Location; }[]",
+            "isOptional": false,
+            "isRest": false
+          },
+          {
+            "name": "relations",
+            "type": "{ id: string; sourceId: string; targetId: string; data: import(\"/src/modules/common/types\").RelationData; }[]",
+            "isOptional": false,
+            "isRest": false
+          },
+          {
+            "name": "fileNodeId",
+            "type": "string",
+            "isOptional": false,
+            "isRest": false
+          },
+          {
+            "name": "nodeMap",
+            "type": "Map<string, string>",
+            "isOptional": false,
+            "isRest": false
+          }
+        ],
+        "returnType": "string",
+        "modifiers": [
+          "private"
+        ]
+      }
+    },
+    {
+      "key": "ca66e828-f511-4357-b2c8-0bf9732ac5a3",
+      "attributes": {
+        "type": "Method",
+        "name": "parseMethod",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "method",
+            "type": "any",
+            "isOptional": false,
+            "isRest": false
+          },
+          {
+            "name": "nodes",
+            "type": "{ id: string; data: import(\"/src/modules/common/types\").NodeData; location?: import(\"/src/modules/common/types\").Location; }[]",
+            "isOptional": false,
+            "isRest": false
+          },
+          {
+            "name": "relations",
+            "type": "{ id: string; sourceId: string; targetId: string; data: import(\"/src/modules/common/types\").RelationData; }[]",
+            "isOptional": false,
+            "isRest": false
+          },
+          {
+            "name": "classNodeId",
+            "type": "string",
+            "isOptional": false,
+            "isRest": false
+          }
+        ],
+        "returnType": "string",
+        "modifiers": [
+          "private"
+        ]
+      }
+    },
+    {
+      "key": "34351eb1-4e0b-4ee1-9a28-af8fa518f82e",
+      "attributes": {
+        "type": "Method",
+        "name": "parseFunction",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "fn",
+            "type": "FunctionDeclaration",
+            "isOptional": false,
+            "isRest": false
+          },
+          {
+            "name": "nodes",
+            "type": "{ id: string; data: import(\"/src/modules/common/types\").NodeData; location?: import(\"/src/modules/common/types\").Location; }[]",
+            "isOptional": false,
+            "isRest": false
+          },
+          {
+            "name": "relations",
+            "type": "{ id: string; sourceId: string; targetId: string; data: import(\"/src/modules/common/types\").RelationData; }[]",
+            "isOptional": false,
+            "isRest": false
+          },
+          {
+            "name": "fileNodeId",
+            "type": "string",
+            "isOptional": false,
+            "isRest": false
+          },
+          {
+            "name": "nodeMap",
+            "type": "Map<string, string>",
+            "isOptional": false,
+            "isRest": false
+          }
+        ],
+        "returnType": "string",
+        "modifiers": [
+          "private"
+        ]
+      }
+    },
+    {
+      "key": "6e7947e2-267b-404d-bb98-576e3fa45b2a",
+      "attributes": {
+        "type": "Method",
+        "name": "parseVariable",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "v",
+            "type": "VariableDeclaration",
+            "isOptional": false,
+            "isRest": false
+          },
+          {
+            "name": "nodes",
+            "type": "{ id: string; data: import(\"/src/modules/common/types\").NodeData; location?: import(\"/src/modules/common/types\").Location; }[]",
+            "isOptional": false,
+            "isRest": false
+          },
+          {
+            "name": "relations",
+            "type": "{ id: string; sourceId: string; targetId: string; data: import(\"/src/modules/common/types\").RelationData; }[]",
+            "isOptional": false,
+            "isRest": false
+          },
+          {
+            "name": "fileNodeId",
+            "type": "string",
+            "isOptional": false,
+            "isRest": false
+          },
+          {
+            "name": "_nodeMap",
+            "type": "Map<string, string>",
+            "isOptional": false,
+            "isRest": false
+          }
+        ],
+        "returnType": "string",
+        "modifiers": [
+          "private"
+        ]
+      }
+    },
+    {
+      "key": "e3679037-71a7-4efe-88e1-e8f786b49a2d",
+      "attributes": {
+        "type": "Method",
+        "name": "parseInterface",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "iface",
+            "type": "InterfaceDeclaration",
+            "isOptional": false,
+            "isRest": false
+          },
+          {
+            "name": "nodes",
+            "type": "{ id: string; data: import(\"/src/modules/common/types\").NodeData; location?: import(\"/src/modules/common/types\").Location; }[]",
+            "isOptional": false,
+            "isRest": false
+          },
+          {
+            "name": "relations",
+            "type": "{ id: string; sourceId: string; targetId: string; data: import(\"/src/modules/common/types\").RelationData; }[]",
+            "isOptional": false,
+            "isRest": false
+          },
+          {
+            "name": "fileNodeId",
+            "type": "string",
+            "isOptional": false,
+            "isRest": false
+          },
+          {
+            "name": "_nodeMap",
+            "type": "Map<string, string>",
+            "isOptional": false,
+            "isRest": false
+          }
+        ],
+        "returnType": "string",
+        "modifiers": [
+          "private"
+        ]
+      }
+    },
+    {
+      "key": "59ea87d0-caf9-4695-b06b-7b161b48e7b6",
+      "attributes": {
+        "type": "Method",
+        "name": "parseEnum",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "en",
+            "type": "EnumDeclaration",
+            "isOptional": false,
+            "isRest": false
+          },
+          {
+            "name": "nodes",
+            "type": "{ id: string; data: import(\"/src/modules/common/types\").NodeData; location?: import(\"/src/modules/common/types\").Location; }[]",
+            "isOptional": false,
+            "isRest": false
+          },
+          {
+            "name": "relations",
+            "type": "{ id: string; sourceId: string; targetId: string; data: import(\"/src/modules/common/types\").RelationData; }[]",
+            "isOptional": false,
+            "isRest": false
+          },
+          {
+            "name": "fileNodeId",
+            "type": "string",
+            "isOptional": false,
+            "isRest": false
+          },
+          {
+            "name": "_nodeMap",
+            "type": "Map<string, string>",
+            "isOptional": false,
+            "isRest": false
+          }
+        ],
+        "returnType": "string",
+        "modifiers": [
+          "private"
+        ]
+      }
+    },
+    {
+      "key": "724bb455-5fc5-4015-9449-c1926d99fd01",
+      "attributes": {
+        "type": "Method",
+        "name": "parseImports",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "sourceFile",
+            "type": "any",
+            "isOptional": false,
+            "isRest": false
+          },
+          {
+            "name": "_nodes",
+            "type": "{ id: string; data: import(\"/src/modules/common/types\").NodeData; location?: import(\"/src/modules/common/types\").Location; }[]",
+            "isOptional": false,
+            "isRest": false
+          },
+          {
+            "name": "relations",
+            "type": "{ id: string; sourceId: string; targetId: string; data: import(\"/src/modules/common/types\").RelationData; }[]",
+            "isOptional": false,
+            "isRest": false
+          },
+          {
+            "name": "fileNodeId",
+            "type": "string",
+            "isOptional": false,
+            "isRest": false
+          }
+        ],
+        "returnType": "void",
+        "modifiers": [
+          "private"
+        ]
+      }
+    },
+    {
+      "key": "c0708b45-59fa-48c3-8ec2-86dd49fe2f6a",
+      "attributes": {
+        "type": "Method",
+        "name": "parseFunctionCalls",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "sourceFile",
+            "type": "any",
+            "isOptional": false,
+            "isRest": false
+          },
+          {
+            "name": "nodes",
+            "type": "{ id: string; data: import(\"/src/modules/common/types\").NodeData; location?: import(\"/src/modules/common/types\").Location; }[]",
+            "isOptional": false,
+            "isRest": false
+          },
+          {
+            "name": "relations",
+            "type": "{ id: string; sourceId: string; targetId: string; data: import(\"/src/modules/common/types\").RelationData; }[]",
+            "isOptional": false,
+            "isRest": false
+          },
+          {
+            "name": "fileNodeId",
+            "type": "string",
+            "isOptional": false,
+            "isRest": false
+          },
+          {
+            "name": "nodeMap",
+            "type": "Map<string, string>",
+            "isOptional": false,
+            "isRest": false
+          }
+        ],
+        "returnType": "void",
+        "modifiers": [
+          "private"
+        ]
+      }
+    },
+    {
+      "key": "62efad76-a4e8-4857-b941-785b07f3dd0d",
+      "attributes": {
+        "type": "File",
+        "path": "src/modules/query/graph-query.ts",
+        "name": "graph-query.ts",
+        "extension": ".ts",
+        "linesOfCode": 147,
+        "lastModified": 1778691489590.2134,
+        "contentHash": "5bba587bbae72b8c72201d12532fa69c"
+      }
+    },
+    {
+      "key": "3d05cf16-b0ee-465a-9793-3cb99c278ea5",
+      "attributes": {
+        "type": "Class",
+        "name": "GraphQueryEngine",
+        "isAbstract": false,
+        "isExported": true,
+        "isDefaultExport": false,
+        "modifiers": [
+          "export"
+        ]
+      }
+    },
+    {
+      "key": "9c643e70-d9b0-4fa7-9d1f-9f1d487ff62d",
+      "attributes": {
+        "type": "Method",
+        "name": "getForwardCallChain",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "startNodeId",
+            "type": "string",
+            "isOptional": false,
+            "isRest": false
+          },
+          {
+            "name": "maxDepth",
+            "type": "number",
+            "defaultValue": "10",
+            "isOptional": true,
+            "isRest": false
+          }
+        ],
+        "returnType": "import(\"/src/modules/common/types\").CallChain[]",
+        "modifiers": [
+          "public"
+        ]
+      }
+    },
+    {
+      "key": "9db93b81-cb40-474f-a6bc-054f439c935f",
+      "attributes": {
+        "type": "Method",
+        "name": "getClassHierarchy",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "classNodeId",
+            "type": "string",
+            "isOptional": false,
+            "isRest": false
+          }
+        ],
+        "returnType": "import(\"/src/modules/common/types\").ClassHierarchy",
+        "modifiers": [
+          "public"
+        ]
+      }
+    },
+    {
+      "key": "73626faa-65a8-4354-bb99-d95917f6585b",
+      "attributes": {
+        "type": "Method",
+        "name": "searchNodesByName",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "name",
+            "type": "string",
+            "isOptional": false,
+            "isRest": false
+          },
+          {
+            "name": "type",
+            "type": "import(\"/src/modules/common/types\").NodeType",
+            "isOptional": true,
+            "isRest": false
+          },
+          {
+            "name": "limit",
+            "type": "number",
+            "defaultValue": "100",
+            "isOptional": true,
+            "isRest": false
+          }
+        ],
+        "returnType": "import(\"/src/modules/common/types\").SearchResult<import(\"/src/modules/common/types\").NodeData>[]",
+        "modifiers": [
+          "public"
+        ]
+      }
+    },
+    {
+      "key": "7e8ec1da-7f39-432a-bd1a-c5f088d894d0",
+      "attributes": {
+        "type": "Method",
+        "name": "getStats",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [],
+        "returnType": "import(\"/src/modules/common/types\").GraphStats",
+        "modifiers": [
+          "public"
+        ]
+      }
+    },
+    {
+      "key": "2c6bf8a3-8f69-47c7-8fa6-4ef7f538e380",
+      "attributes": {
+        "type": "File",
+        "path": "src/modules/query/index.ts",
+        "name": "index.ts",
+        "extension": ".ts",
+        "linesOfCode": 2,
+        "lastModified": 1778690568445.8042,
+        "contentHash": "6d871f40c8e8fba1b096f08cd10a4cc6"
+      }
+    },
+    {
+      "key": "239c0f96-6dc9-4e85-99d6-a1a992f42c18",
+      "attributes": {
+        "type": "File",
+        "path": "src/modules/service/index.ts",
+        "name": "index.ts",
+        "extension": ".ts",
+        "linesOfCode": 119,
+        "lastModified": 1778716376601.2886,
+        "contentHash": "29cea833841641d754904ef9da00b0e1"
+      }
+    },
+    {
+      "key": "119af862-e9df-469e-b922-ebc033ebe7bd",
+      "attributes": {
+        "type": "Class",
+        "name": "CodeGraphService",
+        "isAbstract": false,
+        "isExported": true,
+        "isDefaultExport": false,
+        "modifiers": [
+          "export"
+        ]
+      }
+    },
+    {
+      "key": "3926bf79-f825-4569-a88c-b03a3606a5b8",
+      "attributes": {
+        "type": "Method",
+        "name": "create",
+        "isAsync": true,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "options",
+            "type": "import(\"/src/modules/service/index\").CodeGraphServiceOptions",
+            "defaultValue": "{}",
+            "isOptional": true,
+            "isRest": false
+          }
+        ],
+        "returnType": "Promise<import(\"/src/modules/service/index\").CodeGraphService>",
+        "modifiers": [
+          "public",
+          "static",
+          "async"
+        ]
+      }
+    },
+    {
+      "key": "65924181-a923-4d07-bc05-4e20d4a1cd27",
+      "attributes": {
+        "type": "Method",
+        "name": "parseProject",
+        "isAsync": true,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "rootDir",
+            "type": "string",
+            "isOptional": false,
+            "isRest": false
+          }
+        ],
+        "returnType": "Promise<void>",
+        "modifiers": [
+          "public",
+          "async"
+        ]
+      }
+    },
+    {
+      "key": "2aac940f-b13b-4b69-84f5-bf91c683b71c",
+      "attributes": {
+        "type": "Method",
+        "name": "nodeToText",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "node",
+            "type": "import(\"/src/modules/common/types\").NodeData",
+            "isOptional": false,
+            "isRest": false
+          }
+        ],
+        "returnType": "string",
+        "modifiers": [
+          "private"
+        ]
+      }
+    },
+    {
+      "key": "d324617e-bcff-45a6-b6fb-e2b6b458b4fd",
+      "attributes": {
+        "type": "Method",
+        "name": "semanticSearch",
+        "isAsync": true,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "query",
+            "type": "string",
+            "isOptional": false,
+            "isRest": false
+          },
+          {
+            "name": "topK",
+            "type": "number",
+            "defaultValue": "10",
+            "isOptional": true,
+            "isRest": false
+          }
+        ],
+        "returnType": "Promise<any>",
+        "modifiers": [
+          "public",
+          "async"
+        ]
+      }
+    },
+    {
+      "key": "cc2bd679-cc5d-4f43-8cc1-bf52ff651d69",
+      "attributes": {
+        "type": "Method",
+        "name": "getQueryEngine",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [],
+        "returnType": "import(\"/src/modules/query/graph-query\").GraphQueryEngine",
+        "modifiers": [
+          "public"
+        ]
+      }
+    },
+    {
+      "key": "487e5bcf-0cfd-4860-9d0a-a5c3453cdc0d",
+      "attributes": {
+        "type": "Method",
+        "name": "getDb",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [],
+        "returnType": "import(\"/src/modules/graph/graph-db\").GraphDb",
+        "modifiers": [
+          "public"
+        ]
+      }
+    },
+    {
+      "key": "f407a90d-d99f-4aa8-8e54-e5d0ef03654a",
+      "attributes": {
+        "type": "Method",
+        "name": "getVectorStore",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [],
+        "returnType": "VectorStore",
+        "modifiers": [
+          "public"
+        ]
+      }
+    },
+    {
+      "key": "a5a8b454-4fea-4c02-8865-f94c0767af23",
+      "attributes": {
+        "type": "Method",
+        "name": "getConfig",
+        "isAsync": false,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [],
+        "returnType": "z.infer<any>",
+        "modifiers": [
+          "public"
+        ]
+      }
+    },
+    {
+      "key": "676e93df-bc08-4f06-9247-801c79f277ab",
+      "attributes": {
+        "type": "Method",
+        "name": "save",
+        "isAsync": true,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [],
+        "returnType": "Promise<void>",
+        "modifiers": [
+          "public",
+          "async"
+        ]
+      }
+    },
+    {
+      "key": "fa5dc958-2d2a-44aa-95aa-0117eecb57e2",
+      "attributes": {
+        "type": "Method",
+        "name": "load",
+        "isAsync": true,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [],
+        "returnType": "Promise<void>",
+        "modifiers": [
+          "public",
+          "async"
+        ]
+      }
+    },
+    {
+      "key": "3d32a10a-07dc-449a-808b-ed4ff0aaa25a",
+      "attributes": {
+        "type": "Interface",
+        "name": "CodeGraphServiceOptions",
+        "isExported": true,
+        "isDefaultExport": false
+      }
+    },
+    {
+      "key": "54882f92-deee-4f85-b208-7f7cb04453dd",
+      "attributes": {
+        "type": "File",
+        "path": "src/modules/vector/index.ts",
+        "name": "index.ts",
+        "extension": ".ts",
+        "linesOfCode": 3,
+        "lastModified": 1778737337939.9353,
+        "contentHash": "c114dee4d68550fc00b27fea477db805"
+      }
+    },
+    {
+      "key": "710c2ca5-4a40-40a3-97f4-45dea3f84881",
+      "attributes": {
+        "type": "File",
+        "path": "src/modules/vector/vector-store.ts",
+        "name": "vector-store.ts",
+        "extension": ".ts",
+        "linesOfCode": 143,
+        "lastModified": 1778716732962.6565,
+        "contentHash": "34831b00a0ee28c68567aa3b80cca743"
+      }
+    },
+    {
+      "key": "c7a6cec7-6b90-4c06-bdad-35bb4fd692f3",
+      "attributes": {
+        "type": "Class",
+        "name": "VectorStore",
+        "isAbstract": false,
+        "isExported": true,
+        "isDefaultExport": false,
+        "modifiers": [
+          "export"
+        ]
+      }
+    },
+    {
+      "key": "8fe56053-3cb5-4090-ba83-4213b98f8c7d",
+      "attributes": {
+        "type": "Method",
+        "name": "initialize",
+        "isAsync": true,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [],
+        "returnType": "Promise<void>",
+        "modifiers": [
+          "async"
+        ]
+      }
+    },
+    {
+      "key": "2a011191-d047-41d3-bb4d-66b0ef7484d2",
+      "attributes": {
+        "type": "Method",
+        "name": "addNode",
+        "isAsync": true,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "nodeId",
+            "type": "string",
+            "isOptional": false,
+            "isRest": false
+          },
+          {
+            "name": "node",
+            "type": "import(\"/src/modules/common/types\").NodeData",
+            "isOptional": false,
+            "isRest": false
+          },
+          {
+            "name": "content",
+            "type": "string",
+            "isOptional": false,
+            "isRest": false
+          }
+        ],
+        "returnType": "Promise<void>",
+        "modifiers": [
+          "async"
+        ]
+      }
+    },
+    {
+      "key": "8f6d24c3-2299-4ded-b8ca-0384562521eb",
+      "attributes": {
+        "type": "Method",
+        "name": "search",
+        "isAsync": true,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "query",
+            "type": "string",
+            "isOptional": false,
+            "isRest": false
+          },
+          {
+            "name": "topK",
+            "type": "number",
+            "defaultValue": "10",
+            "isOptional": true,
+            "isRest": false
+          }
+        ],
+        "returnType": "Promise<import(\"/src/modules/vector/vector-store\").VectorSearchResult[]>",
+        "modifiers": [
+          "async"
+        ]
+      }
+    },
+    {
+      "key": "951fb5fb-0c9a-4373-8909-7ba54cc6b94f",
+      "attributes": {
+        "type": "Method",
+        "name": "deleteNode",
+        "isAsync": true,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "nodeId",
+            "type": "string",
+            "isOptional": false,
+            "isRest": false
+          }
+        ],
+        "returnType": "Promise<void>",
+        "modifiers": [
+          "async"
+        ]
+      }
+    },
+    {
+      "key": "fa2b4382-4cf6-464a-9cf7-c03c04278dfa",
+      "attributes": {
+        "type": "Method",
+        "name": "clear",
+        "isAsync": true,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [],
+        "returnType": "Promise<void>",
+        "modifiers": [
+          "async"
+        ]
+      }
+    },
+    {
+      "key": "1b079300-aa4b-4440-a00d-3a6bdc72185a",
+      "attributes": {
+        "type": "Method",
+        "name": "simpleVectorize",
+        "isAsync": true,
+        "isExported": false,
+        "isDefaultExport": false,
+        "isGenerator": false,
+        "parameters": [
+          {
+            "name": "text",
+            "type": "string",
+            "isOptional": false,
+            "isRest": false
+          }
+        ],
+        "returnType": "Promise<number[]>",
+        "modifiers": [
+          "private",
+          "async"
+        ]
+      }
+    },
+    {
+      "key": "5222d4f1-92b2-4c6a-b827-ec57181579aa",
+      "attributes": {
+        "type": "Interface",
+        "name": "VectorSearchResult",
+        "isExported": true,
+        "isDefaultExport": false
+      }
+    },
+    {
+      "key": "commander",
+      "attributes": {
+        "type": "Unknown",
+        "name": "commander"
+      }
+    },
+    {
+      "key": "../index.js",
+      "attributes": {
+        "type": "Unknown",
+        "name": "../index.js"
+      }
+    },
+    {
+      "key": "../modules/cli/index.js",
+      "attributes": {
+        "type": "Unknown",
+        "name": "../modules/cli/index.js"
+      }
+    },
+    {
+      "key": "../modules/metrics/index.js",
+      "attributes": {
+        "type": "Unknown",
+        "name": "../modules/metrics/index.js"
+      }
+    },
+    {
+      "key": "../modules/common/index.js",
+      "attributes": {
+        "type": "Unknown",
+        "name": "../modules/common/index.js"
+      }
+    },
+    {
+      "key": "chalk",
+      "attributes": {
+        "type": "Unknown",
+        "name": "chalk"
+      }
+    },
+    {
+      "key": "ora",
+      "attributes": {
+        "type": "Unknown",
+        "name": "ora"
+      }
+    },
+    {
+      "key": "inquirer",
+      "attributes": {
+        "type": "Unknown",
+        "name": "inquirer"
+      }
+    },
+    {
+      "key": "../service/index.js",
+      "attributes": {
+        "type": "Unknown",
+        "name": "../service/index.js"
+      }
+    },
+    {
+      "key": "../metrics/index.js",
+      "attributes": {
+        "type": "Unknown",
+        "name": "../metrics/index.js"
+      }
+    },
+    {
+      "key": "../common/index.js",
+      "attributes": {
+        "type": "Unknown",
+        "name": "../common/index.js"
+      }
+    },
+    {
+      "key": "Error",
+      "attributes": {
+        "type": "Unknown",
+        "name": "Error"
+      }
+    },
+    {
+      "key": "pino",
+      "attributes": {
+        "type": "Unknown",
+        "name": "pino"
+      }
+    },
+    {
+      "key": "./types.js",
+      "attributes": {
+        "type": "Unknown",
+        "name": "./types.js"
+      }
+    },
+    {
+      "key": "zod",
+      "attributes": {
+        "type": "Unknown",
+        "name": "zod"
+      }
+    },
+    {
+      "key": "crypto",
+      "attributes": {
+        "type": "Unknown",
+        "name": "crypto"
+      }
+    },
+    {
+      "key": "path",
+      "attributes": {
+        "type": "Unknown",
+        "name": "path"
+      }
+    },
+    {
+      "key": "./logger.js",
+      "attributes": {
+        "type": "Unknown",
+        "name": "./logger.js"
+      }
+    },
+    {
+      "key": "cosmiconfig",
+      "attributes": {
+        "type": "Unknown",
+        "name": "cosmiconfig"
+      }
+    },
+    {
+      "key": "graphology",
+      "attributes": {
+        "type": "Unknown",
+        "name": "graphology"
+      }
+    },
+    {
+      "key": "fs",
+      "attributes": {
+        "type": "Unknown",
+        "name": "fs"
+      }
+    },
+    {
+      "key": "ts-morph",
+      "attributes": {
+        "type": "Unknown",
+        "name": "ts-morph"
+      }
+    },
+    {
+      "key": "./complexity-calculator.js",
+      "attributes": {
+        "type": "Unknown",
+        "name": "./complexity-calculator.js"
+      }
+    },
+    {
+      "key": "./code-quality.js",
+      "attributes": {
+        "type": "Unknown",
+        "name": "./code-quality.js"
+      }
+    },
+    {
+      "key": "chokidar",
+      "attributes": {
+        "type": "Unknown",
+        "name": "chokidar"
+      }
+    },
+    {
+      "key": "./typescript-parser.js",
+      "attributes": {
+        "type": "Unknown",
+        "name": "./typescript-parser.js"
+      }
+    },
+    {
+      "key": "../graph/index.js",
+      "attributes": {
+        "type": "Unknown",
+        "name": "../graph/index.js"
+      }
+    },
+    {
+      "key": "../parser/index.js",
+      "attributes": {
+        "type": "Unknown",
+        "name": "../parser/index.js"
+      }
+    },
+    {
+      "key": "../query/index.js",
+      "attributes": {
+        "type": "Unknown",
+        "name": "../query/index.js"
+      }
+    },
+    {
+      "key": "../vector/index.js",
+      "attributes": {
+        "type": "Unknown",
+        "name": "../vector/index.js"
+      }
+    },
+    {
+      "key": "../config/index.js",
+      "attributes": {
+        "type": "Unknown",
+        "name": "../config/index.js"
+      }
+    },
+    {
+      "key": "vectra",
+      "attributes": {
+        "type": "Unknown",
+        "name": "vectra"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "key": "040281e0-50a5-43fd-9f2d-f839be827ded",
+      "source": "92ef4dfd-19eb-48b0-acc5-8c92e131ea74",
+      "target": "50e40253-6895-4f77-89a4-010a1350125a",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "301d9324-5c16-40df-b6e4-ea5e1a2c1a75",
+      "source": "92ef4dfd-19eb-48b0-acc5-8c92e131ea74",
+      "target": "commander",
+      "attributes": {
+        "type": "Imports",
+        "importedNames": [
+          "Command"
+        ],
+        "isDefaultImport": false,
+        "isNamespaceImport": false
+      }
+    },
+    {
+      "key": "e870b903-ea99-4da1-aa1b-fb980bc9631a",
+      "source": "92ef4dfd-19eb-48b0-acc5-8c92e131ea74",
+      "target": "../index.js",
+      "attributes": {
+        "type": "Imports",
+        "importedNames": [
+          "CodeGraphService"
+        ],
+        "isDefaultImport": false,
+        "isNamespaceImport": false
+      }
+    },
+    {
+      "key": "48a2b1f8-33d2-4332-834c-251ee29c79a2",
+      "source": "92ef4dfd-19eb-48b0-acc5-8c92e131ea74",
+      "target": "../modules/cli/index.js",
+      "attributes": {
+        "type": "Imports",
+        "importedNames": [
+          "InteractiveMode"
+        ],
+        "isDefaultImport": false,
+        "isNamespaceImport": false
+      }
+    },
+    {
+      "key": "4d067f5b-b958-4fe2-bfb9-e0fc14491dde",
+      "source": "92ef4dfd-19eb-48b0-acc5-8c92e131ea74",
+      "target": "../modules/metrics/index.js",
+      "attributes": {
+        "type": "Imports",
+        "importedNames": [
+          "MetricsAnalyzer"
+        ],
+        "isDefaultImport": false,
+        "isNamespaceImport": false
+      }
+    },
+    {
+      "key": "2b3071ff-e38f-4aa1-af46-3038d7538c72",
+      "source": "92ef4dfd-19eb-48b0-acc5-8c92e131ea74",
+      "target": "../modules/common/index.js",
+      "attributes": {
+        "type": "Imports",
+        "importedNames": [
+          "logger"
+        ],
+        "isDefaultImport": false,
+        "isNamespaceImport": false
+      }
+    },
+    {
+      "key": "e5486104-9cd8-4ec2-a39b-21a2b3c6104f",
+      "source": "92ef4dfd-19eb-48b0-acc5-8c92e131ea74",
+      "target": "chalk",
+      "attributes": {
+        "type": "Imports",
+        "importedNames": [
+          "chalk"
+        ],
+        "isDefaultImport": true,
+        "isNamespaceImport": false
+      }
+    },
+    {
+      "key": "6533e8cb-6119-4283-91db-969a397a4441",
+      "source": "92ef4dfd-19eb-48b0-acc5-8c92e131ea74",
+      "target": "ora",
+      "attributes": {
+        "type": "Imports",
+        "importedNames": [
+          "ora"
+        ],
+        "isDefaultImport": true,
+        "isNamespaceImport": false
+      }
+    },
+    {
+      "key": "78ef37ba-647f-4c3e-8574-6f32c4a7cd79",
+      "source": "92ef4dfd-19eb-48b0-acc5-8c92e131ea74",
+      "target": "../index.js",
+      "attributes": {
+        "type": "Imports",
+        "importedNames": [
+          "NodeType",
+          "SearchResult"
+        ],
+        "isDefaultImport": false,
+        "isNamespaceImport": false
+      }
+    },
+    {
+      "key": "c9aa2a99-8bbe-4f11-9c3f-1f96664c7f45",
+      "source": "2295a877-95e4-46fd-86dc-b0fd10fe74d5",
+      "target": "deaeb7b6-cf8a-4bb9-ac39-fd49362ab7d5",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "1f11187b-c3ab-457b-a600-7b327ff85330",
+      "source": "deaeb7b6-cf8a-4bb9-ac39-fd49362ab7d5",
+      "target": "e302bd76-5c5f-4cd2-8103-94ff9147e4b5",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "8c801296-ac05-4c11-8c12-12fc5e5a594a",
+      "source": "deaeb7b6-cf8a-4bb9-ac39-fd49362ab7d5",
+      "target": "7620403d-f86e-43d7-bf53-e6165721cfbd",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "d23c483c-b6ae-4fea-b89f-d5e824cafb77",
+      "source": "deaeb7b6-cf8a-4bb9-ac39-fd49362ab7d5",
+      "target": "9bf34a44-f297-4df5-8f2c-363013a8d530",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "967d0fb3-4dc4-4c74-9814-a34a3618d1f2",
+      "source": "deaeb7b6-cf8a-4bb9-ac39-fd49362ab7d5",
+      "target": "08f81369-5e1d-40f1-95f0-b482134e572d",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "df3fd5f0-a25e-476e-ba83-99a2c01a23c4",
+      "source": "deaeb7b6-cf8a-4bb9-ac39-fd49362ab7d5",
+      "target": "ecb6d77e-6a40-4bda-a37a-2810163b447a",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "bfc77480-8f03-497d-83ea-d4028506d397",
+      "source": "deaeb7b6-cf8a-4bb9-ac39-fd49362ab7d5",
+      "target": "3ed018b6-d855-4e86-bd3e-5b36202723c0",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "b6391faa-500c-4dab-bb14-42af5a65b304",
+      "source": "deaeb7b6-cf8a-4bb9-ac39-fd49362ab7d5",
+      "target": "681156fa-c024-43bb-ba4c-67c7a92e4e13",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "2b1d553d-de30-4457-8a41-a7676c82103c",
+      "source": "deaeb7b6-cf8a-4bb9-ac39-fd49362ab7d5",
+      "target": "af43f5ce-a16a-4b20-993a-6f71e5e66112",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "e225203c-599b-4000-b660-253e67d76cd6",
+      "source": "deaeb7b6-cf8a-4bb9-ac39-fd49362ab7d5",
+      "target": "ed22b3e1-3fe0-42d0-bef5-1f09657faa6f",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "c6ea2d40-b204-493f-863d-467813bd79f0",
+      "source": "deaeb7b6-cf8a-4bb9-ac39-fd49362ab7d5",
+      "target": "a210e208-0736-44e0-93d7-573bd2c0bdfb",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "b3fb641a-1917-44c1-8115-38508c4cd108",
+      "source": "deaeb7b6-cf8a-4bb9-ac39-fd49362ab7d5",
+      "target": "fa8af9fd-9003-45dc-a536-7b5060f92d85",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "f99e2fac-1206-4b8a-8760-3583dcc77664",
+      "source": "deaeb7b6-cf8a-4bb9-ac39-fd49362ab7d5",
+      "target": "8005c62b-69ca-457b-b3e2-f2986a6d3c07",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "0b0ff1ea-892b-44ce-afba-e63f4d3a3079",
+      "source": "deaeb7b6-cf8a-4bb9-ac39-fd49362ab7d5",
+      "target": "0ffea8a8-d845-4dd9-a6e5-5b7abb5152b2",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "0e197f89-d419-4b11-a223-5f30928e1a72",
+      "source": "deaeb7b6-cf8a-4bb9-ac39-fd49362ab7d5",
+      "target": "d077f06e-2d49-4e11-ad2c-c70cf3dcf7d5",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "7818d547-8448-42ae-994a-57abfadbc696",
+      "source": "deaeb7b6-cf8a-4bb9-ac39-fd49362ab7d5",
+      "target": "91cdef99-f6b8-4f76-b75c-17e436321a20",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "49001d6a-fec7-4de7-92a9-aa261f70c167",
+      "source": "2295a877-95e4-46fd-86dc-b0fd10fe74d5",
+      "target": "e8ce488d-a37c-4f13-a67e-551f59e94b8c",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "a930cad1-fe0f-4ddc-94ab-da88d44e8e1a",
+      "source": "2295a877-95e4-46fd-86dc-b0fd10fe74d5",
+      "target": "inquirer",
+      "attributes": {
+        "type": "Imports",
+        "importedNames": [
+          "inquirer"
+        ],
+        "isDefaultImport": true,
+        "isNamespaceImport": false
+      }
+    },
+    {
+      "key": "ae434bf2-0109-4366-828c-78b795f64747",
+      "source": "2295a877-95e4-46fd-86dc-b0fd10fe74d5",
+      "target": "chalk",
+      "attributes": {
+        "type": "Imports",
+        "importedNames": [
+          "chalk"
+        ],
+        "isDefaultImport": true,
+        "isNamespaceImport": false
+      }
+    },
+    {
+      "key": "1cc75d64-6aae-4dbf-9571-798a94eb0026",
+      "source": "2295a877-95e4-46fd-86dc-b0fd10fe74d5",
+      "target": "../service/index.js",
+      "attributes": {
+        "type": "Imports",
+        "importedNames": [
+          "CodeGraphService"
+        ],
+        "isDefaultImport": false,
+        "isNamespaceImport": false
+      }
+    },
+    {
+      "key": "9d6d353a-0796-4b6a-9cc9-9721d79f1dc4",
+      "source": "2295a877-95e4-46fd-86dc-b0fd10fe74d5",
+      "target": "../metrics/index.js",
+      "attributes": {
+        "type": "Imports",
+        "importedNames": [
+          "MetricsAnalyzer"
+        ],
+        "isDefaultImport": false,
+        "isNamespaceImport": false
+      }
+    },
+    {
+      "key": "6b5d17da-c17d-40d2-a4d4-7132c0ccbac6",
+      "source": "2295a877-95e4-46fd-86dc-b0fd10fe74d5",
+      "target": "../common/index.js",
+      "attributes": {
+        "type": "Imports",
+        "importedNames": [
+          "SearchResult"
+        ],
+        "isDefaultImport": false,
+        "isNamespaceImport": false
+      }
+    },
+    {
+      "key": "cab9cbd8-9e37-4532-a2c7-6d7127ebc7dd",
+      "source": "3ab24f38-83ca-41a3-ba99-def9fb261540",
+      "target": "948ed943-5115-44b1-a2b2-11abe5f19606",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "3c6a1394-b150-45d4-8218-b7190fac4cf5",
+      "source": "948ed943-5115-44b1-a2b2-11abe5f19606",
+      "target": "Error",
+      "attributes": {
+        "type": "Extends"
+      }
+    },
+    {
+      "key": "ffed0fcd-abbb-4c77-9827-3a4a780e7b6a",
+      "source": "948ed943-5115-44b1-a2b2-11abe5f19606",
+      "target": "92121d94-805f-4d69-9566-72fa0ddea900",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "c5d39f96-3042-4a0a-8a35-daadea8f489b",
+      "source": "3ab24f38-83ca-41a3-ba99-def9fb261540",
+      "target": "b0437f8b-2891-40f0-91b4-3f08833febe1",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "15de1245-0e08-422e-99f9-44271a961269",
+      "source": "b0437f8b-2891-40f0-91b4-3f08833febe1",
+      "target": "948ed943-5115-44b1-a2b2-11abe5f19606",
+      "attributes": {
+        "type": "Extends"
+      }
+    },
+    {
+      "key": "2690315e-2c24-40d8-8d9d-ef3f0810fe2f",
+      "source": "3ab24f38-83ca-41a3-ba99-def9fb261540",
+      "target": "1a2c65a7-6088-4720-9a51-3e72421e6580",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "5dc9235f-5dbc-45fc-8a8d-46108ba0b98f",
+      "source": "1a2c65a7-6088-4720-9a51-3e72421e6580",
+      "target": "948ed943-5115-44b1-a2b2-11abe5f19606",
+      "attributes": {
+        "type": "Extends"
+      }
+    },
+    {
+      "key": "49408609-a49c-49c2-a5db-20812417bac6",
+      "source": "3ab24f38-83ca-41a3-ba99-def9fb261540",
+      "target": "09316d20-6aa7-4398-bceb-f76db87e379d",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "950513c6-9f33-41f9-80b4-21c22953bfc4",
+      "source": "09316d20-6aa7-4398-bceb-f76db87e379d",
+      "target": "948ed943-5115-44b1-a2b2-11abe5f19606",
+      "attributes": {
+        "type": "Extends"
+      }
+    },
+    {
+      "key": "64379ae9-a995-4ceb-bbaf-371280ab1a96",
+      "source": "3ab24f38-83ca-41a3-ba99-def9fb261540",
+      "target": "8a301852-e9f4-43d1-856c-a6a8d31e4137",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "146d5103-59b9-4d97-8f0d-35b9b8ba587a",
+      "source": "8a301852-e9f4-43d1-856c-a6a8d31e4137",
+      "target": "948ed943-5115-44b1-a2b2-11abe5f19606",
+      "attributes": {
+        "type": "Extends"
+      }
+    },
+    {
+      "key": "d2dbfd8b-17d5-4f43-bba4-9db64dc86db8",
+      "source": "3ab24f38-83ca-41a3-ba99-def9fb261540",
+      "target": "4c7491e2-98fb-4850-b83c-e1e84ffe645d",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "c69b806d-761c-49e4-bae9-f3a55e3aa40b",
+      "source": "4c7491e2-98fb-4850-b83c-e1e84ffe645d",
+      "target": "948ed943-5115-44b1-a2b2-11abe5f19606",
+      "attributes": {
+        "type": "Extends"
+      }
+    },
+    {
+      "key": "b06deb47-fa75-44fe-9830-fd8ad9a848f1",
+      "source": "61c13ab8-ce4a-4426-baf7-4a1e1c557eb2",
+      "target": "748a2a0b-7149-41b3-8efb-13a34f28288e",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "fb8a9517-64b6-4cc7-be54-d62b805b9a6d",
+      "source": "748a2a0b-7149-41b3-8efb-13a34f28288e",
+      "target": "da49266f-e774-4adf-830a-0b92ef5ffb20",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "038dab05-71bb-4cec-acc0-4aaeb916707f",
+      "source": "748a2a0b-7149-41b3-8efb-13a34f28288e",
+      "target": "1ac2875c-5122-4e41-83a4-aea90660857f",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "c55ebc65-7be3-4a73-9d66-f75d67ba351c",
+      "source": "748a2a0b-7149-41b3-8efb-13a34f28288e",
+      "target": "6ca99c2d-2156-4838-a2bf-fbb4b7c94999",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "e335a7a0-a1a4-4acc-b86a-09fe1e068447",
+      "source": "748a2a0b-7149-41b3-8efb-13a34f28288e",
+      "target": "444ef213-40e6-46d0-9bf2-89cb463c643e",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "ee828055-de20-4317-a414-1fb94b8788db",
+      "source": "748a2a0b-7149-41b3-8efb-13a34f28288e",
+      "target": "46472308-04dc-4ad2-a7ac-88ec3c2f8d7a",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "a8461592-feb1-41c4-a992-c03a849dcfa5",
+      "source": "748a2a0b-7149-41b3-8efb-13a34f28288e",
+      "target": "a5a92b9a-b4da-44f8-ac71-a9b321178b0c",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "bf20b131-1a6e-4525-bbd5-efabda686340",
+      "source": "748a2a0b-7149-41b3-8efb-13a34f28288e",
+      "target": "a738db69-3cc8-4d32-9917-530fca099823",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "60060dda-9d03-48b6-904e-2f52d51393dd",
+      "source": "748a2a0b-7149-41b3-8efb-13a34f28288e",
+      "target": "69fece57-67fd-4293-adee-eb0b6da553b0",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "6164bf00-066e-4e0d-a636-f5ea3ee1e259",
+      "source": "61c13ab8-ce4a-4426-baf7-4a1e1c557eb2",
+      "target": "9ffc60c2-85eb-4a0a-a521-56f917093336",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "15ecc9af-eaa6-48c5-afee-60a9871d1f01",
+      "source": "61c13ab8-ce4a-4426-baf7-4a1e1c557eb2",
+      "target": "pino",
+      "attributes": {
+        "type": "Imports",
+        "importedNames": [
+          "pino"
+        ],
+        "isDefaultImport": false,
+        "isNamespaceImport": true
+      }
+    },
+    {
+      "key": "eaa20d30-97f1-4c92-aa06-cd6457be5a23",
+      "source": "61c13ab8-ce4a-4426-baf7-4a1e1c557eb2",
+      "target": "./types.js",
+      "attributes": {
+        "type": "Imports",
+        "importedNames": [
+          "Config"
+        ],
+        "isDefaultImport": false,
+        "isNamespaceImport": false
+      }
+    },
+    {
+      "key": "25fba2f0-c987-4053-917e-e3fe96deea12",
+      "source": "6ee4ea55-7b5f-42e7-8f76-eb4a06446a11",
+      "target": "1d8b3bb6-db32-4c2b-93e2-ae893e024bf3",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "fd663036-523b-4d87-b10c-265e4fe6d836",
+      "source": "6ee4ea55-7b5f-42e7-8f76-eb4a06446a11",
+      "target": "0465fc9d-1e5b-43ef-8e9a-f5cd597de72c",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "189e4d17-fd3d-4af8-9b0b-465992efad6b",
+      "source": "6ee4ea55-7b5f-42e7-8f76-eb4a06446a11",
+      "target": "e088db8f-608f-4a01-bfd7-d729e2ae6518",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "30df33e1-d22a-46e6-8146-b9addf105002",
+      "source": "6ee4ea55-7b5f-42e7-8f76-eb4a06446a11",
+      "target": "4d66a38b-e21e-4dab-ab75-1716b38ba440",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "5d4b8bab-5ab7-40e0-9c4d-7cc9f398de11",
+      "source": "6ee4ea55-7b5f-42e7-8f76-eb4a06446a11",
+      "target": "7f2a5469-3d07-433f-9559-a9c32bc8bc39",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "0a32cf5e-4f66-4c69-a50d-9e8a86f483ff",
+      "source": "6ee4ea55-7b5f-42e7-8f76-eb4a06446a11",
+      "target": "56eb5fef-3e18-4bf4-b2c7-176d0c6240ea",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "47c10df3-deb0-4a0d-a170-ac5654303c6f",
+      "source": "6ee4ea55-7b5f-42e7-8f76-eb4a06446a11",
+      "target": "12d06e99-5bdc-41dc-a4fa-1cbee6882a19",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "1ea9417f-c4b8-4313-92f8-c181efbd40df",
+      "source": "6ee4ea55-7b5f-42e7-8f76-eb4a06446a11",
+      "target": "050b09ce-4235-4bb4-8128-1404649a07db",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "eb53cf93-2e40-4f9d-96ce-49767e47944f",
+      "source": "6ee4ea55-7b5f-42e7-8f76-eb4a06446a11",
+      "target": "bbf3d48f-0ca0-4f60-a9f5-dd552544b8eb",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "b23ee8c1-9710-4ee7-857e-99bc96b631e2",
+      "source": "6ee4ea55-7b5f-42e7-8f76-eb4a06446a11",
+      "target": "0cb0e5e8-dc36-45e3-ad91-90f9c2e3a7c6",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "5adaa88a-8806-4752-871d-a0fad6431972",
+      "source": "6ee4ea55-7b5f-42e7-8f76-eb4a06446a11",
+      "target": "b87287d8-eea4-4ef4-ab2e-9843f31b54a3",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "7eee5550-7ab8-4a20-a185-60339afd8863",
+      "source": "6ee4ea55-7b5f-42e7-8f76-eb4a06446a11",
+      "target": "fba17f41-26d5-4efa-8c96-e43237890aa5",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "e8e0d7fa-db00-4167-8ad4-57d9859e34f7",
+      "source": "6ee4ea55-7b5f-42e7-8f76-eb4a06446a11",
+      "target": "2b2629b8-883f-48ef-b002-7ccfef0fedb7",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "6829d831-383d-45bf-8e33-a148b1b589c7",
+      "source": "6ee4ea55-7b5f-42e7-8f76-eb4a06446a11",
+      "target": "f8f7841e-9177-40b2-b4a2-0607d7de35f5",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "3d63d7b4-dbd8-4854-a217-f00ff6e982b5",
+      "source": "6ee4ea55-7b5f-42e7-8f76-eb4a06446a11",
+      "target": "17df537c-8eba-4f28-b6a9-83c46da709b9",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "c684fce3-2150-49f8-9462-167c696fa9c4",
+      "source": "6ee4ea55-7b5f-42e7-8f76-eb4a06446a11",
+      "target": "bfc3b0a2-84f5-4f10-892b-555e555e832d",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "ac93b087-d396-4306-9b9e-d875456b72ba",
+      "source": "6ee4ea55-7b5f-42e7-8f76-eb4a06446a11",
+      "target": "aa01d19e-e6d0-473d-9b3f-75d69c9baae3",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "f792181a-179a-42b4-942a-9c51288ef91f",
+      "source": "6ee4ea55-7b5f-42e7-8f76-eb4a06446a11",
+      "target": "951080b9-77c2-43eb-b161-ff494218c3dc",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "f2ee2ddc-e1f7-4e02-a5cc-74ed3b4d7a0d",
+      "source": "6ee4ea55-7b5f-42e7-8f76-eb4a06446a11",
+      "target": "b0d28d64-99e0-417e-ab46-9745f140916b",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "f65c7f2b-c7ae-42b4-9740-ee38979eaaa7",
+      "source": "6ee4ea55-7b5f-42e7-8f76-eb4a06446a11",
+      "target": "95de6182-9eb8-455d-81ff-4b6cf749189d",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "eb2e79b9-7d68-4e7e-9306-3d46b6294aa7",
+      "source": "6ee4ea55-7b5f-42e7-8f76-eb4a06446a11",
+      "target": "ffc6450f-e0c5-4121-8bf5-fd7a152ae707",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "32d6c096-841f-4fca-a1be-f1d62a5c2943",
+      "source": "6ee4ea55-7b5f-42e7-8f76-eb4a06446a11",
+      "target": "6ce5312d-f0f1-4415-b0e6-293e54e4ee4c",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "5a23fc65-c726-4048-85a1-975f1fe24c78",
+      "source": "6ee4ea55-7b5f-42e7-8f76-eb4a06446a11",
+      "target": "e6e14106-7715-4c93-954e-3d71477ed5ab",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "7ff8d354-68a0-43c5-9dd2-8fa7c16fd63f",
+      "source": "6ee4ea55-7b5f-42e7-8f76-eb4a06446a11",
+      "target": "82dda739-8f66-43d7-8ac9-3f71835fdd70",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "0e3534ca-0693-4acb-9b34-4e8b47cb14c0",
+      "source": "6ee4ea55-7b5f-42e7-8f76-eb4a06446a11",
+      "target": "zod",
+      "attributes": {
+        "type": "Imports",
+        "importedNames": [
+          "z"
+        ],
+        "isDefaultImport": false,
+        "isNamespaceImport": false
+      }
+    },
+    {
+      "key": "0f35dce9-38ae-4b73-88eb-d297b67f76fb",
+      "source": "4368c9d7-a777-4372-8092-7805dc0f2da6",
+      "target": "0c0b9219-2a07-4d98-b25a-abe0238d844a",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "9b4715f8-1610-40a2-9089-dbd5870650d4",
+      "source": "4368c9d7-a777-4372-8092-7805dc0f2da6",
+      "target": "4d076754-1ae8-42c2-836b-d10bf62c8181",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "80961243-56dc-4516-8799-ab4e1293f6a5",
+      "source": "4368c9d7-a777-4372-8092-7805dc0f2da6",
+      "target": "3091bbb8-5c31-4ab8-8416-99a5927d5363",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "329b5988-51f8-406c-a64d-d9d05630561c",
+      "source": "4368c9d7-a777-4372-8092-7805dc0f2da6",
+      "target": "9c85bbc6-3d56-42c9-a562-be146280df47",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "ae408e29-3720-455a-a62e-c045e579d835",
+      "source": "4368c9d7-a777-4372-8092-7805dc0f2da6",
+      "target": "dfe08e90-6dc9-4607-953f-624644805c3a",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "93c16259-e057-4211-92a7-1f06161f65a3",
+      "source": "4368c9d7-a777-4372-8092-7805dc0f2da6",
+      "target": "e690212c-2cd6-4e10-97f0-ce03af08e095",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "4ddedf7d-8ef7-45f2-876e-b3edc06b0074",
+      "source": "4368c9d7-a777-4372-8092-7805dc0f2da6",
+      "target": "7f6db32a-136d-4b4b-bea1-8b114d49cf79",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "e030e742-06b7-476f-8e2c-1036c97ae71e",
+      "source": "4368c9d7-a777-4372-8092-7805dc0f2da6",
+      "target": "235f27ff-ad85-44f4-a04a-bce59ac119d5",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "5bf4874f-0f58-481b-887f-3b6479f8067f",
+      "source": "4368c9d7-a777-4372-8092-7805dc0f2da6",
+      "target": "80075ecc-088a-4176-8db5-813b459abbad",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "380246a3-ad3f-4c8a-aab8-8643a66b3997",
+      "source": "4368c9d7-a777-4372-8092-7805dc0f2da6",
+      "target": "crypto",
+      "attributes": {
+        "type": "Imports",
+        "importedNames": [
+          "crypto"
+        ],
+        "isDefaultImport": false,
+        "isNamespaceImport": true
+      }
+    },
+    {
+      "key": "f03debc1-f945-4855-b60d-c91c0a1a0acf",
+      "source": "4368c9d7-a777-4372-8092-7805dc0f2da6",
+      "target": "path",
+      "attributes": {
+        "type": "Imports",
+        "importedNames": [
+          "path"
+        ],
+        "isDefaultImport": false,
+        "isNamespaceImport": true
+      }
+    },
+    {
+      "key": "a1f82ea1-a005-4208-a3ef-e33157502947",
+      "source": "4368c9d7-a777-4372-8092-7805dc0f2da6",
+      "target": "./logger.js",
+      "attributes": {
+        "type": "Imports",
+        "importedNames": [
+          "logger"
+        ],
+        "isDefaultImport": false,
+        "isNamespaceImport": false
+      }
+    },
+    {
+      "key": "5a93a9c4-203b-4ee2-8685-148bf124979c",
+      "source": "3b3616ab-66eb-4d09-893d-dbc8d69ff7db",
+      "target": "26181917-e81a-4a67-937c-786b38ff8909",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "0a95cba4-f8a0-4bab-a351-2f89d475b8db",
+      "source": "26181917-e81a-4a67-937c-786b38ff8909",
+      "target": "c571b8c7-5ba5-451e-a035-443ebbeb5d04",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "6d28bc5e-fbb8-4a32-8654-e113059ed692",
+      "source": "26181917-e81a-4a67-937c-786b38ff8909",
+      "target": "962f9de3-cc35-4e19-82d2-32a742b4f89f",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "9b85525b-0564-44f9-9eb0-9e42a6d0b394",
+      "source": "26181917-e81a-4a67-937c-786b38ff8909",
+      "target": "af102e06-e43e-439a-80e9-1ce6c2e5b10e",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "f4e1345c-412c-4a99-b574-07cd0ff0ab17",
+      "source": "26181917-e81a-4a67-937c-786b38ff8909",
+      "target": "2bee995b-230e-4559-8ef8-6ad956620ae6",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "8c36e3a7-09bf-479f-a60a-f52427f621c3",
+      "source": "26181917-e81a-4a67-937c-786b38ff8909",
+      "target": "9cc9f583-c818-4a80-b29b-67d5528e5bae",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "edfbb508-28ed-4202-a4e9-d000315466fb",
+      "source": "3b3616ab-66eb-4d09-893d-dbc8d69ff7db",
+      "target": "7a421e37-7314-4398-854f-7a68f9024a34",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "417644c5-8cf0-4bf0-953c-6d1dd1bee5ba",
+      "source": "3b3616ab-66eb-4d09-893d-dbc8d69ff7db",
+      "target": "7a054bde-b21e-43b9-9f77-8c2f89be6656",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "9fe59952-16e1-4819-9b69-e8a7c0716fc6",
+      "source": "3b3616ab-66eb-4d09-893d-dbc8d69ff7db",
+      "target": "cosmiconfig",
+      "attributes": {
+        "type": "Imports",
+        "importedNames": [
+          "cosmiconfig"
+        ],
+        "isDefaultImport": false,
+        "isNamespaceImport": false
+      }
+    },
+    {
+      "key": "08bfbdd3-5a75-425b-a56e-8569995facc3",
+      "source": "3b3616ab-66eb-4d09-893d-dbc8d69ff7db",
+      "target": "../common/index.js",
+      "attributes": {
+        "type": "Imports",
+        "importedNames": [
+          "Config",
+          "ConfigSchema",
+          "ConfigError"
+        ],
+        "isDefaultImport": false,
+        "isNamespaceImport": false
+      }
+    },
+    {
+      "key": "0272f99a-aaa5-461f-9278-ac5d38d1686c",
+      "source": "3b3616ab-66eb-4d09-893d-dbc8d69ff7db",
+      "target": "../common/index.js",
+      "attributes": {
+        "type": "Imports",
+        "importedNames": [
+          "logger"
+        ],
+        "isDefaultImport": false,
+        "isNamespaceImport": false
+      }
+    },
+    {
+      "key": "6053d9ad-6cca-4133-a969-f2f1f3d04e57",
+      "source": "ad5b26af-75f6-47ca-bbd7-34a880cf7745",
+      "target": "803d8ea1-d076-4d1a-a902-bba991075ac2",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "a3062858-001c-4e1f-9655-763de796a0ee",
+      "source": "803d8ea1-d076-4d1a-a902-bba991075ac2",
+      "target": "1d60bc4c-8585-4283-a617-8f0138c36715",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "b6093421-06de-40f6-a0da-4fc40f7305e4",
+      "source": "803d8ea1-d076-4d1a-a902-bba991075ac2",
+      "target": "f0c39d04-8e25-4e26-8412-6bfbe929437c",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "a599bcd9-77fe-4a66-9de7-6ab0f59ef681",
+      "source": "803d8ea1-d076-4d1a-a902-bba991075ac2",
+      "target": "479ea4a9-81b6-4e66-8a2a-70f5737d2896",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "d95de4bb-e264-40bf-86d7-6017a78a9d74",
+      "source": "803d8ea1-d076-4d1a-a902-bba991075ac2",
+      "target": "00e11561-5c49-470b-a0a6-80630c72c5ef",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "557f2dd9-1a62-40a6-ad71-81ca73d7b62c",
+      "source": "803d8ea1-d076-4d1a-a902-bba991075ac2",
+      "target": "8d787eb2-f8d6-4ab4-8087-fcb2e197ab44",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "393f0f12-f4de-4974-b7ba-0bc9ee80288b",
+      "source": "803d8ea1-d076-4d1a-a902-bba991075ac2",
+      "target": "b42a9c0b-301f-4636-93b4-c9becf11d962",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "e48f8e9a-ba1c-4171-9e96-bd2a9f65b3b9",
+      "source": "803d8ea1-d076-4d1a-a902-bba991075ac2",
+      "target": "5ee157a5-7667-4a70-8048-fb9d795c9c1b",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "8892c8c4-cabf-40a6-a0d8-17d58ef593a1",
+      "source": "803d8ea1-d076-4d1a-a902-bba991075ac2",
+      "target": "5d1d1e7e-ee7f-47c4-8c31-b3fa2351cdb3",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "f91e4a51-b743-4db9-ac53-0c028f3a7c10",
+      "source": "803d8ea1-d076-4d1a-a902-bba991075ac2",
+      "target": "7d96af51-aff7-4a7c-93b3-ec9cdcb193e0",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "a760b513-c227-4fbb-abec-6e63af27b028",
+      "source": "803d8ea1-d076-4d1a-a902-bba991075ac2",
+      "target": "66132f70-33f9-4ce4-8cac-8b3dd915dff1",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "a66d5b0d-6d02-4c39-845c-81ada8a5d6a9",
+      "source": "803d8ea1-d076-4d1a-a902-bba991075ac2",
+      "target": "4e38ef71-1514-497e-8b5e-b76e9384d36f",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "45318ca2-e514-4b57-bc61-866ccf3952e1",
+      "source": "803d8ea1-d076-4d1a-a902-bba991075ac2",
+      "target": "7b4cf127-92e9-4828-86e4-7c8f7b7ef38c",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "1eeebcc7-17e6-45fa-8ec9-dc5b50b5b4fa",
+      "source": "803d8ea1-d076-4d1a-a902-bba991075ac2",
+      "target": "f65802b9-20ed-481a-9a22-a3432d31be5d",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "49549ff7-d74e-40f4-a860-aa03bcc7f017",
+      "source": "803d8ea1-d076-4d1a-a902-bba991075ac2",
+      "target": "26226bf8-1d90-45f5-bce2-ae7b012ff5fb",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "3e348792-f304-4424-8132-41fe929295c7",
+      "source": "ad5b26af-75f6-47ca-bbd7-34a880cf7745",
+      "target": "0b225d5b-7e4b-463d-896d-fea3ed0328ee",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "d47da6f2-4b35-40d7-88c0-c01592d7249b",
+      "source": "ad5b26af-75f6-47ca-bbd7-34a880cf7745",
+      "target": "graphology",
+      "attributes": {
+        "type": "Imports",
+        "importedNames": [
+          "Graphology"
+        ],
+        "isDefaultImport": true,
+        "isNamespaceImport": false
+      }
+    },
+    {
+      "key": "421f6ffc-3e6c-4f1e-8d8d-349c1baae8f1",
+      "source": "ad5b26af-75f6-47ca-bbd7-34a880cf7745",
+      "target": "../common/index.js",
+      "attributes": {
+        "type": "Imports",
+        "importedNames": [
+          "NodeData",
+          "RelationData",
+          "NodeType",
+          "RelationType",
+          "GraphStats",
+          "logger",
+          "GraphError"
+        ],
+        "isDefaultImport": false,
+        "isNamespaceImport": false
+      }
+    },
+    {
+      "key": "dbd03c6a-88a8-422d-9038-01ac04cf55b5",
+      "source": "ad5b26af-75f6-47ca-bbd7-34a880cf7745",
+      "target": "fs",
+      "attributes": {
+        "type": "Imports",
+        "importedNames": [
+          "fs"
+        ],
+        "isDefaultImport": false,
+        "isNamespaceImport": true
+      }
+    },
+    {
+      "key": "b2f72f5c-3eeb-43c2-a511-258caca5148f",
+      "source": "ad5b26af-75f6-47ca-bbd7-34a880cf7745",
+      "target": "path",
+      "attributes": {
+        "type": "Imports",
+        "importedNames": [
+          "path"
+        ],
+        "isDefaultImport": false,
+        "isNamespaceImport": true
+      }
+    },
+    {
+      "key": "f59d4def-4911-4187-bb4a-9bbab2deb177",
+      "source": "e9b51672-7566-4231-9a5b-4907fc61e9de",
+      "target": "85f4bf7c-5a72-41e1-a11f-8be16d33cc30",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "41b0935a-5787-469a-a3c4-0052e7357e15",
+      "source": "85f4bf7c-5a72-41e1-a11f-8be16d33cc30",
+      "target": "1e6a34cb-09d6-4739-b5aa-59df5bc5b6f6",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "6f4e6781-9cb6-403b-8cd5-b267dd0a0372",
+      "source": "85f4bf7c-5a72-41e1-a11f-8be16d33cc30",
+      "target": "182c2a35-9b14-439a-a031-3b3f384a17e0",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "386a2663-fd95-4c93-9383-66570a5fba4e",
+      "source": "85f4bf7c-5a72-41e1-a11f-8be16d33cc30",
+      "target": "5332e93f-e195-40c7-9525-9fbe584f4602",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "23104d3d-0070-46aa-860a-cee8102de4e3",
+      "source": "85f4bf7c-5a72-41e1-a11f-8be16d33cc30",
+      "target": "4fb26564-6e23-466d-80ee-1ba64000b95a",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "98ce8d28-526b-4881-b256-6023cdbaa7c4",
+      "source": "85f4bf7c-5a72-41e1-a11f-8be16d33cc30",
+      "target": "45a24b25-6392-4d34-b529-a07cc4f0ca0d",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "f4eaf154-ba13-49c2-a85c-c5263d608e65",
+      "source": "85f4bf7c-5a72-41e1-a11f-8be16d33cc30",
+      "target": "916fa1e5-66da-45e8-a939-f359ff4a9b88",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "07d1d29c-5037-45a9-afda-7c1495d8ccf3",
+      "source": "85f4bf7c-5a72-41e1-a11f-8be16d33cc30",
+      "target": "5bc3b739-b276-428d-9e17-5ece77371e8f",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "e7064836-3070-417b-b589-942295f06710",
+      "source": "85f4bf7c-5a72-41e1-a11f-8be16d33cc30",
+      "target": "4d498179-827f-4196-a7c9-d239fb708ed7",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "9d3d71bd-01da-47fc-a0f0-1a4df4017083",
+      "source": "e9b51672-7566-4231-9a5b-4907fc61e9de",
+      "target": "fb1fab80-6e85-46a1-867a-2be967d57865",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "e11d82b4-1a43-4c6d-87ff-9515a48f68e6",
+      "source": "e9b51672-7566-4231-9a5b-4907fc61e9de",
+      "target": "4813247b-0e3c-4bc7-ba99-5337e96936ad",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "e1a543ce-032e-4d3d-bfcf-aa8e2301ad0a",
+      "source": "34e9aa94-0140-4268-9231-75137b374008",
+      "target": "3c0fa2d2-e710-43cd-b8e4-de89952d6a22",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "c30d2502-4f23-4958-987d-5df71f05aeda",
+      "source": "3c0fa2d2-e710-43cd-b8e4-de89952d6a22",
+      "target": "1f5a9c43-d5f7-4994-9cb1-1b94d65dbd50",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "05778416-81b9-412e-b355-db635686b641",
+      "source": "3c0fa2d2-e710-43cd-b8e4-de89952d6a22",
+      "target": "fa410794-7c2b-474e-99e0-508e860f6863",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "679b4f45-c957-41e3-bae5-0e8d8956109c",
+      "source": "3c0fa2d2-e710-43cd-b8e4-de89952d6a22",
+      "target": "d8d7c781-510c-4bf0-a504-c9cb5ba3a093",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "2f690917-8a73-436d-9eae-99cad502953b",
+      "source": "3c0fa2d2-e710-43cd-b8e4-de89952d6a22",
+      "target": "03ecabfa-0a7e-4393-ad73-6157577d9a5f",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "53932e33-7fc4-485b-85f3-8347a1f7a59a",
+      "source": "3c0fa2d2-e710-43cd-b8e4-de89952d6a22",
+      "target": "a94dbac7-1345-4f17-8ab5-8912333b7fa2",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "f01eba60-a717-4115-a5f5-2fdd1e039398",
+      "source": "34e9aa94-0140-4268-9231-75137b374008",
+      "target": "9d31a7e2-e37a-4fc3-9a34-f2aaa313b475",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "a7e43e49-58e0-4f6d-b3c1-ff7ef2be490e",
+      "source": "34e9aa94-0140-4268-9231-75137b374008",
+      "target": "bf248453-7ade-46c9-8ce8-d4cfb9821495",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "94508910-3abb-4e97-afe3-85c34d9b84bc",
+      "source": "8290c110-ade9-43f1-b5fc-451a66cb45f1",
+      "target": "ceffb217-9c61-4db5-b053-570c71fefba9",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "744bd75c-e572-4c1e-8935-32f4ecffb1dc",
+      "source": "ceffb217-9c61-4db5-b053-570c71fefba9",
+      "target": "8392f44b-8333-4217-8d9c-959c16383ef3",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "f0b691d9-1b9e-4e0b-8876-a394674c60f0",
+      "source": "ceffb217-9c61-4db5-b053-570c71fefba9",
+      "target": "9dd194e1-3488-45ef-8764-dfedb6933216",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "3655d076-0dc4-4a27-b7b6-380762630dda",
+      "source": "ceffb217-9c61-4db5-b053-570c71fefba9",
+      "target": "e511b2b7-606b-4783-814e-f028f6c7ab7e",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "66e257fe-33e4-4180-b9a9-cf6786410df1",
+      "source": "ceffb217-9c61-4db5-b053-570c71fefba9",
+      "target": "7709a346-e789-48b9-b3e7-b0fffa44f3d5",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "86d83bd3-bcf8-4864-a139-9eeff17c1f6a",
+      "source": "ceffb217-9c61-4db5-b053-570c71fefba9",
+      "target": "7c4ed3b2-3a24-4ab9-92fe-549f55e85b6d",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "74e6a3d8-3606-4044-8169-5650cbe4cbb2",
+      "source": "ceffb217-9c61-4db5-b053-570c71fefba9",
+      "target": "e78f43f7-3d03-4303-9bd0-ee5b1308dcfd",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "2278e6dc-e8be-4547-829c-b1cf3fcfbf12",
+      "source": "8290c110-ade9-43f1-b5fc-451a66cb45f1",
+      "target": "3a29caf9-d2e6-4427-97d2-2bab7c7dc94d",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "93f2876a-d76d-4cf5-b400-90ed057ed707",
+      "source": "8290c110-ade9-43f1-b5fc-451a66cb45f1",
+      "target": "ts-morph",
+      "attributes": {
+        "type": "Imports",
+        "importedNames": [
+          "Project"
+        ],
+        "isDefaultImport": false,
+        "isNamespaceImport": false
+      }
+    },
+    {
+      "key": "91acdd71-81b9-4f1b-974e-ac0fec5a0d9d",
+      "source": "8290c110-ade9-43f1-b5fc-451a66cb45f1",
+      "target": "./complexity-calculator.js",
+      "attributes": {
+        "type": "Imports",
+        "importedNames": [
+          "ComplexityCalculator"
+        ],
+        "isDefaultImport": false,
+        "isNamespaceImport": false
+      }
+    },
+    {
+      "key": "0a26ee14-b989-424b-a1f1-f5c742f7bc9e",
+      "source": "8290c110-ade9-43f1-b5fc-451a66cb45f1",
+      "target": "./code-quality.js",
+      "attributes": {
+        "type": "Imports",
+        "importedNames": [
+          "CodeQualityAnalyzer"
+        ],
+        "isDefaultImport": false,
+        "isNamespaceImport": false
+      }
+    },
+    {
+      "key": "ad4ccb9d-70dc-40a5-8368-0e57a0064bef",
+      "source": "8290c110-ade9-43f1-b5fc-451a66cb45f1",
+      "target": "../common/index.js",
+      "attributes": {
+        "type": "Imports",
+        "importedNames": [
+          "logger"
+        ],
+        "isDefaultImport": false,
+        "isNamespaceImport": false
+      }
+    },
+    {
+      "key": "8f856f00-fe86-425f-8367-a14b3639896b",
+      "source": "dd70df82-f6f9-4704-84a2-9768d54358d0",
+      "target": "60e2f48f-58ca-40dd-9718-18d31e6ca43d",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "24c99271-3699-4bba-be16-2ffd79e8adc7",
+      "source": "60e2f48f-58ca-40dd-9718-18d31e6ca43d",
+      "target": "071a403e-aa0a-424d-b3ee-8e58edbb8be0",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "0f1f9f43-705c-47b0-ad3b-0073fb01ef12",
+      "source": "60e2f48f-58ca-40dd-9718-18d31e6ca43d",
+      "target": "ea3f8d1b-22b5-4385-9af5-ecfb5a88c5e2",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "57c85c38-f504-43ba-af20-2cadc10d0898",
+      "source": "60e2f48f-58ca-40dd-9718-18d31e6ca43d",
+      "target": "6ca9f87b-a826-4158-a886-b3417eadedc9",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "4f2db8a5-a182-4283-948e-7a5232a6fd30",
+      "source": "60e2f48f-58ca-40dd-9718-18d31e6ca43d",
+      "target": "1311d30a-701a-49ee-9f53-50659e32fe1b",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "848db1cc-4220-4f0d-8b73-efdeadc52aad",
+      "source": "60e2f48f-58ca-40dd-9718-18d31e6ca43d",
+      "target": "f98f3422-531c-4a51-8e32-4c53628bff8f",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "0633c064-f382-4711-9dac-9d3b26926216",
+      "source": "60e2f48f-58ca-40dd-9718-18d31e6ca43d",
+      "target": "6b31d06d-5864-40da-b61f-cf70a1f5cb07",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "9fb602e8-3a57-444e-9266-86e870ae7ec5",
+      "source": "60e2f48f-58ca-40dd-9718-18d31e6ca43d",
+      "target": "39e77089-fcd3-49ec-b8dd-fa0658e3b8f8",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "773f63f0-3392-4119-8332-824f208fb152",
+      "source": "dd70df82-f6f9-4704-84a2-9768d54358d0",
+      "target": "009fc2f1-9e58-4dd4-9534-482bbdff1cda",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "877f8720-bba7-4502-a7a5-57c8f335de20",
+      "source": "dd70df82-f6f9-4704-84a2-9768d54358d0",
+      "target": "fs",
+      "attributes": {
+        "type": "Imports",
+        "importedNames": [
+          "fs"
+        ],
+        "isDefaultImport": false,
+        "isNamespaceImport": true
+      }
+    },
+    {
+      "key": "5496f3b3-7d02-464c-a7d1-71dee0b65c10",
+      "source": "dd70df82-f6f9-4704-84a2-9768d54358d0",
+      "target": "path",
+      "attributes": {
+        "type": "Imports",
+        "importedNames": [
+          "path"
+        ],
+        "isDefaultImport": false,
+        "isNamespaceImport": true
+      }
+    },
+    {
+      "key": "3730e917-828d-4679-b0aa-75d344e80256",
+      "source": "dd70df82-f6f9-4704-84a2-9768d54358d0",
+      "target": "crypto",
+      "attributes": {
+        "type": "Imports",
+        "importedNames": [
+          "crypto"
+        ],
+        "isDefaultImport": false,
+        "isNamespaceImport": true
+      }
+    },
+    {
+      "key": "746f766c-ce2f-431f-af98-c8d58a983952",
+      "source": "dd70df82-f6f9-4704-84a2-9768d54358d0",
+      "target": "chokidar",
+      "attributes": {
+        "type": "Imports",
+        "importedNames": [
+          "chokidar"
+        ],
+        "isDefaultImport": false,
+        "isNamespaceImport": true
+      }
+    },
+    {
+      "key": "cfab374b-b9a8-44e0-9f08-6cac95f711c5",
+      "source": "dd70df82-f6f9-4704-84a2-9768d54358d0",
+      "target": "./typescript-parser.js",
+      "attributes": {
+        "type": "Imports",
+        "importedNames": [
+          "TypeScriptParser"
+        ],
+        "isDefaultImport": false,
+        "isNamespaceImport": false
+      }
+    },
+    {
+      "key": "b0d3973b-e297-4874-95ce-95a0fc8657c9",
+      "source": "dd70df82-f6f9-4704-84a2-9768d54358d0",
+      "target": "../common/index.js",
+      "attributes": {
+        "type": "Imports",
+        "importedNames": [
+          "Config",
+          "NodeData",
+          "RelationData",
+          "logger",
+          "fileMatchesPattern",
+          "measureAsync"
+        ],
+        "isDefaultImport": false,
+        "isNamespaceImport": false
+      }
+    },
+    {
+      "key": "cdd97a5a-a25c-4324-9a72-f5636e2e5c9c",
+      "source": "06db3703-f98a-42ac-b312-ccfb0eec2e45",
+      "target": "e5ca9b42-0b46-47c0-9613-ad2587567a83",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "b671caa6-ab94-467c-8ef4-8312f2bddd72",
+      "source": "e5ca9b42-0b46-47c0-9613-ad2587567a83",
+      "target": "eec1f015-97e0-4ee7-aa11-ae9f1c2ce8da",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "8a92f3f9-6e7b-4522-823e-5dd366346cc9",
+      "source": "e5ca9b42-0b46-47c0-9613-ad2587567a83",
+      "target": "daa4e3f8-9f25-4e69-9a45-352b49bba101",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "a86dbc57-579a-4e33-867f-b784c70e3204",
+      "source": "e5ca9b42-0b46-47c0-9613-ad2587567a83",
+      "target": "17fd103d-4601-42ec-a0b6-0520edf4e78b",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "ad5da99e-2631-45c8-bb41-549d2f347fc5",
+      "source": "e5ca9b42-0b46-47c0-9613-ad2587567a83",
+      "target": "ca66e828-f511-4357-b2c8-0bf9732ac5a3",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "096a8fa4-6b58-4f41-a640-efff1a078852",
+      "source": "e5ca9b42-0b46-47c0-9613-ad2587567a83",
+      "target": "34351eb1-4e0b-4ee1-9a28-af8fa518f82e",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "ff483879-6839-4e03-b4d1-d361fefaff8c",
+      "source": "e5ca9b42-0b46-47c0-9613-ad2587567a83",
+      "target": "6e7947e2-267b-404d-bb98-576e3fa45b2a",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "13c3eb1e-7aa3-4799-a35c-52ada73b814c",
+      "source": "e5ca9b42-0b46-47c0-9613-ad2587567a83",
+      "target": "e3679037-71a7-4efe-88e1-e8f786b49a2d",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "a59bfef1-6177-40b1-9260-499f3847615e",
+      "source": "e5ca9b42-0b46-47c0-9613-ad2587567a83",
+      "target": "59ea87d0-caf9-4695-b06b-7b161b48e7b6",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "1c4bcee6-a9aa-4c8c-b20a-5b7862b2d91c",
+      "source": "e5ca9b42-0b46-47c0-9613-ad2587567a83",
+      "target": "724bb455-5fc5-4015-9449-c1926d99fd01",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "bb6368cc-e036-47a2-8d93-2ceb68dff09a",
+      "source": "e5ca9b42-0b46-47c0-9613-ad2587567a83",
+      "target": "c0708b45-59fa-48c3-8ec2-86dd49fe2f6a",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "33e74b5e-7f95-4efb-8a07-42aab8204f51",
+      "source": "06db3703-f98a-42ac-b312-ccfb0eec2e45",
+      "target": "ts-morph",
+      "attributes": {
+        "type": "Imports",
+        "importedNames": [
+          "Project",
+          "ClassDeclaration",
+          "FunctionDeclaration",
+          "VariableDeclaration",
+          "InterfaceDeclaration",
+          "EnumDeclaration"
+        ],
+        "isDefaultImport": false,
+        "isNamespaceImport": false
+      }
+    },
+    {
+      "key": "67889cb9-bc90-4b28-bc72-b63767f21b9b",
+      "source": "06db3703-f98a-42ac-b312-ccfb0eec2e45",
+      "target": "fs",
+      "attributes": {
+        "type": "Imports",
+        "importedNames": [
+          "fs"
+        ],
+        "isDefaultImport": false,
+        "isNamespaceImport": true
+      }
+    },
+    {
+      "key": "0880d113-cc0b-4443-915b-bffa7219471d",
+      "source": "06db3703-f98a-42ac-b312-ccfb0eec2e45",
+      "target": "../common/index.js",
+      "attributes": {
+        "type": "Imports",
+        "importedNames": [
+          "ParseResult",
+          "NodeType",
+          "RelationType",
+          "FileNodeData",
+          "ClassNodeData",
+          "FunctionNodeData",
+          "VariableNodeData",
+          "InterfaceNodeData",
+          "EnumNodeData",
+          "ParameterInfo",
+          "Location",
+          "generateId",
+          "getFileInfo",
+          "logger",
+          "ParseError"
+        ],
+        "isDefaultImport": false,
+        "isNamespaceImport": false
+      }
+    },
+    {
+      "key": "d5121c8f-882b-47dd-81fc-db8f9f0ee10e",
+      "source": "62efad76-a4e8-4857-b941-785b07f3dd0d",
+      "target": "3d05cf16-b0ee-465a-9793-3cb99c278ea5",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "abbbe56b-c01b-409c-bfaa-b90bdff2b640",
+      "source": "3d05cf16-b0ee-465a-9793-3cb99c278ea5",
+      "target": "9c643e70-d9b0-4fa7-9d1f-9f1d487ff62d",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "ab8ca829-4f5f-4302-a13c-afb83ea0a0dd",
+      "source": "3d05cf16-b0ee-465a-9793-3cb99c278ea5",
+      "target": "9db93b81-cb40-474f-a6bc-054f439c935f",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "c18fe11e-b7e8-4adf-b753-1503534966a7",
+      "source": "3d05cf16-b0ee-465a-9793-3cb99c278ea5",
+      "target": "73626faa-65a8-4354-bb99-d95917f6585b",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "72938c43-ef44-4bdc-a19c-d9c5ec9543aa",
+      "source": "3d05cf16-b0ee-465a-9793-3cb99c278ea5",
+      "target": "7e8ec1da-7f39-432a-bd1a-c5f088d894d0",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "fc5730d0-8287-481b-844a-6ac3bcc44245",
+      "source": "62efad76-a4e8-4857-b941-785b07f3dd0d",
+      "target": "../graph/index.js",
+      "attributes": {
+        "type": "Imports",
+        "importedNames": [
+          "GraphDb"
+        ],
+        "isDefaultImport": false,
+        "isNamespaceImport": false
+      }
+    },
+    {
+      "key": "f7d56bd9-017b-40f4-a14a-179aba4172a1",
+      "source": "62efad76-a4e8-4857-b941-785b07f3dd0d",
+      "target": "../common/index.js",
+      "attributes": {
+        "type": "Imports",
+        "importedNames": [
+          "NodeData",
+          "RelationData",
+          "NodeType",
+          "RelationType",
+          "CallChain",
+          "ClassHierarchy",
+          "SearchResult",
+          "generateId"
+        ],
+        "isDefaultImport": false,
+        "isNamespaceImport": false
+      }
+    },
+    {
+      "key": "cd59547b-fcf6-4247-9bcd-6c90bc45b2ae",
+      "source": "239c0f96-6dc9-4e85-99d6-a1a992f42c18",
+      "target": "119af862-e9df-469e-b922-ebc033ebe7bd",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "fe811fe3-9edb-44d8-beac-ffcf8ffc0a3d",
+      "source": "119af862-e9df-469e-b922-ebc033ebe7bd",
+      "target": "3926bf79-f825-4569-a88c-b03a3606a5b8",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "cadefc0e-24ec-48bd-a5dd-b9a0f6f3d75c",
+      "source": "119af862-e9df-469e-b922-ebc033ebe7bd",
+      "target": "65924181-a923-4d07-bc05-4e20d4a1cd27",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "c7294d81-1952-41d4-97c3-c919cf577b5b",
+      "source": "119af862-e9df-469e-b922-ebc033ebe7bd",
+      "target": "2aac940f-b13b-4b69-84f5-bf91c683b71c",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "b64a442d-2a01-4b6a-a3cd-0ee6eb0e726a",
+      "source": "119af862-e9df-469e-b922-ebc033ebe7bd",
+      "target": "d324617e-bcff-45a6-b6fb-e2b6b458b4fd",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "bcc35a14-905c-46ac-bd8b-88bc33c650b5",
+      "source": "119af862-e9df-469e-b922-ebc033ebe7bd",
+      "target": "cc2bd679-cc5d-4f43-8cc1-bf52ff651d69",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "a5bb3416-c6d1-4132-ac17-8d7b12ef8b74",
+      "source": "119af862-e9df-469e-b922-ebc033ebe7bd",
+      "target": "487e5bcf-0cfd-4860-9d0a-a5c3453cdc0d",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "035f56f3-27ef-489d-bf78-5bdbdfc8670a",
+      "source": "119af862-e9df-469e-b922-ebc033ebe7bd",
+      "target": "f407a90d-d99f-4aa8-8e54-e5d0ef03654a",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "bed8237e-4e5f-4799-85c9-b0a88f2a3797",
+      "source": "119af862-e9df-469e-b922-ebc033ebe7bd",
+      "target": "a5a8b454-4fea-4c02-8865-f94c0767af23",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "53012bfc-c8ea-43a6-a4d5-f2b95af7ca0c",
+      "source": "119af862-e9df-469e-b922-ebc033ebe7bd",
+      "target": "676e93df-bc08-4f06-9247-801c79f277ab",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "498310bb-4337-498d-929f-7803d63c41e6",
+      "source": "119af862-e9df-469e-b922-ebc033ebe7bd",
+      "target": "fa5dc958-2d2a-44aa-95aa-0117eecb57e2",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "c6647adf-e7f0-43da-a0b0-9b6fb9f89017",
+      "source": "239c0f96-6dc9-4e85-99d6-a1a992f42c18",
+      "target": "3d32a10a-07dc-449a-808b-ed4ff0aaa25a",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "c583efc3-21e8-481e-b10b-d58c01dcb23b",
+      "source": "239c0f96-6dc9-4e85-99d6-a1a992f42c18",
+      "target": "../graph/index.js",
+      "attributes": {
+        "type": "Imports",
+        "importedNames": [
+          "GraphDb"
+        ],
+        "isDefaultImport": false,
+        "isNamespaceImport": false
+      }
+    },
+    {
+      "key": "c92c37d4-8e0f-4f0a-b8b6-050b019e5244",
+      "source": "239c0f96-6dc9-4e85-99d6-a1a992f42c18",
+      "target": "../parser/index.js",
+      "attributes": {
+        "type": "Imports",
+        "importedNames": [
+          "ProjectParser"
+        ],
+        "isDefaultImport": false,
+        "isNamespaceImport": false
+      }
+    },
+    {
+      "key": "3bd39994-93a8-45d6-8d68-fe98b023116e",
+      "source": "239c0f96-6dc9-4e85-99d6-a1a992f42c18",
+      "target": "../query/index.js",
+      "attributes": {
+        "type": "Imports",
+        "importedNames": [
+          "GraphQueryEngine"
+        ],
+        "isDefaultImport": false,
+        "isNamespaceImport": false
+      }
+    },
+    {
+      "key": "059581c5-cea5-4990-8688-f6dcbce257bb",
+      "source": "239c0f96-6dc9-4e85-99d6-a1a992f42c18",
+      "target": "../vector/index.js",
+      "attributes": {
+        "type": "Imports",
+        "importedNames": [
+          "VectorStore"
+        ],
+        "isDefaultImport": false,
+        "isNamespaceImport": false
+      }
+    },
+    {
+      "key": "c7d13b1f-0a12-42f3-b72a-bb100a0bcb41",
+      "source": "239c0f96-6dc9-4e85-99d6-a1a992f42c18",
+      "target": "../config/index.js",
+      "attributes": {
+        "type": "Imports",
+        "importedNames": [
+          "configLoader"
+        ],
+        "isDefaultImport": false,
+        "isNamespaceImport": false
+      }
+    },
+    {
+      "key": "f090926b-2a7c-4994-b7bc-bc832cac974a",
+      "source": "239c0f96-6dc9-4e85-99d6-a1a992f42c18",
+      "target": "../common/index.js",
+      "attributes": {
+        "type": "Imports",
+        "importedNames": [
+          "Config",
+          "logger",
+          "measureAsync",
+          "NodeData"
+        ],
+        "isDefaultImport": false,
+        "isNamespaceImport": false
+      }
+    },
+    {
+      "key": "fca2740a-4a7a-4360-aba3-568f80b29f1d",
+      "source": "710c2ca5-4a40-40a3-97f4-45dea3f84881",
+      "target": "c7a6cec7-6b90-4c06-bdad-35bb4fd692f3",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "2f37df78-bcdd-4e54-8efc-50338ca21a3d",
+      "source": "c7a6cec7-6b90-4c06-bdad-35bb4fd692f3",
+      "target": "8fe56053-3cb5-4090-ba83-4213b98f8c7d",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "5c029c01-4b94-4641-ac41-bc7d7b6d2037",
+      "source": "c7a6cec7-6b90-4c06-bdad-35bb4fd692f3",
+      "target": "2a011191-d047-41d3-bb4d-66b0ef7484d2",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "ba3ef449-42c9-439d-9807-7f608d12a340",
+      "source": "c7a6cec7-6b90-4c06-bdad-35bb4fd692f3",
+      "target": "8f6d24c3-2299-4ded-b8ca-0384562521eb",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "d93ead5f-d663-46dd-8bd1-72063d1e5c19",
+      "source": "c7a6cec7-6b90-4c06-bdad-35bb4fd692f3",
+      "target": "951fb5fb-0c9a-4373-8909-7ba54cc6b94f",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "42ed839e-5608-4169-8344-718889b67864",
+      "source": "c7a6cec7-6b90-4c06-bdad-35bb4fd692f3",
+      "target": "fa2b4382-4cf6-464a-9cf7-c03c04278dfa",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "66d6eeed-960d-468e-b259-7dd827e91b8e",
+      "source": "c7a6cec7-6b90-4c06-bdad-35bb4fd692f3",
+      "target": "1b079300-aa4b-4440-a00d-3a6bdc72185a",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "9a456e72-621b-41a1-8b6f-bb27817017ab",
+      "source": "710c2ca5-4a40-40a3-97f4-45dea3f84881",
+      "target": "5222d4f1-92b2-4c6a-b827-ec57181579aa",
+      "attributes": {
+        "type": "Contains"
+      }
+    },
+    {
+      "key": "4b49b563-1f94-4c65-85c8-7f6a3f1056ee",
+      "source": "710c2ca5-4a40-40a3-97f4-45dea3f84881",
+      "target": "vectra",
+      "attributes": {
+        "type": "Imports",
+        "importedNames": [
+          "LocalIndex"
+        ],
+        "isDefaultImport": false,
+        "isNamespaceImport": false
+      }
+    },
+    {
+      "key": "00a2eef1-77d1-4a67-9817-70c3298187b3",
+      "source": "710c2ca5-4a40-40a3-97f4-45dea3f84881",
+      "target": "fs",
+      "attributes": {
+        "type": "Imports",
+        "importedNames": [
+          "fs"
+        ],
+        "isDefaultImport": false,
+        "isNamespaceImport": true
+      }
+    },
+    {
+      "key": "c25ccaf1-33ff-42f4-ae21-f52c3778cb44",
+      "source": "710c2ca5-4a40-40a3-97f4-45dea3f84881",
+      "target": "../common/index.js",
+      "attributes": {
+        "type": "Imports",
+        "importedNames": [
+          "logger",
+          "NodeData"
+        ],
+        "isDefaultImport": false,
+        "isNamespaceImport": false
+      }
+    }
+  ]
+}
