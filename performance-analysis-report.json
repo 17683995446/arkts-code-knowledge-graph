@@ -1,0 +1,74 @@
+{
+  "timestamp": "2026-05-16T17:42:59.693Z",
+  "metrics": [
+    {
+      "phase": "Service Initialization",
+      "duration": 2,
+      "memory": 127.2431640625,
+      "percentage": "0.01%"
+    },
+    {
+      "phase": "Project Analysis",
+      "duration": 9945,
+      "memory": 261.5647506713867,
+      "percentage": "26.11%"
+    },
+    {
+      "phase": "Knowledge Graph Building",
+      "duration": 26885,
+      "memory": 368.7450256347656,
+      "percentage": "70.59%"
+    },
+    {
+      "phase": "Query Performance",
+      "duration": 2,
+      "memory": 369.3470001220703,
+      "percentage": "0.01%"
+    },
+    {
+      "phase": "Cache Clear",
+      "duration": 0,
+      "memory": 369.3569869995117,
+      "percentage": "0.00%"
+    },
+    {
+      "phase": "Re-analysis",
+      "duration": 1254,
+      "memory": 341.0176239013672,
+      "percentage": "3.29%"
+    }
+  ],
+  "statistics": {
+    "totalEntityCount": 684,
+    "totalRelationCount": 551,
+    "entityCountByType": {
+      "File": 237,
+      "Module": 0,
+      "Class": 62,
+      "Function": 44,
+      "Variable": 117,
+      "Interface": 94,
+      "Enum": 6,
+      "Method": 124,
+      "Property": 0,
+      "Unknown": 0
+    },
+    "relationCountByType": {
+      "Calls": 103,
+      "Extends": 0,
+      "Implements": 1,
+      "References": 0,
+      "Imports": 0,
+      "Exports": 0,
+      "DependsOn": 0,
+      "Contains": 447,
+      "Instantiates": 0
+    },
+    "fileEntityCount": 237,
+    "functionEntityCount": 44,
+    "classEntityCount": 62
+  },
+  "bottlenecks": [
+    "Knowledge Graph Building"
+  ]
+}

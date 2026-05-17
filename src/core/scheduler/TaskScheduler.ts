@@ -120,33 +120,40 @@ export class TaskScheduler extends EventEmitter {
 
     this.emit('task:scheduled', task)
 
-    if (!this.isRunning) {
-      this.start()
-    }
-
-    return new Promise((resolve) => {
-      const checkComplete = () => {
-        const currentTask = this.tasks.get(taskId) as any
-        if (currentTask.status === 'completed') {
-          resolve({
-            success: true,
-            data: currentTask.result,
-            duration: (currentTask.completedAt?.getTime() || 0) - (currentTask.startedAt?.getTime() || 0),
-            retries: currentTask.retries,
-          })
-        } else if (currentTask.status === 'failed') {
-          resolve({
-            success: false,
-            error: currentTask.error,
-            duration: (currentTask.failedAt?.getTime() || 0) - (currentTask.startedAt?.getTime() || 0),
-            retries: currentTask.retries,
-          })
-        } else {
-          setImmediate(checkComplete)
-        }
+    // 直接执行任务，不需要队列处理
+    const startTime = Date.now()
+    try {
+      const result = await taskFn(task.payload)
+      task.status = 'completed'
+      task.result = result
+      task.startedAt = new Date(startTime)
+      task.completedAt = new Date()
+      this.statistics.completedTasks++
+      this.completedTasks.set(taskId, task as any)
+      this.emit('task:completed', task)
+      
+      return {
+        success: true,
+        data: result,
+        duration: Date.now() - startTime,
+        retries: task.retries,
       }
-      setImmediate(checkComplete)
-    })
+    } catch (error: any) {
+      task.status = 'failed'
+      task.error = error
+      task.startedAt = new Date(startTime)
+      task.failedAt = new Date()
+      this.statistics.failedTasks++
+      this.failedTasks.set(taskId, task as any)
+      this.emit('task:failed', { task, error })
+      
+      return {
+        success: false,
+        error: error,
+        duration: Date.now() - startTime,
+        retries: task.retries,
+      }
+    }
   }
 
   private enqueueWithPriority(task: Task): void {

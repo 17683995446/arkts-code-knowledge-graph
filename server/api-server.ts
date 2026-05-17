@@ -1,7 +1,7 @@
 import express from 'express'
 import cors from 'cors'
-import { TaskScheduler } from '../core/scheduler/TaskScheduler'
-import { ProgressTracker } from '../core/progress/ProgressTracker'
+import { TaskScheduler } from '../src/core/scheduler/TaskScheduler.js'
+import { ProgressTracker } from '../src/core/progress/ProgressTracker.js'
 
 const app = express()
 const PORT = process.env.PORT || 3001
@@ -249,6 +249,11 @@ export function startServer(port: number = PORT): Promise<express.Express> {
       resolve(app)
     })
   })
+}
+
+// 自动启动服务器
+if (import.meta.url === `file://${process.argv[1]}`) {
+  startServer().catch(console.error)
 }
 
 export default app

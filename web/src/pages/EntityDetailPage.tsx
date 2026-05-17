@@ -279,7 +279,7 @@ const EntityDetailPage = () => {
                   <div className="bg-slate-900 text-slate-100 p-6 rounded-lg font-mono text-sm overflow-x-auto mb-6">
                     <div className="flex gap-4 mb-4">
                       <span className="text-slate-500">1</span>
-                      <span>export function {entity.name}(params: any) {`</span>
+                      <span>export function {entity.name}(params: any) {</span>
                     </div>
                     <div className="flex gap-4 mb-4">
                       <span className="text-slate-500">2</span>
