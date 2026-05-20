@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Knowledge graph data
+.arkts-code-graph
+
+# Benchmark results
+benchmark-results
