@@ -1,6 +1,4 @@
-export { default as MetricsCollector } from './MetricsCollector';
-export { default as SystemMetricsCollector } from './MetricsCollector';
-export { default as ApplicationMetricsCollector } from './MetricsCollector';
+export { default as MetricsCollector, SystemMetricsCollector, ApplicationMetricsCollector } from './MetricsCollector';
 export { default as AlertManager } from './AlertManager';
 export { default as ReportGenerator } from './ReportGenerator';
 

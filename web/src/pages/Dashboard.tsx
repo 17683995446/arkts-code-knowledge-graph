@@ -1,30 +1,45 @@
 import React, { useEffect, useState } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card'
+import { Button } from '@/components/ui/Button'
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts'
 import { apiService, GraphStats } from '@/services/api'
 import { formatNumber } from '@/lib/utils'
-import { Files, Box, FunctionSquare, GitBranch, Loader2, Database } from 'lucide-react'
+import { ProjectAnalyzer } from '@/components/ProjectAnalyzer'
+import { PerformanceMonitor } from '@/components/PerformanceMonitor'
+import { Files, Box, FunctionSquare, GitBranch, Loader2, Database, Download, RefreshCw } from 'lucide-react'
 
 const Dashboard = () => {
   const [stats, setStats] = useState<GraphStats | null>(null)
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
-  useEffect(() => {
-    const loadStats = async () => {
-      setIsLoading(true)
-      try {
-        const data = await apiService.getStats()
-        setStats(data)
-        setError(null)
-      } catch (err) {
-        console.error('Failed to load stats:', err)
-        setError('加载数据失败')
-      } finally {
-        setIsLoading(false)
-      }
+  const loadStats = async () => {
+    setIsLoading(true)
+    try {
+      const data = await apiService.getStats()
+      setStats(data)
+      setError(null)
+    } catch (err) {
+      console.error('Failed to load stats:', err)
+      setError('加载数据失败')
+    } finally {
+      setIsLoading(false)
     }
+  }
 
+  const exportStats = () => {
+    if (!stats) return
+    const dataStr = JSON.stringify(stats, null, 2)
+    const blob = new Blob([dataStr], { type: 'application/json' })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = 'knowledge-graph-stats.json'
+    a.click()
+    URL.revokeObjectURL(url)
+  }
+
+  useEffect(() => {
     loadStats()
     const interval = setInterval(loadStats, 30000)
     return () => clearInterval(interval)
@@ -102,12 +117,28 @@ const Dashboard = () => {
 
   return (
     <div className="space-y-6">
-      <div>
-        <h2 className="text-2xl font-bold text-slate-900 dark:text-white">数据仪表盘</h2>
-        <p className="text-slate-500 dark:text-slate-400">
-          知识图谱分析统计概览
-        </p>
+      <PerformanceMonitor />
+
+      <div className="flex items-center justify-between">
+        <div>
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-white">数据仪表盘</h2>
+          <p className="text-slate-500 dark:text-slate-400">
+            知识图谱分析统计概览
+          </p>
+        </div>
+        <div className="flex gap-2">
+          <Button variant="outline" onClick={loadStats}>
+            <RefreshCw className="h-4 w-4 mr-2" />
+            刷新数据
+          </Button>
+          <Button variant="outline" onClick={exportStats} disabled={!stats}>
+            <Download className="h-4 w-4 mr-2" />
+            导出数据
+          </Button>
+        </div>
       </div>
+
+      <ProjectAnalyzer onAnalysisComplete={loadStats} />
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {statsCards.map((stat, index) => {

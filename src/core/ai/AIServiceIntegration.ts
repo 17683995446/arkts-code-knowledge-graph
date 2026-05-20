@@ -273,7 +273,7 @@ export class AIServiceIntegration extends EventEmitter {
   }
 
   private calculateHalsteadMetrics(code: string): HalsteadMetrics {
-    const operators = code.match(/[\+\-\*\/\%\=\<\>\!\&\|\?\:\~\^]|&&|\|\||==|!=|<=|>=|<<|>>|>>>|\+\+|--|->|::|\[\]|typeof|void|delete|new|instanceof|in)/g) || [];
+    const operators = code.match(/\+\+|--|\+\/|==|!=|<=|>=|<<|>>|>>>|&&|\|\||->|::|\[\]/g) || [];
     const operands = code.match(/\b[a-zA-Z_]\w*\b/g) || [];
 
     const uniqueOperators = new Set(operators).size;

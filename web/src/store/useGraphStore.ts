@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import type { GraphData, GraphNode, GraphLink } from '../services/api'
+import type { GraphData } from '../services/api'
 
 export interface GraphNode {
   id: string
@@ -11,8 +11,8 @@ export interface GraphNode {
 
 export interface GraphLink {
   id: string
-  source: string
-  target: string
+  source: string | GraphNode
+  target: string | GraphNode
   type: string
 }
 

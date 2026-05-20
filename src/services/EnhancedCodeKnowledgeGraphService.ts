@@ -134,10 +134,30 @@ export class EnhancedCodeKnowledgeGraphService {
     return this.symbolTableManager
   }
 
+  getStatistics(): {
+    nodeCount: number;
+    edgeCount: number;
+    totalEntityCount: number;
+    totalRelationCount: number;
+    entityCountByType: Record<string, number>;
+    relationCountByType: Record<string, number>;
+    fileEntityCount: number;
+    functionEntityCount: number;
+    classEntityCount: number;
+  } {
+    const stats = this.knowledgeGraph.getStatistics();
+    return {
+      nodeCount: stats.totalEntityCount,
+      edgeCount: stats.totalRelationCount,
+      ...stats
+    };
+  }
+
   clearCache(): void {
     applicationLogger.info('Clearing service cache (data preserved)')
     this.semanticSearch.clearIndexSync()
     this.symbolTableManager.clearAll()
+    this.queryEngine.clearCache()
     applicationLogger.info('Service cache cleared (knowledge graph preserved)')
   }
 
@@ -146,6 +166,42 @@ export class EnhancedCodeKnowledgeGraphService {
     this.knowledgeGraph.clear()
     this.semanticSearch.clearIndexSync()
     this.symbolTableManager.clearAll()
+    this.queryEngine.clearCache()
+    // 尝试触发垃圾回收（如果可用）
+    if (global.gc) {
+      try {
+        global.gc()
+      } catch (e) {}
+    }
     applicationLogger.info('Service reset complete')
+  }
+
+  getCacheStatistics(): {
+    queryCache: { size: number; maxSize: number };
+  } {
+    return {
+      queryCache: this.queryEngine.getCacheStats()
+    };
+  }
+
+  configureCache(config: { queryCache?: { enabled?: boolean; maxSize?: number; ttl?: number } }): void {
+    if (config.queryCache) {
+      this.queryEngine.configureCache(config.queryCache);
+    }
+  }
+
+  getMemoryUsage(): {
+    heapUsed: number;
+    heapTotal: number;
+    external: number;
+    rss: number;
+  } {
+    const usage = process.memoryUsage();
+    return {
+      heapUsed: usage.heapUsed / 1024 / 1024,
+      heapTotal: usage.heapTotal / 1024 / 1024,
+      external: usage.external / 1024 / 1024,
+      rss: usage.rss / 1024 / 1024
+    };
   }
 }

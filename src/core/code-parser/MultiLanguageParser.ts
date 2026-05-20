@@ -94,6 +94,32 @@ export class MultiLanguageParser {
         }
     }
 
+    async parseDirectoryParallel(directoryPath: string, maxConcurrency: number = 10): Promise<CodeParsingResult> {
+        applicationLogger.info(`Parsing directory (parallel): ${directoryPath}`);
+        const allEntities: CodeParsingResult['codeEntities'] = [];
+        const allRelations: CodeParsingResult['codeRelations'] = [];
+
+        const files = this.findAllSourceFiles(directoryPath);
+        applicationLogger.info(`Found ${files.length} source files, parsing with concurrency: ${maxConcurrency}`);
+
+        const chunks: string[][] = [];
+        for (let i = 0; i < files.length; i += maxConcurrency) {
+            chunks.push(files.slice(i, i + maxConcurrency));
+        }
+
+        for (const chunk of chunks) {
+            const results = await Promise.all(chunk.map(file => Promise.resolve(this.parseFile(file))));
+            
+            for (const result of results) {
+                allEntities.push(...result.codeEntities);
+                allRelations.push(...result.codeRelations);
+            }
+        }
+
+        applicationLogger.info(`Parsed ${files.length} files, extracted ${allEntities.length} entities and ${allRelations.length} relations`);
+        return { codeEntities: allEntities, codeRelations: allRelations };
+    }
+
     parseDirectory(directoryPath: string): CodeParsingResult {
         applicationLogger.info(`Parsing directory: ${directoryPath}`);
         const allEntities: CodeParsingResult['codeEntities'] = [];

@@ -277,22 +277,7 @@ const EntityDetailPage = () => {
               {entity.snippet ? (
                 <div>
                   <div className="bg-slate-900 text-slate-100 p-6 rounded-lg font-mono text-sm overflow-x-auto mb-6">
-                    <div className="flex gap-4 mb-4">
-                      <span className="text-slate-500">1</span>
-                      <span>export function {entity.name}(params: any) {</span>
-                    </div>
-                    <div className="flex gap-4 mb-4">
-                      <span className="text-slate-500">2</span>
-                      <span className="pl-4">  // Implementation here</span>
-                    </div>
-                    <div className="flex gap-4 mb-4">
-                      <span className="text-slate-500">3</span>
-                      <span className="pl-4">  return result;</span>
-                    </div>
-                    <div className="flex gap-4">
-                      <span className="text-slate-500">4</span>
-                      <span>}</span>
-                    </div>
+                    <pre>{entity.snippet}</pre>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <Card className="bg-green-50 dark:bg-green-900/10 border-green-200 dark:border-green-800">

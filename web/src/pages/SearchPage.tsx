@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card'
 import { Button } from '@/components/ui/Button'
-import { Search, Filter, FileCode, FunctionSquare, Box, Hash, Loader2, X } from 'lucide-react'
+import { Search, Filter, FileCode, FunctionSquare, Box, Hash, Loader2, X, Download, ArrowUpDown } from 'lucide-react'
 import { apiService, SearchResult } from '@/services/api'
 
 const SearchPage = () => {
@@ -12,6 +12,32 @@ const SearchPage = () => {
   const [results, setResults] = useState<SearchResult[]>([])
   const [isLoading, setIsLoading] = useState(false)
   const [hasSearched, setHasSearched] = useState(false)
+  const [sortBy, setSortBy] = useState<'relevance' | 'name' | 'type'>('relevance')
+  const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('desc')
+
+  const exportResults = () => {
+    if (!results.length) return
+    const dataStr = JSON.stringify(results, null, 2)
+    const blob = new Blob([dataStr], { type: 'application/json' })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = 'search-results.json'
+    a.click()
+    URL.revokeObjectURL(url)
+  }
+
+  const sortedResults = [...results].sort((a, b) => {
+    if (sortBy === 'relevance') {
+      const aScore = a.score || 0
+      const bScore = b.score || 0
+      return sortOrder === 'desc' ? bScore - aScore : aScore - bScore
+    } else if (sortBy === 'name') {
+      return sortOrder === 'desc' ? b.name.localeCompare(a.name) : a.name.localeCompare(b.name)
+    } else {
+      return sortOrder === 'desc' ? b.type.localeCompare(a.type) : a.type.localeCompare(b.type)
+    }
+  })
 
   const filters = [
     { id: 'all', label: '全部', icon: Search, color: 'blue' },
@@ -102,6 +128,12 @@ const SearchPage = () => {
             在代码库中搜索实体和符号
           </p>
         </div>
+        {hasSearched && results.length > 0 && (
+          <Button variant="outline" size="sm" onClick={exportResults}>
+            <Download className="h-4 w-4 mr-2" />
+            导出结果
+          </Button>
+        )}
       </div>
 
       {/* 搜索栏 */}
@@ -131,23 +163,47 @@ const SearchPage = () => {
         </CardContent>
       </Card>
 
-      {/* 过滤标签 */}
-      <div className="flex gap-2 flex-wrap">
-        {filters.map((filter) => {
-          const Icon = filter.icon
-          return (
-            <Button
-              key={filter.id}
-              variant={activeFilter === filter.id ? 'default' : 'outline'}
-              size="sm"
-              onClick={() => setActiveFilter(filter.id)}
-              className="transition-all"
+      {/* 过滤和排序 */}
+      <div className="flex flex-wrap gap-2 items-center justify-between">
+        <div className="flex gap-2 flex-wrap">
+          {filters.map((filter) => {
+            const Icon = filter.icon
+            return (
+              <Button
+                key={filter.id}
+                variant={activeFilter === filter.id ? 'default' : 'outline'}
+                size="sm"
+                onClick={() => setActiveFilter(filter.id)}
+                className="transition-all"
+              >
+                <Icon className="h-4 w-4 mr-2" />
+                {filter.label}
+              </Button>
+            )
+          })}
+        </div>
+        
+        {hasSearched && results.length > 0 && (
+          <div className="flex gap-2 items-center">
+            <select
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value as any)}
+              className="px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800"
             >
-              <Icon className="h-4 w-4 mr-2" />
-              {filter.label}
+              <option value="relevance">按相关性</option>
+              <option value="name">按名称</option>
+              <option value="type">按类型</option>
+            </select>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc')}
+            >
+              <ArrowUpDown className="h-4 w-4 mr-2" />
+              {sortOrder === 'asc' ? '升序' : '降序'}
             </Button>
-          )
-        })}
+          </div>
+        )}
       </div>
 
       {/* 搜索结果 */}
@@ -165,17 +221,17 @@ const SearchPage = () => {
           <>
             <div className="flex items-center justify-between">
               <p className="text-sm text-slate-500 dark:text-slate-400">
-                {results.length > 0 ? (
-                  <>找到 <strong className="text-blue-600">{results.length}</strong> 个结果</>
+                {sortedResults.length > 0 ? (
+                  <>找到 <strong className="text-blue-600">{sortedResults.length}</strong> 个结果</>
                 ) : (
                   <>未找到相关结果</>
                 )}
               </p>
             </div>
 
-            {results.length > 0 ? (
+            {sortedResults.length > 0 ? (
               <div className="grid gap-4">
-                {results.map((result, index) => {
+                {sortedResults.map((result, index) => {
                   const Icon = getIconByType(result.type)
                   return (
                     <Card 

@@ -13,11 +13,15 @@ import {
   BookOpen,
   FolderTree,
   Flame,
+  Sun,
+  Moon,
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { useThemeStore } from '@/store/useThemeStore'
 
 const Navbar = () => {
   const location = useLocation()
+  const { theme, toggleTheme } = useThemeStore()
 
   const navItems = [
     {
@@ -113,6 +117,15 @@ const Navbar = () => {
             </Link>
           )
         })}
+        
+        {/* 主题切换按钮 */}
+        <button
+          onClick={toggleTheme}
+          className="ml-2 p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400"
+          title={theme === 'light' ? '切换到深色模式' : '切换到浅色模式'}
+        >
+          {theme === 'light' ? <Moon className="h-5 w-5" /> : <Sun className="h-5 w-5" />}
+        </button>
       </div>
     </nav>
   )

@@ -13,6 +13,9 @@ import {
   Maximize2,
   Minimize2,
   Loader2,
+  Download,
+  Filter,
+  Search,
 } from 'lucide-react'
 
 interface D3Node extends GraphNode {
@@ -33,8 +36,51 @@ const GraphPage = () => {
   const { graphData, selectedNode, setSelectedNode, loadGraph, isLoading, error } = useGraphStore()
   const svgRef = useRef<SVGSVGElement>(null)
   const [isZoomed, setIsZoomed] = useState(false)
+  const [searchTerm, setSearchTerm] = useState('')
+  const [filterType, setFilterType] = useState<string>('all')
   const containerRef = useRef<HTMLDivElement>(null)
   const simulationRef = useRef<d3.Simulation<D3Node, D3Link> | null>(null)
+
+  const nodeTypes = ['all', 'file', 'class', 'function', 'variable', 'interface', 'method']
+
+  const filteredNodes = graphData?.nodes.filter(node => {
+    const matchesSearch = !searchTerm || 
+      node.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      node.id.toLowerCase().includes(searchTerm.toLowerCase())
+    const matchesType = filterType === 'all' || node.type === filterType
+    return matchesSearch && matchesType
+  }) || []
+
+  const filteredLinks = graphData?.links.filter(link => {
+    const sourceExists = filteredNodes.some(n => n.id === (typeof link.source === 'object' ? link.source.id : link.source))
+    const targetExists = filteredNodes.some(n => n.id === (typeof link.target === 'object' ? link.target.id : link.target))
+    return sourceExists && targetExists
+  }) || []
+
+  const exportAsJSON = () => {
+    if (!graphData) return
+    const dataStr = JSON.stringify(graphData, null, 2)
+    const blob = new Blob([dataStr], { type: 'application/json' })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = 'knowledge-graph.json'
+    a.click()
+    URL.revokeObjectURL(url)
+  }
+
+  const exportAsSVG = () => {
+    if (!svgRef.current) return
+    const svgElement = svgRef.current
+    const svgData = new XMLSerializer().serializeToString(svgElement)
+    const blob = new Blob([svgData], { type: 'image/svg+xml' })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = 'knowledge-graph.svg'
+    a.click()
+    URL.revokeObjectURL(url)
+  }
 
   useEffect(() => {
     if (!graphData) {
@@ -59,8 +105,8 @@ const GraphPage = () => {
     })
     svg.call(zoom)
 
-    const d3Nodes: D3Node[] = [...graphData.nodes]
-    const d3Links: D3Link[] = [...graphData.links]
+    const d3Nodes: D3Node[] = [...filteredNodes]
+    const d3Links: D3Link[] = [...filteredLinks]
 
     const simulation = d3
       .forceSimulation(d3Nodes)
@@ -136,7 +182,7 @@ const GraphPage = () => {
       d.fx = null
       d.fy = null
     }
-  }, [graphData, setSelectedNode, isZoomed])
+  }, [graphData, setSelectedNode, isZoomed, searchTerm, filterType])
 
   const resetView = () => {
     if (svgRef.current) {
@@ -166,26 +212,72 @@ const GraphPage = () => {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-2xl font-bold text-slate-900 dark:text-white">Knowledge Graph</h2>
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-white">知识图谱</h2>
           <p className="text-slate-500 dark:text-slate-400">
-            Visualization of code entities and their relationships
+            代码实体及其关系的可视化
           </p>
         </div>
-        <div className="flex gap-2">
+        <div className="flex gap-2 flex-wrap">
           <Button variant="outline" size="sm" onClick={loadGraph}>
             <RefreshCw className="h-4 w-4 mr-2" />
-            Refresh
+            刷新
           </Button>
           <Button variant="outline" size="sm" onClick={resetView}>
-            <ZoomIn className="h-4 w-4 mr-2" />
-            Reset
-          </Button>
+              <ZoomIn className="h-4 w-4 mr-2" />
+              重置视图
+            </Button>
           <Button variant="outline" size="sm" onClick={() => setIsZoomed(!isZoomed)}>
             {isZoomed ? <Minimize2 className="h-4 w-4 mr-2" /> : <Maximize2 className="h-4 w-4 mr-2" />}
-            {isZoomed ? 'Shrink' : 'Expand'}
+            {isZoomed ? '缩小' : '扩大'}
+          </Button>
+          <Button variant="outline" size="sm" onClick={exportAsJSON} disabled={!graphData}>
+            <Download className="h-4 w-4 mr-2" />
+            导出JSON
+          </Button>
+          <Button variant="outline" size="sm" onClick={exportAsSVG} disabled={!graphData}>
+            <Download className="h-4 w-4 mr-2" />
+            导出SVG
           </Button>
         </div>
       </div>
+
+      <Card>
+        <CardContent className="pt-6">
+          <div className="flex flex-col md:flex-row gap-4">
+            <div className="flex-1">
+              <label className="block text-sm font-medium text-slate-600 dark:text-slate-400 mb-2">
+                搜索节点
+              </label>
+              <div className="relative">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+                <input
+                  type="text"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  placeholder="按名称或ID搜索..."
+                  className="w-full pl-10 pr-4 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-slate-600 dark:text-slate-400 mb-2">
+                类型筛选
+              </label>
+              <select
+                value={filterType}
+                onChange={(e) => setFilterType(e.target.value)}
+                className="px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800"
+              >
+                {nodeTypes.map(type => (
+                  <option key={type} value={type}>
+                    {getTypeName(type) || type}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
 
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
         <Card className="lg:col-span-3">
@@ -276,27 +368,27 @@ const GraphPage = () => {
           {graphData && (
             <Card>
               <CardHeader className="pb-3">
-                <CardTitle className="text-base">Statistics</CardTitle>
+                <CardTitle className="text-base">统计信息</CardTitle>
               </CardHeader>
               <CardContent className="space-y-2">
                 <div className="flex justify-between text-sm">
-                  <span className="text-slate-500">Total Nodes</span>
-                  <span className="font-medium">{graphData.stats.totalNodes}</span>
+                  <span className="text-slate-500">显示节点</span>
+                  <span className="font-medium">{filteredNodes.length} / {graphData.stats.totalNodes}</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-slate-500">Total Links</span>
-                  <span className="font-medium">{graphData.stats.totalLinks}</span>
+                  <span className="text-slate-500">显示链接</span>
+                  <span className="font-medium">{filteredLinks.length} / {graphData.stats.totalLinks}</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-slate-500">Files</span>
+                  <span className="text-slate-500">文件</span>
                   <span className="font-medium">{graphData.stats.fileCount}</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-slate-500">Classes</span>
+                  <span className="text-slate-500">类</span>
                   <span className="font-medium">{graphData.stats.classCount}</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-slate-500">Functions</span>
+                  <span className="text-slate-500">函数</span>
                   <span className="font-medium">{graphData.stats.functionCount}</span>
                 </div>
               </CardContent>

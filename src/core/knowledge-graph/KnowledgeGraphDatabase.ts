@@ -145,6 +145,32 @@ export class KnowledgeGraphDatabase {
     }
 
     /**
+     * 按文件路径获取代码实体
+     * @param filePath 文件路径
+     * @returns 实体 ID 和数据的数组
+     */
+    getCodeEntitiesByFile(filePath: string): Array<{
+        entityId: string;
+        entityData: CodeEntityData;
+    }> {
+        const result: Array<{
+            entityId: string;
+            entityData: CodeEntityData;
+        }> = [];
+        
+        this.graphDatabase.forEachNode((nodeId, attributes) => {
+            if (attributes && attributes.filePath === filePath) {
+                result.push({
+                    entityId: nodeId,
+                    entityData: attributes
+                });
+            }
+        });
+        
+        return result;
+    }
+
+    /**
      * 获取实体的出边关系
      * @param entityId 实体 ID
      * @returns 关系数组

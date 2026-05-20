@@ -1,4 +1,5 @@
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001'
+// @ts-ignore
+const API_BASE_URL = import.meta.env?.VITE_API_URL || 'http://localhost:3001'
 
 export interface SearchResult {
   id: string

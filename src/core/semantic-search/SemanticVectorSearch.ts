@@ -54,26 +54,51 @@ export class SemanticVectorSearch {
      * @param entityText 实体文本表示
      */
     async addEntityToIndex(entityId: string, entityData: CodeEntityData, entityText: string): Promise<void> {
-        if (!this.searchOptions.searchEnabled || !this.isInitialized || !this.vectorIndex)
+        if (!this.searchOptions.searchEnabled || !this.isInitialized)
             return;
+        
+        // 如果索引被清理，重新初始化
+        if (!this.vectorIndex) {
+            try {
+                ensureDirectoryExists(this.searchOptions.dataDirectory!);
+                this.vectorIndex = new LocalIndex(this.searchOptions.dataDirectory!);
+                if (!await this.vectorIndex.isIndexCreated()) {
+                    await this.vectorIndex.createIndex();
+                }
+            } catch (error) {
+                applicationLogger.warn('Failed to reinitialize vector index', error);
+                return;
+            }
+        }
         try {
             if (!entityId || !entityData) {
                 applicationLogger.warn('Invalid entity data, skipping index addition');
                 return;
             }
+            if (this.entityMetadataMap.has(entityId)) {
+                applicationLogger.debug(`Entity already exists in index: ${entityId}`);
+                return;
+            }
             this.entityMetadataMap.set(entityId, entityData);
             const safeEntityText = entityText || '';
             this.corpus.push(safeEntityText);
-            const vector = await this.vectorize(safeEntityText);
-            await this.vectorIndex.insertItem({
-                id: entityId,
-                metadata: {
-                    type: entityData.type,
-                    name: this.getEntityName(entityData)
-                },
-                vector
-            });
-            applicationLogger.debug(`Entity added to semantic vector index: ${entityId}`);
+            try {
+                const vector = await this.vectorize(safeEntityText);
+                await this.vectorIndex.insertItem({
+                    id: entityId,
+                    metadata: {
+                        type: entityData.type,
+                        name: this.getEntityName(entityData)
+                    },
+                    vector
+                });
+                applicationLogger.debug(`Entity added to semantic vector index: ${entityId}`);
+            } catch (vectorError) {
+                this.entityMetadataMap.delete(entityId);
+                const idx = this.corpus.indexOf(safeEntityText);
+                if (idx > -1) this.corpus.splice(idx, 1);
+                throw vectorError;
+            }
         } catch (error) {
             applicationLogger.warn(`Failed to add entity to semantic vector index: ${entityId}`, error);
         }
@@ -125,17 +150,36 @@ export class SemanticVectorSearch {
 
     /** 清空向量搜索索引 */
     async clearIndex(): Promise<void> {
-        if (!this.searchOptions.searchEnabled || !this.isInitialized || !this.vectorIndex)
+        if (!this.searchOptions.searchEnabled || !this.isInitialized)
             return;
         try {
-            await this.vectorIndex.deleteIndex();
-            await this.vectorIndex.createIndex();
+            if (this.vectorIndex && await this.vectorIndex.isIndexCreated()) {
+                await this.vectorIndex.deleteIndex();
+            }
+            // 释放向量索引引用，防止内存泄漏
+            this.vectorIndex = undefined;
             this.entityMetadataMap.clear();
             this.corpus = [];
             this.idfMap.clear();
-            applicationLogger.info('Semantic vector search index cleared');
+            // 强制GC（如果可用）
+            if (global.gc) {
+                try {
+                    global.gc();
+                } catch (e) {}
+            }
+            applicationLogger.debug('Semantic vector search index cleared');
         } catch (error) {
-            applicationLogger.warn('Failed to clear semantic vector search index', error);
+            applicationLogger.warn('Failed to clear semantic vector search index, creating fresh index', error);
+            try {
+                // 重新初始化向量索引
+                ensureDirectoryExists(this.searchOptions.dataDirectory!);
+                this.vectorIndex = new LocalIndex(this.searchOptions.dataDirectory!);
+                if (!await this.vectorIndex.isIndexCreated()) {
+                    await this.vectorIndex.createIndex();
+                }
+            } catch (createError) {
+                applicationLogger.error('Failed to create semantic index after clear failure', createError);
+            }
         }
     }
 
@@ -145,6 +189,14 @@ export class SemanticVectorSearch {
             this.entityMetadataMap.clear();
             this.corpus = [];
             this.idfMap.clear();
+            // 释放向量索引引用，防止内存泄漏
+            this.vectorIndex = undefined;
+            // 强制GC（如果可用）
+            if (global.gc) {
+                try {
+                    global.gc();
+                } catch (e) {}
+            }
             applicationLogger.debug('Semantic vector search metadata cleared (sync)');
         } catch (error) {
             applicationLogger.warn('Failed to clear semantic vector search metadata', error);
@@ -152,22 +204,25 @@ export class SemanticVectorSearch {
     }
 
     /**
-     * 从知识图谱添加实体到向量索引
+     * 从知识图谱添加实体到向量索引（优化版：批量处理）
      * @param knowledgeGraph 知识图谱数据库
      */
     async addEntitiesFromGraph(knowledgeGraph: KnowledgeGraphDatabase): Promise<void> {
         if (!this.searchOptions.searchEnabled || !this.isInitialized || !this.vectorIndex)
             return;
-        applicationLogger.info('Adding entities from knowledge graph to semantic search index');
+        applicationLogger.info('Adding entities from knowledge graph to semantic search index (optimized batch mode)');
         const stats = knowledgeGraph.getStatistics();
         const entityTypes = Object.keys(stats.entityCountByType);
+        
+        const allEntities: Array<{ entityId: string; entityData: CodeEntityData; entityText: string }> = [];
+        
         for (const entityType of entityTypes) {
             try {
                 const entities = knowledgeGraph.getCodeEntitiesByType(entityType);
                 for (const { entityId, entityData } of entities) {
                     try {
                         const entityText = this.generateEntityText(entityData);
-                        await this.addEntityToIndex(entityId, entityData, entityText);
+                        allEntities.push({ entityId, entityData, entityText });
                     } catch (entityError) {
                         applicationLogger.warn(`Failed to process entity ${entityId}`, entityError);
                     }
@@ -176,10 +231,28 @@ export class SemanticVectorSearch {
                 applicationLogger.warn(`Failed to process entity type ${entityType}`);
             }
         }
+        
+        const batchSize = 50;
+        for (let i = 0; i < allEntities.length; i += batchSize) {
+            const batch = allEntities.slice(i, i + batchSize);
+            const batchPromises = batch.map(async (entity) => {
+                try {
+                    await this.addEntityToIndex(entity.entityId, entity.entityData, entity.entityText);
+                } catch (batchError) {
+                    applicationLogger.warn(`Failed to process entity ${entity.entityId}`, batchError);
+                }
+            });
+            await Promise.all(batchPromises);
+            
+            if ((i + batchSize) % 200 === 0 || i + batchSize >= allEntities.length) {
+                applicationLogger.debug(`Processed ${Math.min(i + batchSize, allEntities.length)}/${allEntities.length} entities`);
+            }
+        }
+        
         if (this.searchOptions.vectorModel === 'tfidf') {
             this.buildIDF();
         }
-        applicationLogger.info('Entities from knowledge graph added to semantic search index');
+        applicationLogger.info(`Entities from knowledge graph added to semantic search index (${allEntities.length} total)`);
     }
 
     /**
@@ -200,10 +273,10 @@ export class SemanticVectorSearch {
     }
 
     /**
-     * 简单的字符级向量表示
+     * 简单的字符级向量表示 - 减小向量尺寸，减少内存使用
      */
     private simpleVectorize(text: string): number[] {
-        const vectorSize = 1536;
+        const vectorSize = 256; // 显著减小向量尺寸
         const vector = new Array(vectorSize).fill(0);
         if (!text || text.length === 0) {
             return vector;
@@ -217,10 +290,10 @@ export class SemanticVectorSearch {
     }
 
     /**
-     * TF-IDF 向量化
+     * TF-IDF 向量化 - 减小向量尺寸
      */
     private tfidfVectorize(text: string): number[] {
-        const vectorSize = 1536;
+        const vectorSize = 256; // 显著减小向量尺寸
         const vector = new Array(vectorSize).fill(0);
         if (!text || text.length === 0) {
             return vector;
@@ -248,10 +321,10 @@ export class SemanticVectorSearch {
     }
 
     /**
-     * 本地嵌入模型（使用简单的嵌入）
+     * 本地嵌入模型（使用简单的嵌入） - 减小向量尺寸
      */
     private localEmbed(text: string): number[] {
-        const vectorSize = 1536;
+        const vectorSize = 256; // 显著减小向量尺寸
         const vector = new Array(vectorSize).fill(0);
         if (!text || text.length === 0) {
             return vector;
