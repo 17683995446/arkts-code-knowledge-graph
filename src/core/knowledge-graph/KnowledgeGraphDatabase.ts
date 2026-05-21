@@ -42,6 +42,18 @@ export class KnowledgeGraphDatabase {
      */
     addCodeEntity(entityId: string, entityData: CodeEntityData): void {
         try {
+            if (!entityData || typeof entityData !== 'object') {
+                throw new KnowledgeGraphError('Entity data must be a non-null object', {
+                    metadata: { entityId, entityData }
+                });
+            }
+            
+            if (!Object.values(CodeEntityType).includes(entityData.type)) {
+                throw new KnowledgeGraphError(`Invalid entity type: ${entityData.type}. Valid types are: ${Object.values(CodeEntityType).join(', ')}`, {
+                    metadata: { entityId, entityData }
+                });
+            }
+            
             if (this.graphDatabase.hasNode(entityId)) {
                 this.graphDatabase.mergeNodeAttributes(entityId, entityData);
             }
@@ -52,6 +64,9 @@ export class KnowledgeGraphDatabase {
             applicationLogger.debug(`Added/updated code entity: ${entityId} (${entityData.type})`);
         }
         catch (error) {
+            if (error instanceof KnowledgeGraphError) {
+                throw error;
+            }
             const errorMessage = error instanceof Error ? error.message : 'Unknown error';
             throw new KnowledgeGraphError(`Failed to add code entity: ${errorMessage}`, {
                 cause: error,
@@ -107,6 +122,52 @@ export class KnowledgeGraphDatabase {
         if (!this.graphDatabase.hasNode(entityId))
             return null;
         return this.graphDatabase.getNodeAttributes(entityId);
+    }
+
+    /**
+     * 删除代码实体
+     * @param entityId 实体 ID
+     * @returns 是否成功删除
+     */
+    removeEntity(entityId: string): boolean {
+        try {
+            if (!this.graphDatabase.hasNode(entityId)) {
+                return false;
+            }
+            const entityData = this.graphDatabase.getNodeAttributes(entityId);
+            this.graphDatabase.dropNode(entityId);
+            this.entityTypeIndex.get(entityData.type)?.delete(entityId);
+            applicationLogger.debug(`Removed code entity: ${entityId}`);
+            return true;
+        } catch (error) {
+            const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+            throw new KnowledgeGraphError(`Failed to remove code entity: ${errorMessage}`, {
+                cause: error,
+                metadata: { entityId }
+            });
+        }
+    }
+
+    /**
+     * 删除代码关系
+     * @param relationId 关系 ID
+     * @returns 是否成功删除
+     */
+    removeRelation(relationId: string): boolean {
+        try {
+            if (!this.graphDatabase.hasEdge(relationId)) {
+                return false;
+            }
+            this.graphDatabase.dropEdge(relationId);
+            applicationLogger.debug(`Removed code relation: ${relationId}`);
+            return true;
+        } catch (error) {
+            const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+            throw new KnowledgeGraphError(`Failed to remove code relation: ${errorMessage}`, {
+                cause: error,
+                metadata: { relationId }
+            });
+        }
     }
 
     /**
