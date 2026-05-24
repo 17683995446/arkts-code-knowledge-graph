@@ -20,11 +20,41 @@ export class GraphQueryEngine {
         ttl: 60000,  // 1分钟TTL
         maxItemSizeBytes: 50 * 1024  // 最大50KB每个缓存项
     };
+    private onGraphChangeCallback: (() => void) | null = null;
 
     constructor(graphDatabase: KnowledgeGraphDatabase, cacheConfig?: QueryCacheConfig) {
         this.graphDatabase = graphDatabase;
         if (cacheConfig) {
             this.cacheConfig = { ...this.cacheConfig, ...cacheConfig };
+        }
+        this.setupChangeListeners();
+    }
+
+    /**
+     * 设置图谱变更监听器
+     */
+    private setupChangeListeners() {
+        this.onGraphChangeCallback = () => {
+            this.clearCache();
+        };
+        const events: Array<'entity-added' | 'entity-removed' | 'relation-added' | 'relation-removed' | 'graph-cleared'> = 
+            ['entity-added', 'entity-removed', 'relation-added', 'relation-removed', 'graph-cleared'];
+        events.forEach(event => {
+            this.graphDatabase.addChangeListener(event, this.onGraphChangeCallback!);
+        });
+    }
+
+    /**
+     * 销毁查询引擎，清理监听器
+     */
+    destroy() {
+        if (this.onGraphChangeCallback) {
+            const events: Array<'entity-added' | 'entity-removed' | 'relation-added' | 'relation-removed' | 'graph-cleared'> = 
+                ['entity-added', 'entity-removed', 'relation-added', 'relation-removed', 'graph-cleared'];
+            events.forEach(event => {
+                this.graphDatabase.removeChangeListener(event, this.onGraphChangeCallback!);
+            });
+            this.onGraphChangeCallback = null;
         }
     }
 

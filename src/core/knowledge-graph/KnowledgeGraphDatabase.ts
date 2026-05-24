@@ -6,6 +6,9 @@ import { applicationLogger } from '../../infrastructure/logger/index.js';
 import { KnowledgeGraphError } from '../../infrastructure/errors/index.js';
 import { ensureDirectoryExists } from '../../shared/utilities.js';
 
+/** 知识图谱数据库变更事件类型 */
+type GraphChangeEvent = 'entity-added' | 'entity-removed' | 'relation-added' | 'relation-removed' | 'graph-cleared';
+
 /** 知识图谱数据库配置选项 */
 export interface KnowledgeGraphDatabaseOptions {
     dataDirectory?: string;
@@ -17,6 +20,7 @@ export class KnowledgeGraphDatabase {
     private graphDatabase: Graphology.MultiDirectedGraph;
     private databaseOptions: Required<KnowledgeGraphDatabaseOptions>;
     private entityTypeIndex: Map<CodeEntityType, Set<string>> = new Map();
+    private changeListeners: Map<GraphChangeEvent, Set<() => void>> = new Map();
 
     constructor(options: KnowledgeGraphDatabaseOptions = {}) {
         this.databaseOptions = {
@@ -26,6 +30,50 @@ export class KnowledgeGraphDatabase {
         };
         this.graphDatabase = new Graphology.MultiDirectedGraph();
         this.initializeEntityTypeIndex();
+        this.initializeChangeListeners();
+    }
+
+    /** 初始化变更事件监听器 */
+    private initializeChangeListeners() {
+        const eventTypes: GraphChangeEvent[] = ['entity-added', 'entity-removed', 'relation-added', 'relation-removed', 'graph-cleared'];
+        eventTypes.forEach(event => {
+            this.changeListeners.set(event, new Set());
+        });
+    }
+
+    /**
+     * 添加变更事件监听器
+     * @param event 事件类型
+     * @param listener 监听器函数
+     */
+    addChangeListener(event: GraphChangeEvent, listener: () => void): void {
+        this.changeListeners.get(event)?.add(listener);
+    }
+
+    /**
+     * 移除变更事件监听器
+     * @param event 事件类型
+     * @param listener 监听器函数
+     */
+    removeChangeListener(event: GraphChangeEvent, listener: () => void): void {
+        this.changeListeners.get(event)?.delete(listener);
+    }
+
+    /**
+     * 触发变更事件
+     * @param event 事件类型
+     */
+    private emitChangeEvent(event: GraphChangeEvent): void {
+        const listeners = this.changeListeners.get(event);
+        if (listeners) {
+            listeners.forEach(listener => {
+                try {
+                    listener();
+                } catch (error) {
+                    applicationLogger.error(`Error in change listener: ${error}`);
+                }
+            });
+        }
     }
 
     /** 初始化实体类型索引 */
@@ -41,39 +89,47 @@ export class KnowledgeGraphDatabase {
      * @param entityData 实体数据
      */
     addCodeEntity(entityId: string, entityData: CodeEntityData): void {
-        try {
-            if (!entityData || typeof entityData !== 'object') {
-                throw new KnowledgeGraphError('Entity data must be a non-null object', {
-                    metadata: { entityId, entityData }
-                });
-            }
-            
-            if (!Object.values(CodeEntityType).includes(entityData.type)) {
-                throw new KnowledgeGraphError(`Invalid entity type: ${entityData.type}. Valid types are: ${Object.values(CodeEntityType).join(', ')}`, {
-                    metadata: { entityId, entityData }
-                });
-            }
-            
-            if (this.graphDatabase.hasNode(entityId)) {
-                this.graphDatabase.mergeNodeAttributes(entityId, entityData);
-            }
-            else {
-                this.graphDatabase.addNode(entityId, entityData);
-            }
-            this.entityTypeIndex.get(entityData.type)?.add(entityId);
-            applicationLogger.debug(`Added/updated code entity: ${entityId} (${entityData.type})`);
+    try {
+      if (!entityData || typeof entityData !== 'object') {
+        throw new KnowledgeGraphError('Entity data must be a non-null object', {
+          metadata: { entityId, entityData }
+        });
+      }
+      
+      if (!Object.values(CodeEntityType).includes(entityData.type)) {
+        throw new KnowledgeGraphError(`Invalid entity type: ${entityData.type}. Valid types are: ${Object.values(CodeEntityType).join(', ')}`, {
+          metadata: { entityId, entityData }
+        });
+      }
+      
+      if (this.graphDatabase.hasNode(entityId)) {
+        // 实体已存在，先检查并清理旧类型索引
+        const existingData = this.graphDatabase.getNodeAttributes(entityId);
+        if (existingData && existingData.type !== entityData.type) {
+          // 类型已变更，从旧类型索引中删除
+          this.entityTypeIndex.get(existingData.type)?.delete(entityId);
+          applicationLogger.debug(`Entity ${entityId} type changed from ${existingData.type} to ${entityData.type}`);
         }
-        catch (error) {
-            if (error instanceof KnowledgeGraphError) {
-                throw error;
-            }
-            const errorMessage = error instanceof Error ? error.message : 'Unknown error';
-            throw new KnowledgeGraphError(`Failed to add code entity: ${errorMessage}`, {
-                cause: error,
-                metadata: { entityId, entityData }
-            });
-        }
+        this.graphDatabase.mergeNodeAttributes(entityId, entityData);
+      }
+      else {
+        this.graphDatabase.addNode(entityId, entityData);
+      }
+      this.entityTypeIndex.get(entityData.type)?.add(entityId);
+      applicationLogger.debug(`Added/updated code entity: ${entityId} (${entityData.type})`);
+      this.emitChangeEvent('entity-added');
     }
+    catch (error) {
+      if (error instanceof KnowledgeGraphError) {
+        throw error;
+      }
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      throw new KnowledgeGraphError(`Failed to add code entity: ${errorMessage}`, {
+        cause: error,
+        metadata: { entityId, entityData }
+      });
+    }
+  }
 
     /**
      * 添加代码关系边
@@ -103,6 +159,7 @@ export class KnowledgeGraphDatabase {
                 this.graphDatabase.addEdgeWithKey(relationId, sourceEntityId, targetEntityId, relationData);
             }
             applicationLogger.debug(`Added/updated code relation: ${relationId} (${relationData.type})`);
+            this.emitChangeEvent('relation-added');
         }
         catch (error) {
             const errorMessage = error instanceof Error ? error.message : 'Unknown error';
@@ -138,6 +195,7 @@ export class KnowledgeGraphDatabase {
             this.graphDatabase.dropNode(entityId);
             this.entityTypeIndex.get(entityData.type)?.delete(entityId);
             applicationLogger.debug(`Removed code entity: ${entityId}`);
+            this.emitChangeEvent('entity-removed');
             return true;
         } catch (error) {
             const errorMessage = error instanceof Error ? error.message : 'Unknown error';
@@ -160,6 +218,7 @@ export class KnowledgeGraphDatabase {
             }
             this.graphDatabase.dropEdge(relationId);
             applicationLogger.debug(`Removed code relation: ${relationId}`);
+            this.emitChangeEvent('relation-removed');
             return true;
         } catch (error) {
             const errorMessage = error instanceof Error ? error.message : 'Unknown error';
@@ -396,5 +455,129 @@ export class KnowledgeGraphDatabase {
         this.graphDatabase.clear();
         this.initializeEntityTypeIndex();
         applicationLogger.debug('Knowledge graph cleared');
+        this.emitChangeEvent('graph-cleared');
+    }
+
+    /**
+     * 批量添加代码实体（性能优化）
+     * @param entities 实体数组
+     */
+    batchAddCodeEntities(entities: Array<{ entityId: string, entityData: CodeEntityData }>): number {
+        const startTime = Date.now();
+        let successCount = 0;
+
+        for (const { entityId, entityData } of entities) {
+            try {
+                if (!entityData || typeof entityData !== 'object') {
+                    continue;
+                }
+
+                if (!Object.values(CodeEntityType).includes(entityData.type)) {
+                    continue;
+                }
+
+                if (this.graphDatabase.hasNode(entityId)) {
+                    // 实体已存在，先检查并清理旧类型索引
+                    const existingData = this.graphDatabase.getNodeAttributes(entityId);
+                    if (existingData && existingData.type !== entityData.type) {
+                        // 类型已变更，从旧类型索引中删除
+                        this.entityTypeIndex.get(existingData.type)?.delete(entityId);
+                        applicationLogger.debug(`Entity ${entityId} type changed from ${existingData.type} to ${entityData.type} (batch)`);
+                    }
+                    this.graphDatabase.mergeNodeAttributes(entityId, entityData);
+                }
+                else {
+                    this.graphDatabase.addNode(entityId, entityData);
+                }
+                this.entityTypeIndex.get(entityData.type)?.add(entityId);
+                successCount++;
+            }
+            catch (error) {
+                // 单个失败不影响其他
+            }
+        }
+
+        const duration = Date.now() - startTime;
+        applicationLogger.debug(`Batch added ${successCount}/${entities.length} entities in ${duration}ms`);
+        if (successCount > 0) {
+            this.emitChangeEvent('entity-added');
+        }
+        return successCount;
+    }
+
+    /**
+     * 批量添加代码关系（性能优化）
+     * @param relations 关系数组
+     */
+    batchAddCodeRelations(relations: Array<{ relationId: string, sourceEntityId: string, targetEntityId: string, relationData: CodeRelationData }>): number {
+        const startTime = Date.now();
+        let successCount = 0;
+
+        for (const { relationId, sourceEntityId, targetEntityId, relationData } of relations) {
+            try {
+                if (!this.graphDatabase.hasNode(sourceEntityId)) {
+                    continue;
+                }
+
+                if (!this.graphDatabase.hasNode(targetEntityId)) {
+                    this.graphDatabase.addNode(targetEntityId, {
+                        type: CodeEntityType.UNKNOWN,
+                        entityName: targetEntityId
+                    } as unknown as CodeEntityData);
+                }
+
+                if (this.graphDatabase.hasEdge(relationId)) {
+                    this.graphDatabase.mergeEdgeAttributes(relationId, relationData);
+                }
+                else {
+                    this.graphDatabase.addEdgeWithKey(relationId, sourceEntityId, targetEntityId, relationData);
+                }
+                successCount++;
+            }
+            catch (error) {
+                // 单个失败不影响其他
+            }
+        }
+
+        const duration = Date.now() - startTime;
+        applicationLogger.debug(`Batch added ${successCount}/${relations.length} relations in ${duration}ms`);
+        if (successCount > 0) {
+            this.emitChangeEvent('relation-added');
+        }
+        return successCount;
+    }
+
+    /**
+     * 获取当前数据库性能统计
+     */
+    getPerformanceMetrics(): {
+        totalNodes: number,
+        totalEdges: number,
+        entityTypeBreakdown: Record<CodeEntityType, number>,
+        relationTypeBreakdown: Record<CodeRelationType, number>
+    } {
+        const entityTypeBreakdown = {} as Record<CodeEntityType, number>;
+        const relationTypeBreakdown = {} as Record<CodeRelationType, number>;
+
+        Object.values(CodeEntityType).forEach(type => {
+            entityTypeBreakdown[type] = 0;
+        });
+        Object.values(CodeRelationType).forEach(type => {
+            relationTypeBreakdown[type] = 0;
+        });
+
+        this.graphDatabase.forEachNode((_, attributes) => {
+            entityTypeBreakdown[attributes.type] = (entityTypeBreakdown[attributes.type] || 0) + 1;
+        });
+        this.graphDatabase.forEachEdge((_, attributes) => {
+            relationTypeBreakdown[attributes.type] = (relationTypeBreakdown[attributes.type] || 0) + 1;
+        });
+
+        return {
+            totalNodes: this.graphDatabase.order,
+            totalEdges: this.graphDatabase.size,
+            entityTypeBreakdown,
+            relationTypeBreakdown
+        };
     }
 }
