@@ -8,7 +8,7 @@ async function testSiliconFlow() {
     // 创建配置好硅基流动的AI服务
     const aiService = new EnhancedAIService({
       provider: 'siliconflow',
-      apiKey: 'sk-uqelhavcdhfxjzjesdenxpbtqombjniazzjtbssmdcwdvg',
+      apiKey: 'REDACTED_API_KEY',
       baseUrl: 'https://api.siliconflow.cn/v1',
       model: 'Qwen/Qwen2.5-7B-Instruct',
       temperature: 0.3,

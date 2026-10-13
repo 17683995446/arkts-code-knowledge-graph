@@ -185,7 +185,7 @@ export class EnhancedAIService extends EventEmitter {
     this.config = {
       provider: 'siliconflow',
       model: 'Qwen/Qwen2.5-7B-Instruct',
-      apiKey: 'sk-uqelhavcdhfxjzjesdenxpbtqombjniazzjtbssmdcwdvg',
+      apiKey: 'REDACTED_API_KEY',
       baseUrl: 'https://api.siliconflow.cn/v1',
       temperature: 0.2,
       maxTokens: 4000,

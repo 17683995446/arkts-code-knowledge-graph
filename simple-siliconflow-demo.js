@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // 硅基流动API - 完全独立的演示
 
-const API_KEY = 'sk-uqelhavcdhfxjzjesdenxpbtqombjniazzjtbssmdcwdvg';
+const API_KEY = 'REDACTED_API_KEY';
 const BASE_URL = 'https://api.siliconflow.cn/v1';
 const MODEL = 'Qwen/Qwen2.5-7B-Instruct';
 
